@@ -1,0 +1,33 @@
+.cards{
+    margin-bottom: 2rem;
+    border: 1px solid $border-color;
+
+    &__img img{
+        display: block;
+    }
+    &__content{
+        padding: 1rem;
+        background: #fff;
+    }
+    &__subtitle{
+        margin-top: -1rem;
+        margin-bottom: .5rem;
+        opacity: .6;
+    }
+    &__footer{
+        border-top: 1px solid $border-color;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+.cards-grid{
+    @include mqFrom(l){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+}

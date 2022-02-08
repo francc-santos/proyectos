@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="funciones.css">
+    <title>Funciones</title>
+</head>
+<body>
+    <h1 id="indice">Funciones</h1>
+
+    <ul>
+        <a href="#sintaxis"><li>Sintaxis Basica</li></a>
+        <a href="#parametros"><li>Parametro</li></a>
+        <a href="#retorno"><li>Valores de retorno</li></a>
+        <a href="#primera-clase"><li>Funciones de primera clase</li></a>
+        <a href="#f-anonimas"><li>Funciones anonimas</li></a>
+        <a href="#f-constantes"><li>Funciones como constantes</li></a>
+        <a href="#scope"><li>Scope</li></a>
+        <a href="#f-flecha"><li>Funciones flecha</li></a>
+    </ul>
+
+    <h2 id="sintaxis">Sintaxis Basica</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Bloques de codigo que son reutilizabeles y pueden ser ejecutados las veces que nosotros queremos, y en cualquier lugar de nuestro codigo.
+    <pre>
+    <code>
+        function saludar() {
+            console.log("Hola mi niño como has estado");
+        }
+        
+        saludar()        
+    </code>
+    </pre>
+    Esto sintaxis es solo la declaracion de la funcion y la llamada de la funcion en la ultima linea.
+    <br>
+    Mas al declarar una funcion lo que hacemos es como enseñarle al programa , el cmportamiento que va a adquirir en caso de que se le diga la accion que se debe de ejecutar.
+    </blockquote>
+
+    <h2 id="parametros">Parametro</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Son los valores que podemso darle a una funcion y que esta los necesite para poder realizar la accion que se a programado en ella. <br> 
+        Al escribir el la variable en el parametro es com si la estuviramos declarando para usarla como en  el clçiclo for, estas solo pueden usarse en el bloque de codigo que es la funcion <br>
+        Los parametros osn declarados solo para funcionar dentro de la funcion.
+        <pre>
+        <code>
+            function saludar(nombre){
+                console.log(`Hola como estas ${nombre}`);
+            }
+            
+            saludar("io")
+        </code>
+        </pre>
+        Gracias a typecoercion en caso de que se pasara como entrada un number este se comportaria como un string para regresar una respuesta logica
+    </blockquote>
+    
+    <h2 id="retorno">Valores de retorno</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Creo que el valor que devuelven por defecto las funcione en js es <i>undefined</i>, en caso de que no se indique que valor debe de regresar. <br>
+        Y ademas que por ser el lenguaje debilmente tipado no importa indicar que tipo de dato es el que va a regresar.
+    <pre>
+    <code>
+        function saludar(nombre) {
+            return `Eres el mejor ${nombre}`
+        }
+        
+        console.log(saludar("yis"));
+    </code>
+    </pre>
+    cada que se retorna un valor se rompe la lectura de arriba hacia abajo y por lo el codigo que esta debajo del return no se ejecuta 
+    </blockquote>
+
+    <h2 id="primera-clase">Funciones de primera clase</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Ciudanos de primera class, en lenguajes de programacion estos  estan conformados por los tipos de datos primitivos.o aquelos que puden ser almacenados dentro de una variable y una funciona puede ser almacenada en una varaible. <br>
+        Cundo una funcion devuleve un valor de tipo primitivo en teori esta psa a ser un dato, el que se pude guardar en una variable pero esto junto a su paso de valores. <br>
+        Si solo se asigna una funcion a una variable, esta variable pasa a ser una funcion la cualtambien puede ser ejecutada y esto no es considerado un ciudadano de primera clase.
+
+        <pre>
+        <code>
+            function obtenerNombreCompleto(nombre, apellidos) {
+                return `${nombre} ${apellidos}`
+            }
+            
+            let nombreCompleto = obtenerNombreCompleto("yis", "santos")
+            let nonbreCompleto = obtenerNombreCompleto
+            
+            console.log(nombreCompleto);
+            console.warn(typeof nombreCompleto); /* string = ciudadano de primera class */
+            
+            console.log(nonbreCompleto);
+            console.warn(typeof nonbreCompleto); /* function */
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="f-anonimas">Funciones anonimas</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Son aquellas que no tienen nombre, solo escribimos lo parametros que vamos a necesitar en la funcion y la accin que se va a ejecutar con los parametros resividos. <br>
+        <ul>
+            <li>declaramos function</li>
+            <li>sin dar nombre a nuestra funcion decims que va a esperar los parametros</li>
+            <li>ejecutamos la accion</li>
+        </ul>
+        Como veiamos en el apartado anterior sabemos que cualquier funcion puede ser almacenada en una varaiable, o para ser mas especificos la declaracion de la funcion, es por esto que este tipo de funciones se encuentran declaradas pero no nombrada y pueden ser asignadas a variables. <br>
+
+        <pre>
+        <code>
+            let sumar = function(a,b,c){
+                return `suma de ${a}, ${b}, ${c}, = ${a+b+c}`
+            }
+            
+            console.warn(typeof sumar);
+            console.log(sumar(1,2,1));            
+        </code>
+        </pre>
+        
+        Tambien no serven para ejecutar ua funcion, osa podemos hacerlas anonimas autoejecutables, esto deja el scope fuera , es como este es my mundo y ahi haces lo que quieras interprete de js
+
+        <pre>
+        <code>
+            (function(a,b){
+                console.log(`Resultado autoejecutado ${a+b}`); 
+            }(2,4))
+            
+        </code>
+        </pre>
+        Los primeros parentesis indican que la funcion se va a ejecutar y los segundos es donde se le pasan los valores de los parametros que esperan.
+    </blockquote>
+
+    <h2 id="f-constantes">Funcinones como constantes</h2>
+    <p><a href="#indice">retachar</a></p>
+    
+    <blockquote>
+        Cuando asigno una funcino a una variable no estoy gurdando el dato como tal si no que estoy gurdando la funcion, en el caso de que lo hagamos asi lo mejor es que usar una variable de tipo constante porque en si el procedimiento de la funcion no va a cambiar. 
+        <pre>
+        <code>
+        const SALUDAR = function(){
+            console.log("io te saludo")
+        }
+        cosole.log(SALUDAR)
+        </code>
+        </pre>
+        Porque lo que es la funcion no va a cambiar, lo que va a cambiar es el valor que retorne la funcion. 
+    </blockquote>
+
+    <h2 id="scope">Scope</h2>
+    <p><a href="#indice">retachar</a></p>
+
+    <blockquote>
+        Es el alcanze que tiene los datos en el programa. <br>
+        Por lo que entendi es que en js todas las variables puden ser afectadas desde cualquier parte del codigo en el documento, y para declrar vaiables locales es mejor el uso de constntes para que no puedan ser reasignadas en otra funcino, condicional, etc.
+    </blockquote>
+    
+    <h2 id="f-flecha">Funciones flecha</h2>
+    <p><a href="#indice">retachar</a></p>
+
+    <blockquote>
+        Las funciones de flecha son la forma de simplificar las funciones anonimas , y en caso de que la ejecucion sea de una linea se puden quitar las llaves, en cso de que solo se resiva una parametro se puden quitar los parentesis, en caso de que la funcion no necesite parametros ahi si se deben de poner los parentesis <br>
+
+        Lo mas importente de las funnciones es que no ayudan a dividir el problema en pequenias partes y mientras estas sean mas pequenias sera mejor. POruqe hara el codgio mucho mas legible.
+    <pre>
+    <code>
+        const SUM = (a,c) => console.log(`Es el serultado de la funcion SUM: ${a+c}`); 
+        SUM(2,4)
+    </code>
+    </pre>
+    </blockquote>
+
+    <script src="funciones.js"></script>
+</body>
+</html>

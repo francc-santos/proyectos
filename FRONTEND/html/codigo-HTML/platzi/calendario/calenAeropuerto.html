@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+            <!--NO OLVIDAR QUE placeholder muetra un mensaje en el campo , como 
+                ejemplo de lo que se quiere insertar-->
+            <form action="">
+                <label for="hora">
+                    <span>Hora: </span>
+                    <input type="text" id="hora" name="hora" placeholder="una hora"/>
+                </label>
+                <label for="dia">
+                    <span>Día: </span>
+                    <!--DATE, te entrega una fecha-->
+                    <input type="date" id="dia" name="dia" placeholder="una dia"/>
+                </label>
+                <label for="semana">
+                    <span>Semana: </span>
+                    <!--Week, te entrega una semana-->
+                    <input type="week" id="semana" name="semana" placeholder="una semana"/>
+                </label>
+                <label for="mes">
+                    <span>Mes: </span>
+                    <!--MONTH, te entrega un mes-->
+                    <input type="month" id="mes" name="mes" placeholder="una semana"/>
+                </label>
+                <!--SUMBMIT, lo que hace es enviar, y al momento que se envia, se refresca,
+                y queda en la barra-->
+                <input type="submit">
+            </form>
+        </section>
+        <section>
+            <form action="">
+                <label for="calenndario">
+                    <span>Calendarizacion: </span>
+                    <input type="datetime-local" id="calendario" name="calendario" />
+                </label>
+                <input type="submit" />
+            </form>
+        </section>
+    </main>
+</body>
+</html>

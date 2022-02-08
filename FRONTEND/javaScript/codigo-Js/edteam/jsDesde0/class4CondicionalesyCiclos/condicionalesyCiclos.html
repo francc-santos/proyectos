@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="condicionalesyCiclos.css">
+    <title>Condicionales y Ciclos</title>
+</head>
+<body>
+    <h1 id="indice">Condicionales y Ciclos</h1>
+    <ul>
+        <a href="#condicionales"><li>Las condicionales</li></a>
+        <a href="#if-else"><li>If Else</li></a>
+        <a href="#if-else-if"><li>If Else if</li></a>
+        <a href="#switch"><li>Switch</li></a>
+        <a href="#for"><li>Ciclo for</li></a>
+        <a href="#while"><li>Ciclo while</li></a>
+    </ul>
+
+    <h2 id="condicionales">Los condicionales</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son sentencias que si se cumplen pasa algo y en el caso que no se cumpla no pasa nada o pasa otra cosa diferente.
+        <pre>
+        <code>
+        if(condicion){
+            accion
+        }
+        </code>
+        </pre>
+        Hablando de codigo podemos ver que en caso de que la condicion no se cumpla, simplemente js ignora el fragmento de codigo que esta encerrado en la condicion.
+    </blockquote>
+
+    <h2 id="if-else">If Else</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        El condicional <i>if-else</i> considera un caso por default en caso de que la primera condicion no se cumpla, esto pude se omitir y ademas nos encontramos en una funcion porque el flujo del programa termina en la respuesta por default, o creo que mejor aun es evaluar opcion donde no ocurre nada o mucho para asi ahorrar tiempo de ejecucion y mas si estamos dentro de una funcion.
+    <pre>
+    <code>
+        persona = "io"
+        edad = 28
+        
+        if(edad >=18 && edad<=65){
+            console.log(`${persona} puedes venir a la fiesta`);
+        }else{
+            console.log(`${persona} no puede venir a la fiesta`);
+        }
+    </code>
+    </pre>
+    Con la reasignacion de las variables podemmos ver un caso donde no se cumple la condicion entonces podemos dar una respuesta al usuario que no cumplio.
+    </blockquote>
+
+    <h2 id="if-else-if">If Else if</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        En caso de que nu peda cumplir una condicion PERo puede que cumpla con otra tambien podria.
+    <pre>
+    <code>
+        let permiso = false
+        persona = "franccc"
+        edad = 13
+        
+        if(edad >=18 && edad<=65){
+            console.log(`${persona} puedes venir a la fiesta`);
+        }else if(permiso && edad<18){
+            console.log(`${persona} puedes pasar con el permiso de tus padres`);
+        }else if(edad>65){
+            console.log(`${persona},no ps no se pudo joven`);
+        }else{
+            console.log(`No cumple con la edad y no tienes permiso`);
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="switch">Switch</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Permite avaluar multiples condicionales y a partir de ellas determinar la instruccion o bloque de instrucciones a ejecutar, simplificando la estructura que podria ser complicada con el else if. Porque cuando retites algo mucho en al codigo seguremente estamos haciendo algo mal.
+    <pre>
+    <code>
+    let personalidad = "Pequeño y debil"
+
+    switch(personalidad){
+        case "Fuerte y comelon":
+            console.log("Eres goku");
+            break
+        case "Veloz y egoista":
+            console.log("Eres veggeta");
+            break
+        case "Pequeño y debil":
+            console.log("Eres krilin");
+            break
+        default:
+            console.log("Eres una sabandija");
+    }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="for">Ciclo for</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Tambien son conocidos como bucles de codigo, o loop , son porciones de codigo que se repiten.
+    <pre>
+    <code>
+        for(i=0;i<=10;i++) {
+            console.log(`La iteracion que lleva ${i}, el doble de  la iteracion  ${2*i} oqui esto no es reasigancion solo es una operacion`);
+        }
+    </code>
+    </pre>
+    Ejemplo de las tablas de multiplicar del 2
+    </blockquote>
+
+    <h2 id="while">Ciclo while</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    Mientras una condicion, se hace algo , en el caso de que ya no se cumpla la condicion ya no entra a mientras.
+
+    <pre>
+    <code>
+    let j=0
+    while(j<=10){
+        console.log(`Como no hota la tabla del 8 en ${j} x 8 = ${j*8}`);
+        j++
+    }
+    </code>
+    </pre>
+    </blockquote>
+
+
+    <script src="codicionalesyCiclos.js"></script>
+</body>
+</html>

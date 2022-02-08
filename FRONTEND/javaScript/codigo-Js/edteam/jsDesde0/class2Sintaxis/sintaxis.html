@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaxis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sintaxis.css">
+</head>
+<body>
+    <h1 id="indice">Sintaxis</h1>
+    <ol>
+        <a href="#comentarios"><li>Comentarios</li></a>
+        <a href="#tipos"><li>Tipos de datos</li></a>
+        <a href="#tipos-objeto"><li>Tipos de dato objeto</li></a>
+        <a href="#declaracion-asignacion"><li>Declaracion y Asignacion</li></a>
+        <a href="#asignacion-por-referencia"><li>Asignacion por referencia</li></a>
+        <a href="#constantes"><li>Constantes</li></a>
+    </ol>
+
+
+    <h2 id="comentarios">Comentarios</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son lineas de codigo que no son interpretadas por el navegador.
+        Para escribir un comentario podemos hacer uso de la sigueinte sintaxis:
+        <br>
+        <code>
+            // = Comentario de una linea 
+            <br>
+            /* */ = Comentario de bloque
+            <br> 
+            /** = funciona en vscode y se acompleta solo y cada que se de un salto de linea se crea un asterisco
+        </code>
+        <br>
+        Consejos para las buenas practicas de los comentarios
+            <ul>
+                <li>NO abusar de los comentarios, no se necesita comentar todo</li>
+                <li>Tal vez si tu codigo necesita de muchos comentarios es porque podria ser implementad de otra forma</li>
+                <li>Despues de los // escribir un espacio</li>
+                <li>En los comentarios de bloque se puede usar un asterisco para cada linea del comentario </li>
+                <li>Cundo se comenta codigo en caso de que sean linea consecutivas , es mejor comentar linea por linea, siempre y cuando no se aun funcion completa</li>
+            </ul>
+    </blockquote>
+
+    <h2 id="tipos">Tipos de datos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        A diferencia de muchos lenguejes de programacion JavaScript no cuenta con muchos tipos de datos.
+        <ul>
+            <li>NUMBER</li>
+            <p>Tanto los de tipo entero como flotante son de tipo <i>number</i></p>
+            <code>
+                console.log(typeof 50);<br>
+                console.log(typeof 50.6);
+            </code>
+            <li>STRING</li>
+            <p>Una cadena de texto que se puede declarar con <i>"",'',``</i>, ademas de que en Js no existe el tipo de dato caracter</p> 
+            <code>
+                console.log(typeof "Cadena de texto");/* string */ <br>
+                console.log(typeof 'Cadena de texto');/* string */ <br>
+                console.log(typeof `Cadena de texto`);/* string */
+            </code>
+            <li>BOOLEAN</li>
+            <p>Son valores que solo pueden ser considerados true o false</p>
+            <code>
+                console.log(typeof false);/* bool */ <br>
+                console.log(typeof true);/* bool */
+            </code>
+        </ul>
+    </blockquote>
+
+    <h2 id="tipos-objeto">Tipos de dato objeto</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>ARRAY</li>
+            Otros tipos de datos que pueden ser considerados como coleccinoes de datos.O tambien puden ser vistos como datos agrupados.
+            <br>
+            <code>
+                console.log(typeof ["lis","francisco","io"]);/* object */ <br>
+            </code>
+            <br>
+            Resulta que es de tipo <i>object</i>, porque los objetos en java script son colecciones de datos/info que tiene un identificador y un valo, en un <i>array</i> es valor es claramente el dato y el identificador es la posicion en la que se encuentra el valor.
+
+            <li>OBJETOS</li>
+            Igualmente son tipos de datos que contienen un identificador y un valor.La diferencia con el array que tabien es de tipo objeto recordar es que a este le tenemos que decalrar el nombre del identificador para nuestro valor que queramos almacenar.
+            <br>
+            <code>
+                console.log(typeof {
+                    nombre : "lis",
+                    apellido: "santos"
+                });/* object */
+            </code>
+            <br>
+            <li>NULL</li>
+            Solo hace referencia a valores que no existen y de manera extraña null es tratado como tipo de dato objeto, y puede que nunca se cambie porque tal vez este todo internet contando con la validadcion de que null sea un objeto.
+        </ul>
+    
+
+
+    </blockquote>
+
+    <h2 id="declaracion-asignacion">Declaracion y Asignacion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    Existe un tipo de dato que es NO definido <br>
+    <code>
+        console.log(typeof undefined);
+    </code>
+    <br>
+
+    Porque esto se encuentra al lado de la decalaracion y asigancion de variables?; porque estas sirven para tener espacios reservados en memeria para poder gurdar un dato durante la ejecucion de un programa.
+    <ul>
+        <li>DECALRACION</li>
+        Una DECALRACION es solomente indicar al programa que quieres reservar memoria para una variable. <br>
+        <code>
+            let alumno
+        </code>
+        <br>
+        <li>ASIGNACION</li> Una ASIGNACION es cuando ya se le da el valor en concreto al espacio de memoria ya reservado.
+        <br>
+        <code>
+            let alumno
+            alumno = "io"
+        </code> <br>
+        <li>REASIGNACION</li>
+        Dar un nuevo valor a las variables, en el caso de los lengujes de programacion que son de tipado dinamico las variables pueden ser reasignadas con cualquier tipo de dato por ejemplo; una varible que antes tenia un tipo de dato string ahora puede tener un entero en este caso sun number, eso es el tipado dinamico, pero esto le cuesta mucho al navegador porque debe de gurdar mas espacio de memeoria para esperar cualquier tipo de dato. Por eso son mas rapidos los de tipado fuerte que generalmente son los lenguajes compilados que ya saben como se va a coportar cada variable que conforma el programa. <br>
+        <code>
+            let alumno = "io"
+            alumno = "io2"
+        </code>
+    </ul>
+    <br>
+    </blockquote>
+
+    <h2 id="asignacion-por-referencia">Asignacion por referencia</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    Tambien es un tema de las variables, solo que podemos asignar un valor de acuerdo a otro valor ya asignado, pero en el MOMENTo en que se haya dado el valor se convierte en variables diferentes que solo en este momento tendran el mismo valor, no es que las estemos <i>enlazado</i>
+    ,sino que cuando se tenga un reasignacion normal este va tener un valor diferentes si es que no se reasigno con las misma variable cuando ya tenia otro valor.
+    <br>
+    <pre>
+        <code>
+            let profesorr = "lis"
+            let alumnoo = profesorr
+            profesorr = "io"
+
+            console.log(profesorr);
+            console.log(alumnoo);
+        </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="constantes">Constantes</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    Desde ECMA-6 podemos hacer uso de las CONSTANTES, las cuales son datos que no van a cambiar de valor, esçntonces no pueden sufir una reasignacion.Ademas tienen que ser declaradas y asignadas en una misma linea.
+    <pre>
+    <code>
+        const NOMBRE_EMPRESA = "miempresa"
+    </code>
+    </pre>
+    </blockquote>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <script src="sintaxis.js"></script>
+</body>
+</html>

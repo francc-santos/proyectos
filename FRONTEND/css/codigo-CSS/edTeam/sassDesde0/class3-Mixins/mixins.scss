@@ -1,0 +1,150 @@
+/* Uso de mixins */
+@mixin button{
+    display: inline-block;
+    margin: 1em;
+}
+
+@mixin conLogica {
+    /* pude validar $buttons que se encuentre en un archivo de configuracion */
+    @if $buttons{
+        .button{
+            display: inline-block;
+            margin: 1em;
+        }
+    }
+}
+
+/* Se llaman de la siguinte manera 
+- .button{
+    @include button;
+}
+Se debe de llamar dentro de un selector, porque este solo contienelso estilos , no el selector
+*/
+
+
+/* Parametro dentro de mixins */
+@mixin button($color){
+    display: inline-block;
+    margin: 1em;
+    color: $color      ;
+}
+/* Asi se llama
+    .button{
+        @include button(red);
+    }
+*/
+
+/* Parametro multiples dentro de mixins */
+@mixin button($color,$font,$font-weight){
+    display: inline-block;
+    margin: 1em;
+    color: $color;
+    font: $font;
+    font-weight: $font-weight;
+}
+/* Asi se llama
+    .button{
+        @include button(red,'Open Sans',300);
+    }
+*/
+// Si fueran por ejemplo solo colores
+@mixin button($color...){
+    display: inline-block;
+    margin: 1em;
+    color: nth($color, 1);
+
+    @if length($color)>1{
+        @for $i from 2 to length($color){
+            &.#{nth($color,$i)}{
+                color: nth($color,$i);
+            }
+        }
+    }
+}
+/* Asi se llama
+    .button{
+        @include button(red,green,blue...);
+    }
+*/
+
+// Si fueran con un mapa
+$buttons-color:(
+    primary: blue,
+    cta: green,
+    error: orange,
+    warnning: yellow
+);
+@mixin button($color...){
+    display: inline-block;
+    margin: 1em;
+    color: map-get($buttons-color,nth($color, 1));
+
+    @if length($color)>1{
+        @for $i from 2 to length($color){
+            &.#{nth($color,$i)}{
+                color: map-get($buttons-color, nth($color,$i));
+            }
+        }
+    }
+}
+/* Asi se llama
+    .button{
+        @include button(map-keys($buttons-color)...);
+    }
+*/
+
+/* Directiva @content */
+@mixin menu {
+    color: red;
+    display: block;
+    .link{
+        @content;/* Decimos aun podemos pasar mas contenido */
+    }
+}
+
+/* 
+Llamada del mixin sin la directiva de content la nueva propiedad solo se aplica al selector indicado 
+.menu{
+    @include menu;
+    font-size: 1em;
+}
+
+.menu{
+    @include menu{
+        color: green;
+    };
+}
+*/
+
+
+/* Mixins en Responsive Web Desing */
+$breakpoints: (
+    small: 320px, 
+    medium: 640px,
+    large: 1024px,
+    xlarge: 1440px
+);
+
+@mixin mq ($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint ){
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else if type-of($breakpoint)==numbre and unit($breakpoint)=='px'{
+        @media screen and (min-width: $breakpoint){
+            @content;
+        }
+    }
+}
+/* Llamda del mixin mq
+
+    body{
+        background: red;
+        @include mq(small){
+            background:green;
+        }
+        @include mq(318px){
+            background:red;
+        }
+    }
+ */

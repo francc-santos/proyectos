@@ -1,0 +1,15 @@
+/*Se estila por medio de etiqueta*/
+h2{
+    color: brown;
+    font-size: medium;
+}
+/*Se estila por medio de etiqueta*/
+.testo1{
+    color: chocolate;
+    font-size: xx-large;
+}
+/*Se estila por medio de etiqueta*/
+#testo2{
+    color: darkblue;
+    font-size: xx-large;
+}

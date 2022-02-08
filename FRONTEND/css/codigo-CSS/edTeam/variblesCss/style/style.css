@@ -1,0 +1,24 @@
+body{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+h2:target{
+    font-size: 2em;
+    color: firebrick;
+}
+
+blockquote{
+    background-color: #eee;
+    border-radius: .75em;
+    padding: 2em;
+    margin: 0 auto;
+
+    font-weight: 300;
+    font-size: 1.2em;
+}
+code{
+    color: darkgreen;
+}
+

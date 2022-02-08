@@ -1,0 +1,36 @@
+.main-nav{
+    margin-top: 10px;
+    /*Quitar los valores por defecto de lista*/
+    list-style: none;
+    /*Alinear a la izquierda*/
+    padding-left: 0;
+    /*color de fondo de la barra de nav*/
+    background-color: gold;
+
+}
+.main-nav__item{
+    /*para poner la lista horizontalmente*/
+    display: inline-block;
+}
+/*De esta forma se esta siendo especifico en CSS*/
+.main-nav__item a{
+    color: honeydew;
+    padding: 5px;
+    /*exquinas redondeadas*/
+    border-radius: 2px;
+    /*Quitar la linia de abajo*/
+    text-decoration: none;
+}
+/*HOVER, cuando el maus este arriba del elemento se pone de colors*/
+/*Esto tambien son las seudo cleses ya que ayudan a manipular otrita cosa*/
+.main-nav__item a:hover{
+    color: lightsteelblue;
+}
+/*La seudo clase active, ayuda a ver si se activo el boton*/
+.main-nav__item a:active{
+    color: magenta;
+}
+/*Seudo elemento*/
+.main-nav__item a::after{
+    content: " + ";
+}

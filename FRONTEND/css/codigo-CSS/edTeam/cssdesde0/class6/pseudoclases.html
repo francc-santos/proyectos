@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoclases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pseudoclases.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Pseudoclases</h1>
+    <ul>
+        <a href="#pseudoclase"><li>¿Qué son las pseudoclases?</li></a>
+        <a href="#hover"><li>:hover :active :visited</li></a>
+        <a href="#target"><li>:target :not :empty</li></a>
+        <a href="#first-child"><li>:first-child :last-child :first-of-type :last-of-type</li></a>
+        <a href="#nth-child"><li>:nth-child :nth-of-type</li></a>
+    </ul>
+
+    <h2 id="pseudoclase">¿Qué son las pseudoclases?</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        UNA PSEUDOCLASE NO PUDE SOBREESCRIBIRCE, OSEA NO EXISTE LA CASCADA CON ELLO <br><br>
+        Se complementa con los selectores, con los que determinados de 
+            manera justa cuales el estilo que se le va a aplicar a el elemento
+            en cuestion. Ps estas son un tipo de selector muy interesante 
+            porque  son selectores de estado que se aplican de acuerdo a una 
+            circuntancia determinada no siempre. 
+    </blockquote>
+
+    <blockquote>
+        <strong>Permite seleccionar elementos segun su estado</strong> o alguna condiccion. <br>
+        Se indica con dos puntos <code>(:)</code>
+        , pero como sabemso se damos un espacio entre elemento y los dos
+        puntos esto indica que cualquier descendiente del elemnto va a 
+        tomar el comportamiento en este caso de hover.
+    <pre>
+    <Code>
+        :root{
+        }
+    </Code>
+    </pre>
+        :root es La primerisima pseudoclase que hace referencia al la 
+        etiqueta html, se usa root por la especificidad y tambien es como 
+        si se declarara de manera global, porque no es hijo de nadie y 
+        ademas todas la etiquetas son hijas de esta , osea que se hereda a
+        todos los desencientes es como el scope de las variables css
+    </blockquote>
+
+    <h2 id="hover">:Hover :active :visited</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="box">
+        <p>This box has an pseudoclase :hover</p>
+    </div>
+
+    <blockquote>
+        SOn pseudocases pensadas para los enlaces 
+        <ul>
+            <li>hover</li>
+            se refiere cuando pasas el mouse por encima 
+            <li>active</li>
+            se activa cuando hacemos click, es como para dar un feedback, para hcer sentir que ya dio click
+            <li>visited</li>
+            indicar los enlaces que ya se han visitado
+        </ul>
+    </blockquote>
+
+
+    <h2 id="target">:target :not :empty</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>:target</li>
+            permite seleccionar un elemento destino cuando se pulsa un enlace
+            <li>:not</li>
+            negar una condiccion, como añadir una excepcion
+            <li>:empty</li>
+            detecta cuando un elemento esta vacio, osea que por ejemplo un parrafo no tenga nada de contenido u otro elemento 
+        </ul>
+
+    <pre>
+        <code>
+        .secreto{
+            display: none;
+        }
+        .secreto:target{
+            display: block;
+        }
+        </code>
+    </pre>
+    </blockquote>
+
+
+
+    <h3>Ejemplo con :not</h3>
+    <div>
+        <p>Parrafo 1</p>
+        <p class="p2">Parrafo 2</p>
+        <p>Parrafo 3</p>
+    </div>
+
+    <blockquote>
+        Se colorean todos los parrafos excepto los que contengan las class p2, o podria ser alrreves
+    <pre>
+        <code>
+            /* Uso de not */
+            div{
+                background-color: violet;
+                width: 400px ;
+                padding: 1em;
+            }
+                
+            p{
+                margin: 0;
+            }
+            Todos los que no sean el ultimo hijo le da un 1em de padding
+            p:not(:last-child){
+                margin-bottom: 1em;
+            }            
+        </code>
+    </pre>
+    </blockquote>
+
+    <div class="empty">sdadsadasd</div>
+
+    <blockquote>
+    <pre>
+        El ejemplo anterior es que si el div se encuntra basio se va a cambiar de color del fondo 
+        <code>
+            div.empty{
+                background: slategray;
+                width : 200px;
+            }
+            div.empty:empty{
+                background: skyblue;
+            }
+        </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="first-child">:first_child :last_child :first_of_type :last_of_type</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <ul class="ejemplo">
+        <li>hola1</li>
+        <li>hola2</li>
+        <li>hola3</li>
+        <li>hola4</li>
+        <li>hola5</li>
+        <li>hola6</li>
+        <li>hola7</li>
+        <li>hola8</li>
+        <li>hola9</li>
+    </ul>
+    
+
+    <div class="ejemplo-2">
+        <h4>hola1</h4>
+        <p>hola2</p>
+        <p>hola3</p>
+        <p>hola4</p>
+        <p>hola5</p>
+        <p>hola6</p>
+        <p>hola7</p>
+        <p>hola8</p>
+        <h5>hola9</h5>
+    </div>
+
+
+    <blockquote>
+        <ul>
+            <li>:first-child</li>
+            selccina el primer hijo, del mismo tipo de elemento
+            <li>:last-child</li>
+            selcciona el ultimo hijo, del mismo tipo de elemento
+            <li>:first-of-type</li>
+            no funciona de forma directa con clases , y lo que se dice es selecciona el primer hijo que sea del tipo del inicio
+            <li>:last-of-type</li>
+            selecciona el ultimo hijo con el mismo tipo de la etiqueta.
+        </ul>
+    </blockquote>
+        
+    <h3>Ejemplo de first-child y last child</h3>
+
+    <blockquote>
+        En una lista no ordenada se toma el primer hijo y el ultimo
+            coloreando el fondo con tonos diferentes de azul, tomando en
+            cuenta que si se da un espacio lo qu se dice es que es decediente
+            de del elemento y si no es como si seleccionaramos desde el hijo
+    <pre>
+        <code>
+        
+        </code>
+    </pre>
+
+        En el segundo ejemplo el tipo de los hijos del div cambia, por
+            lo que podemos usar e type-of para ser mas espeficiso a que tipode
+            etiqueta sea el primer y ultimo
+    <pre>
+        <code>
+        
+        </code>
+    </pre>
+    </blockquote>
+
+
+
+    <h2 id="nth-child">:nth_child :nth_of_type</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Buscamos elementos dando una posicion.
+        <ul>
+            <li>:nth-child()</li>
+            Encontrar el hijo pero segun su posicion
+            <li>:nth-last-child()</li>
+            Encontrar el ultimo hijo pero segun su posicion
+        </ul>
+    </blockquote>
+
+
+</body>
+</html>

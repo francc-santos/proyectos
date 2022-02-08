@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fondos.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Fondos</h1>
+    <p>Son mas que cambiar el color, podemos poner imagenes tener varios fondos poner imagenes color y otra imagen y ponerlas en diferentes posiciones</p>
+    <ul>
+        <a href="#color"><li>Background-color</li></a>
+        <a href="#size"><li>Background-size</li></a>
+        <a href="#position"><li>Background-position</li></a>
+        <a href="#clip"><li>Background-clip y Background-origin</li></a>
+        <a href="#attachment"><li>Background-attachment</li></a>
+        <a href="#multiples"><li>Background-multiples</li></a>
+        <a href="#shorthand"><li>Shorthand background</li></a>
+    </ul>
+
+    <h2 id="color">Background-color</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+    <blockquote>
+        Background es un shorthand, no es una propiedad como tal <br><br> 
+
+        La forma correcta de usar el propiedad background que solo cambia el color es:
+    <pre>
+    <code>
+        background-color: red;
+        /*para poner una imagen pero no es casacada porque es una porpiedad diferente*/ 
+        background-image: url();
+    </code>
+    </pre>
+    </blockquote>
+
+    
+    <h1 id="ejemplo-color">Hola mundo</h1>
+
+    <h2 id="size">Background-size</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+    <blockquote>
+        Es muy claro sirve para modificar el tamanio del fondo con la propiedad del ejemplo y tambien se le pude dar contain= el fondo va a estar dentro del elemento que quieres rellenar con el fondo | cover= elfondo se estira  hast ocupar todo el espacio del elmento. 
+    </blockquote>
+
+    <h1 id="ejemplo-size">hoal mundo</h1>
+
+
+    <h2 id="position">Background-position</h2>
+    <a href="#indice"><p>regreso</p></a>
+    
+    <blockquote>
+        Sirve para posicionar en el lugar donde queramos un fondo , de manera predeterminada la position de 0,0, el primer valor es x y el segundo es y podemos usar la palabra center y center para poder centrarloy con estas palabra claves pudes dar medidas que se mediran apartir de la posicion de lsa palabras clave.
+    </blockquote>
+
+
+    <h2 id="clip">Background-clip y Background-origin</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+
+    <blockquote>
+        Dice que area cubre el fondo y desde que lugar se empieza a dibujar el fondo
+
+        clip = permite usar las cajas de padding content border y seleccionar desde que marco se quiere empezar a rellenar
+
+        origin = desde donde se empieza a dibujar el fondo
+    </blockquote>
+
+    <div class="box">ggergregrgdfhgdsbgsfatybsrtr</div>
+
+
+    <h2 id="attachment">Background-attachment</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+    <blockquote>
+        Indica si el fondo va hacer scroll con el contenido o si se va a quedar fijo.
+    <pre>
+    <code>
+        Con background attachment fixed se le dice que no tome en cuenta el scroll y permanesca en la posicion original 
+    </code>
+    </pre>
+    </blockquote>
+
+
+    <h2 id="multiples">Background-multiples</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+    <blockquote>
+        Un elemento pude tener multiples fondos 
+    <pre>
+    <code>
+        body{
+            background: url(playa.jpg) 0 0, 
+                        url(carretera.jpg) center center, 
+                        url(faro.jpg) right bottom, yellow;
+            background-repeat: no-repeat;
+            background-size: 20%;
+        }
+    </code>
+    </pre>
+    </blockquote>
+        
+
+
+    <h2 id="shorthand">Shorthand background</h2>
+    <a href="#indice"><p>regreso</p></a>
+
+    <blockquote>
+        Ya sabemso es la forma de poder usar varias propiedades de el background, y el shordhand de la forma en que se organiza es:
+
+    <pre>
+    <code>
+        background: image position / size repeat attachment origin clip 
+            
+    </code> 
+    </pre>
+    tomando en cuenta que si se usa color este no tiene position ni origin 
+    </blockquote>
+
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduccion Git</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Intriduccion a Git</h1>
+    <ul>
+        <a href="#bitacora"><li>Bitacora del capitan</li></a>
+        <a href="#intro"><li>Introduccion a Git</li></a>
+        <a href="#instalacion"><li>Instalacion de Git</li></a>
+        <a href="#config"><li>Configuracion de git</li></a>
+        <a href="#1erRepo"><li>Mi primer repositorio</li></a>
+        <a href="#estados"><li>Los estados de git</li></a>
+        <a href="#commit"><li>Aprendiendo a escribir commit</li></a>
+    </ul>
+
+    <hr><h2 id="bitacora">Bitacora del capitan</h2>
+    <p><a href="#indice">regreso</a></p>
+    <blockquote>
+        Las bitacoras de capitan son donde se apuntan los sucesos que van sucediendo en torno al viaje, en secuencia cronologica y podemos ver todos los <code>logs</code> que ha sucecido en el viaje. <br><br>
+
+        Principalmente sirve para
+        <ul>
+            <li>Describir todos los detalles del viaje</li>
+            <li>Recirdar un aspecto especifico</li>
+            <li>Poder enseñar los detalles del viaje a otras personas</li>
+            <li>Es nuestra <strong>experiencia docuementada</strong></li>
+        </ul>
+
+        Al estar documentado podemos retomar errores que hemos cometido y poder usarlos para resolver otros parecidos. <br></br>
+
+        REcomendaciones para la beuna estructura de la bitacora del capitan 
+        <ul>
+            <li>Escirbirla en orden cronologico</li>
+            <li>Registrar la mayor cantidad de eventos podibles</li>
+            <li>DEscribir los registros lo mas detallado posible</li>
+        </ul> 
+    </blockquote>
+
+    <hr><h2 id="intro">Introduccion a git</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <strong>Sistema de control de versiones</strong> <br><br>
+        Una version es una iteracion de una proyecto con el fin de mejorarlo., osea la suma de nuevas caracteristicas como interface, funciones del so, cambio de optimizacion de recursos, seguridad, etc <br>
+        Controlar las verisones es tener en cuenta los cambios que se han dado entre estas versiones <br>
+        Git es creado por linus torbal, UN Repositorio es como una caja donde se guardan los cambios(folders), este repo tendra todo el historial de lo que se ha hecho en el proyecto 
+    </blockquote>
+
+    <hr><h2 id="instalacion">Inatalacion de git</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>linux</li>
+            <ul>
+                <li>Debian</li>
+                <code>sudo apt install git</code>
+                <li>Centos</li>
+                <code>sudo yum install git</code>
+            </ul>
+            <li>MacOs</li>
+            <code>brew install git</code>
+            <li>Windows</li>
+            Ir al nevegadir descargar la ultima version estable y ejecutar el wizard de intalacion de windows
+        </ul>
+    </blockquote>
+
+    <hr><h2 id="config">Configuracion de git</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Comando de configuracion, para ver quien escibio el commit <br><br>
+    <pre>
+    <code>
+        git config --global user.name "frn-windows"
+        git config --global user.email "fras5446@gmail.com"
+
+        git config -l
+        <em>lista las configuraciones globales</em>
+    </code>
+    </pre>
+    <code>--local</code> indica que el la configuracion va a ser por repositorio.
+    </blockquote>
+
+    <hr><h2 id="1erRepo">Mi primer repositorio</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Primer repositorio, lo que realmente distigue un repositorio de una carpeta comun es que ya esta inicializado el tacker de git <br><br>
+        Ya creada y situados en la carpeta podemos ejecutar la linea de comando.
+    <pre>
+    <code>
+        git init 
+    </code>
+    </pre>
+    Asie es que los flolders con las carpetas que se va a estar modificando va a estar en <code>.git</code>. <br><br>
+    En el caso de que el proyrcto ya este iniciado se puede iniciar el trackea de git solo que se deben de sumar al area de gurdado del repo.
+    </blockquote>
+
+    <hr><h2 id="estados">Los estados de git</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Podemos tener los estados.
+        <ul>
+            <li>Espacio de trabajo</li>
+            La carpeta donde se encuentra los archivos actuales, todo lo que nosotros podemos ver 
+            <li>Area de preparacion</li>
+            Punto intermedio donde le decimios a git que le estamos pasando ciertos archivos., osea podemos describir las diferentes partes de lo que se ha modificado de los archivos en cuanto al proyecto
+    <pre>
+    <code>
+        git status 
+        Podemos ver un estatus de nuestro proyecto 
+
+        git add "nombre_Archivo" | . 
+        solo un archivo  | todos los archivos
+        Es como pasamos al area intermedia los 
+        archivos que han sido modificados
+    </code>
+    </pre>
+            <li>Repositorio (carpeta git)</li>
+            la carpeta donde se almacena todo el historial del repositorio
+        </ul>
+    </blockquote>
+
+    <hr><h2 id="commit">Aprendiendo a escribir commit</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Podemos decir que los commits son folrder dentro de nuestro repositorio donde podemos encontrar los cambios hechos a los difernetes archivos. es decir cada comnnit es un mensaje de cambio en el proyecto
+        <pre>
+        <code>
+            git commit 
+        </code>
+        </pre>
+        Escribimos un mensaje que describa los cambios realizados en el archivo. Las insesiones son al caontidad de lineas de condigo que han sido modificadas.
+
+        <pre>
+        <code>
+            git log
+        </code>
+        </pre>
+        Podemos ver los commits del repositorio., cada mensaje es un hash que no se pude moidficar
+    </blockquote>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mixins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Mixins</h1>
+    <ul>
+        <a href="#definicion"><li>Definicion de los Mixins</li></a>
+        <a href="#parametrosyArgumentos"><li>Parametros y argumentos</li></a>
+        <a href="#parametrosMultiples"><li>Parametros multiples</li></a>
+        <a href="#directivaContent"><li>Directiva content</li></a>
+        <a href="#mixinRWD"><li>Mixin para resposive Web Desing</li></a>
+    </ul>
+
+    <h2 id="definicion">Definicion de Mixins</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son bloques de codigo reutilizable que pueden contener selectores, muchas reglas, y logica.
+        <br><br>
+        Lo recomendable es que en la estructura los mixins se gurden en una carpeta de mixins y ademas que las declaraciones sean en un archivo y las llamdas en otro
+        <br>
+    <pre>
+    <code>
+        /* Uso de mixins */
+        @mixin button{
+            display: inline-block;
+            margin: 1em;
+        }
+
+        @mixin conLogica {
+            /* pude validar $buttons que se encuentre en un archivo de configuracion */
+            @if $buttons{
+                .button{
+                    display: inline-block;
+                    margin: 1em;
+                }
+            }
+        }
+
+        /* Se llaman de la siguinte manera 
+        - .button{
+            @include button;
+        }
+        Se debe de llamar dentro de un selector, porque este solo contiene los estilos , no el selector con @include button en este caso
+        */
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="parametrosyArgumentos">Párametros y argumentos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Los mixins pueden resivir parametos, que son vaiables que funcionan solamente dentro de nuestro mixin, pero no tienen un valor definido hasta que nosotros incluimos o llamamos al mixin
+        <br><br>
+        Los parametros son obligatorios, y cundo se pasa se llama argumento, podemos darle valores predeterminados.
+    <pre>
+    <code>
+        /* Parametro dentro de mixins */
+        @mixin button($color:red){
+            display: inline-block;
+            margin: 1em;
+            color: $color      ;
+        }
+        /* Asi se llama
+            .button{
+                @include button(red);
+            }
+        */
+    </code>
+    </pre>
+        Por supuesto que podemos darle una etiqueta , class y con ello construir un selector en el mixin, que al final seria como anidar
+    </blockquote>
+
+    <h2 id="parametrosMultiples">Párametros multiples</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Si los parametros son del mismo tipo podemos hacer un spredoperator , ejemplo en recorrido de un mapa, o simplemnte podemos indicar a la funcion que se resiviran mas valores iguales al declarado 
+    <pre>
+    <code>
+        /* Parametro multiples dentro de mixins */
+        @mixin button($color,$font,$font-weight){
+            display: inline-block;
+            margin: 1em;
+            color: $color;
+            font: $font;
+            font-weight: $font-weight;
+        }
+        /* Asi se llama
+            .button{
+                @include button(red,'Open Sans',300);
+            }
+        */
+        // Si fueran por ejemplo solo colores
+        @mixin button($color...){
+            display: inline-block;
+            margin: 1em;
+            color: nth($color, 1);
+
+            @if length($color)>1{
+                @for $i from 2 to length($color){
+                    &.#{nth($color,$i)}{
+                        color: nth($color,$i);
+                    }
+                }
+            }
+        }
+        /* Asi se llama
+            .button{
+                @include button(red,green,blue...);
+            }
+        */
+
+        // Si fueran con un mapa
+        $buttons-color:(
+            primary: blue,
+            cta: green,
+            error: orange,
+            warnning: yellow
+        );
+        @mixin button($color...){
+            display: inline-block;
+            margin: 1em;
+            color: map-get($buttons-color,nth($color, 1));
+
+            @if length($color)>1{
+                @for $i from 2 to length($color){
+                    &.#{nth($color,$i)}{
+                        color: map-get($buttons-color, nth($color,$i));
+                    }
+                }
+            }
+        }
+        /* Asi se llama
+            .button{
+                @include button(map-keys($buttons-color)...);
+            }
+        */
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="directivaContent">Directiva content</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es la forma en la que podemos añadir aun mas codigo css a un Mixin <br><br>
+        Puede ser de gran ayuda en la definicion de las media querys
+    <pre>
+    <code>
+        /* Directiva @content */
+        @mixin menu {
+            color: red;
+            display: block;
+            .link{
+                @content;/* Decimos aun podemos pasar mas contenido */
+            }
+        }
+
+        /* 
+        Llamada del mixin sin la directiva de content la nueva propiedad solo se aplica al selector indicado 
+        .menu{
+            @include menu;
+            font-size: 1em;
+        }
+
+        .menu{
+            @include menu{
+                color: green;
+            };
+        }
+        */
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="mixinRWD">Mixin para responsive web desing</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    <pre>
+    <code>
+        /* Mixins en Responsive Web Desing */
+        $breakpoints: (
+            small: 320px, 
+            medium: 640px,
+            large: 1024px,
+            xlarge: 1440px
+        );
+
+        @mixin mq ($breakpoint) {
+            @if map-has-key($breakpoints, $breakpoint ){
+                @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+                    @content;
+                }
+            } @else if type-of($breakpoint)==numbre and unit($breakpoint)=='px'{
+                @media screen and (min-width: $breakpoint){
+                    @content;
+                }
+            }
+        }
+        /* Llamda del mixin mq
+
+            body{
+                background: red;
+                @include mq(small){
+                    background:green;
+                }
+                @include mq(318px){
+                    background:red;
+                }
+            }
+        */
+    </code>
+    </pre>
+    </blockquote>
+
+
+</body>
+</html>

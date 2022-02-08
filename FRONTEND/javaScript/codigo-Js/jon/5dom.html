@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        :root{
+            --yellow-color: #f7df1e;
+            --dark-color: #222;
+        }
+        .cards{
+            border:thin solid var(--dark-color);
+            padding: 1rem;
+        }
+        .card{
+            display: inline-block;
+            background-color: var(--dark-color);
+            color: var(--yellow-color);
+        }
+        .card figcaption{
+            padding: 1rem;
+        }
+        .rotate-45{
+            transform: rotate(45deg);
+        }
+        .rotate-135{
+            transform: rotate(135deg);
+        }
+        .opacity-80{
+            opacity:.8;
+        }
+        .sepia{
+            filter: sepia(1);
+        }
+        .eventos-flujo div{
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .uno {
+            background-color: coral;
+        }
+        .dos{
+            background-color: blueviolet;
+        }
+        .tres{
+            background-color: deepskyblue;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <br>
+    <hr>
+    <br>
+    <h3>Manejo del DOM</h3>
+    <p id="que-es">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus vitae tenetur alias sunt. Error sit
+        aperiam voluptas dolore porro pariatur, mollitia ab similique! Similique magnam corrupti a natus ratione.
+    </p>
+    <br>
+    <hr>
+    <br>
+    <nav id="menu">
+        <ul>
+            <li><a href="#">seciion 1</a></li>
+            <li><a href="#">seciion 2</a></li>
+            <li><a href="#">seciion 3</a></li>
+            <li><a href="#">seciion 4</a></li>
+            <li><a href="#">seciion 5</a></li>
+        </ul>
+    </nav>
+    <!-- aqui ta la barra de entrada -->
+    <input type="text" name="nombre" placeholder="Nombre">
+    <a class="link-dom" href="dom.html" style="background-color: black;color: blue;" data-description="document objet model">DOM</a>
+    
+    <section class="cards">
+        <figure class="card">
+            <img src="https://placeimg.com/200/200/tech" alt="Tech">
+            <figcaption>Tech</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/200/200/animals" alt="Animals">
+            <figcaption>Animals</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/200/200/people" alt="People">
+            <figcaption>People</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/200/200/arch" alt="Arch">
+            <figcaption>Arch</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/200/200/nature" alt="Nature">
+            <figcaption>Nature</figcaption>
+        </figure>
+    </section>
+    <!-- aqui ta el template que permite generar contenido dinamico con js -->
+    <template id="template-card">
+        <figure class="card">
+            <img>
+            <figcaption></figcaption>
+        </figure>
+    </template>
+    <h3>Eventos js</h3>
+    <h4>Manejadores de Eventos</h4>
+    <button onclick="holaMundo()">Evento con atributos html</button>
+    <br><br>
+    <button id="evento-semantico">Evento con manejador semantico</button>
+    <br><br>
+    <button id="evento-manejador-multiple">Evento con manejador multiple</button>
+    <br><br>
+    <button id="evento-remover">Removiendo eventos con manejadores multiples</button>
+    <br><br>
+    <br><br>
+    <br><br>
+    <h4 class="clear">Flujo de eventos </h4>
+    <section class="eventos-flujo">
+        <div class="uno">
+            1
+            <div class="dos">
+                2
+                <div class="tres">
+                    3
+                    <a href="dom.html" target="_black" rel="noopener">dom.html</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</p>
+<br>
+<hr>
+<br>
+    <h4 class="pa-clear">Manejo del BOM (browser object model)</h4>
+    <button id="abrir-ventana">Abrir ventana</button>
+    <br><br>
+    <button id="cerrar-ventana">Cerrar ventana</button>
+    <br><br>
+    <button id="imprimir-ventana">Imprimir ventana</button>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <script src="./js/DOM.js"></script>
+    <script src="./js/BOM.js"></script>
+</body>
+</html>

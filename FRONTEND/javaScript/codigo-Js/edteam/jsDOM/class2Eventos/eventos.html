@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los eventos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1 id="indice">LOs eventos</h1>
+    <ul>
+        <a href="#eventos"><li>Los eventos</li></a>
+        <a href="#mouse"><li>Eventos de mouse</li></a>
+        <a href="#teclado"><li>Eventos de teclado</li></a>
+        <a href="#formulario"><li>Eventos de formulario</li></a>
+        <a href="#dom-navegador"><li>Eventos de DOM y navegador</li></a>
+        <a href="#multimedia"><li>Eventos multimedia</li></a>
+        <a href="#propagacion-e"><li>Propagacion de eventos</li></a>
+        <a href="#delegacion-e"><li>Delegacion de eventos</li></a>
+    </ul>
+
+
+    <h2 id="eventos">Los eventos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es algo que ocurre en la pagina, no necesariamente ocurre con la interaccion directa del usuario, por ejemplo la carga de una pagina , hay eventos que ocurren cuando la pagina termino de cargar que ya no depende del ususario.
+
+        Pero todas la cosas que ocuuren en una pagina son los <strong>eventos</strong>, practicamente cualquier metodo o poropiedad que empiece con <strong>on</strong> son eventos.
+
+        De manera tradicional asi es como se capturaba un evento:
+        <pre onclick="holamundo()">
+        <code>
+            en html , en esta etiqueta se puede clicar y en la consola se va a ejecutar un hola mundo
+            pre onclick="holamundo()"/pre
+
+            en js , basta con definir la funcion que se va a llamar en la etiqueta
+            function holamundo(){
+                console.log('hola mundo');
+            }
+        </code>
+        </pre>
+        NO es lo mas conveniente si es que se quiere manejar mas de un evento, en react vue exixte una sintaxis parecida a esta porque trabajan sobre componenetes que es como una union de html, js y css.
+
+        La manera chila es : es mediante el uso de escuchadores de eventos, y estas son las partes que podemos ver en ete jale.
+        <ul>
+            <li>onEvent</li>
+
+            <li>addEventListener('nombredelEvento',manejadordelEvento)</li>
+            Es un escuchador de eventos, que es un metodo de algun elemento o del mismo documento o de window.
+
+            REcibe dos parametros, el nombre del vento y el manejador del evento , que es una funcion callback que se ejecuta cuando el evento es escuchado, asi que si se quiere ejecutrar de una debe ser una funciona autoejecuteble una funcino de una funcion.
+            <li>handlers</li>
+            FUnciones callback que se ejecutan cuando sucede algo.
+            <li>Objeto event</li>
+            Es un objeto que existe en cada evento, la forma de llamarlo es .target y para que devuelva el contenido en string del elmento es .target.textContent
+        </ul>
+        <pre>
+        <code>
+            /** Escuchador de evento en el h1 que dispara una alerta cuando se ejecuta un click sobre el 
+            */
+            const title = document.getElementById('indice'),
+                alertMundo = () => alert('hola mundo que se ejecuto desde el click del h1')
+
+            title.addEventListener('click',alertMundo)
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="mouse">Eventos de mouse</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+
+        <ul>
+            <li>click</li>
+            cuando se da click
+            <li>dblclick</li>
+            cuando se da doble click es cuando ocure el evento
+            <li>mouseenter</li>
+            es como el hover de css, osea cuando se posiciona encima el raton se realiza la funcino del callback.
+            <li>mouseleave</li>
+            y es como el !hover de css, ocurre cunado se quita el mouse de encima
+            <li>contextmenu</li>
+            captura el click derecho, podemos quitar el menu contextual del click derecho en la pagina.
+            <pre>
+            <code>
+                title.addEventListener('contextmenu', e=>{
+                    holaMundo(e)
+                    consle.log(e) /*podemos ver las cordenadas donde se encontraba el mouse al ocurrir el evento.*/ 
+                    e.preventDefault()
+                })
+            </code>
+            </pre>
+            <li>mousedown</li>
+            <li>mouseup</li>
+            <li>mousemove</li>
+        </ul>
+    </blockquote>
+
+    <h2 id="teclado">Eventos de teclado</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>keydown</li>
+            cuando presionas una tecla 
+            <li>keyup</li>
+            cuando dejas de presionar una tecla
+            <li>keypress</li>
+            cuando Mantienes presionada una tecla 
+        </ul>
+    </blockquote>
+
+    <h2 id="formulario">Eventos de formulario</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <form action="#" id="form">
+        <input type="text" id="name" placeholder="Tu nombre">
+        <input type="password" id="password" placeholder="Tu contrasenia">
+        <label><input type="checkbox" id="remember-password">Recordar mi contrasenia </label>
+        <input type="submit">
+    </form>
+
+    <blockquote>
+        <ul>
+            <li>submit</li>
+            se ejecuta cunado el formulario se intenta enviar, se detecta el submit de todo el formulario
+            <pre>
+            <code>
+                const form = document.getElementById('form')
+
+                form.addEventListener('submit',()=>{
+                    console.log('Ha enviado el formulario');
+                })                
+            </code>
+            </pre>
+            <li>change</li>
+            Ocurre cuando un campo del formualrio cambia de valor 
+            <li>focus</li>
+            Es el evento que ocurre cuando se va dentro de los campos del formualrio con los TAB'S,
+            <li>blur</li>
+            blur es cunado el formualrio ya no esta focus jaja, podria servir cuando ya no esta enfocado el campo, como por ejemplo en una busqueda de youtube donde se sugieren los temas que esatn relacionados se pueda quitar esa lista cuando el campo ya no esta seleccionado.
+            <li>reset</li>
+            para limipar el o resetar el formulario
+        </ul>
+    </blockquote>
+
+    <h2 id="dom-navegador">Eventos del DOM y navegador(window)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        DOM coutedloaded ocurre cuando toda la pagina se encuentra cargada en el DOM, en jquery era DOM ready, pero solamente el dom.
+
+        Window es lo mas elevado en js, vemos esto para entender que para evitar problemas con la carga de los scripts, podemos esperar que el DOM este leido para poder seguir adelante.
+
+        <ul>
+            <li>load</li>
+            ocurre cuando carga toda la pagian, ocurre despues de DOMContentLoaded
+            <li>scroll</li>
+            cuando haces scroll
+            <li>resize</li>
+            cuando redimenzionamos la pantalla.
+        </ul>
+    </blockquote>
+
+    <h2 id="multimedia">Eventos multimedia</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        NOs deja que los eventos como tal los podemos ejecutar
+        <ul>
+            <li>play</li>
+            <li>pused</li>
+        </ul>
+    </blockquote>
+
+    <h2 id="propagacion-e">Propagacion de eventos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="div-1">
+        <div id="div-2">
+            <div id="div-3">
+
+            </div>
+        </div>
+    </div>
+
+    <blockquote>
+        Cada ves que ocurre un evento, este ocurre en el elmento mas profundo del DOM, pero se porpaga hacia arriba, como que burbujea. 
+        <pre>
+        <code>
+            document.querySelectorAll('div').forEach(el =>{
+                el.addEventListener('click',()=>{
+                    console.log('click');
+                })
+            })
+        </code>
+        </pre>
+        Por cada elemento <strong>div</strong> que esta en el documento se ejecuta un escuchador de click , donde en la consola podemos ver que el evento se propaga en los 3 divs, es decir que cuando se esta haciendo click en el elemento mas adentro realmente estoy haciendo tabien click en su papa y en el papa de este.
+        
+        <strong>target</strong>, es el evento mas profundo donde se origina el evento , con <strong>stop porpagation</strong> se detiene la propagacion hasta window se queda en elemento donde SE genero el evento, esto puede ser util en caso de que tendgas escuchando en elemetos hijos que tengan el mismo evento.
+    </blockquote>
+
+    <h2 id="delegacion-e">Delegacion de eventos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Cuando hay muchos eventos iguales y es mucho calcular donde se a ejecutado el evento en el papa y en que hijo , es mejor primero saber en que papa se ejecuto elevento y despues en que hijo. Ejemplo en un galeria de imagenes podemos saber exacatamente donde se ejecuto elevento y asi poder hacer una accin de blur a todo lo demas o alguna otra accion.
+
+        <pre>
+        <code>
+            const gallery = document.getElementById('galery')
+
+            gallery.addEventListener('click',e=>{
+                const t = e.target,
+                images = Array.form(galery.querySelectorAll('img')),
+                i = images.indexOf(t)
+                console.log(`Hisiste click en la imagen ${i+1}`)
+            })
+        </code>
+        </pre>
+        En este ejmplo s edeclara una galerya de imagenes dentro de un div con el id de gallery, y tiene div hijos con divs hijos de id imgs.
+    </blockquote>
+
+    <script src="eventos.js"></script>
+</body>
+</html>

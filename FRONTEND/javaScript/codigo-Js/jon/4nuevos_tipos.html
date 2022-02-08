@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevos Datos js ES6</title>
+</head>
+<body>
+    <h1>NUevos tipos de datos en ES6</h1>
+    <script>
+        // // simbol permiten crear identificadores unicos
+        // // let a=Symbol("saca");
+        // // let b=Symbol("saca");
+        // // let c=(a===b);
+        // // console.log(c);
+
+        // // sirve paradeclara funciones ya atributos privados
+        // const NAME = Symbol();
+        // const SALUDAR = Symbol();
+        // const persona = {
+        //     [NAME]:'han',
+        //     saca: "saca las panochas perro",
+            
+        // };
+        // persona.NAME ='saca las panochas';
+        // persona[SALUDAR]= function(){
+        //     console.error("hi");
+        // }
+        // console.log(persona);
+        // console.log(persona[NAME])
+            
+        
+        // FOR IN BIEN CONOCIDO POR RECORRER ++++++++OBJETOS+++++ 
+        // for (let i in persona){
+        //     console.log(i);
+        // }
+        // persona[SALUDAR]();
+
+        // console.warn(Object.getOwnPropertySymbols(persona));
+// ++++++++++++++++++++++++++++TERMINA EL DATO SYMBOL+++++++++++++
+
+        // sets genera un arreglo donde no se aceptan duplicados
+        // solo acepta valores unicos 
+
+        // const set = new Set([1,2,3,4,3,4,5,1,'hola','hola',"HOal"]);
+        // console
+        // console.error("impresion para el set")
+        // console.log(set);
+        // console.log(set.size);
+        // const set2 = new Set();
+        // set2.add(1);
+        // set2.add(2);
+        // set2.add(3);
+        // set2.add(4);
+        // set2.add(5);
+        // set2.add(2);
+        // set2.add(1);
+        // set2.add('hola');
+        // set2.add('holala');
+        // set2.add("hola");
+        // console.error('impresion del set 2')
+        // console.log(set2);
+        // console.log(set2.size);
+
+        // //BIEN CONOCIDO POR EL RECORRIDO DE ++++ARRAYS,JAJAJAJ XDXDXDXDXDXDXDXD
+        // console.error("recorrido con for of")
+        // for (item of set){
+        //     console.log(item);
+        // }
+        // console.error("recorrido con for reach")
+
+        // // BIEN CONOCIDO POR RECORRER +++++++++ARRAYS Y SETS
+        // set2.forEach(item =>console.warn((item)))
+
+        // ETE METODO DE ARRAY PERMITE COMBERTIR UN TIPO DE DATO ITEREABLE EN UN ARRAY
+        // que seria cualquier tipo de dato que permita contar sus elementos 
+        // let arr = Array.from(set);
+        // console.log(arr[0]);
+        // console.log(arr[1]);
+        // console.log(arr);
+        //     set.delete('HOal')
+        // console.log(set);
+        //     console.log(set.has(1));
+        //     set.clear();
+        // console.log(set)
+// ++++++++++++++++++++++++++++TERMINA ES USO DEL SET++++++++++++++++++++
+
+        // MAP, son objetos que almcenan conjunto de valores asociados
+        //son objetos que permiten tener una llave valor, donde las llves NO SON CADENAS DE TEXTO
+        // let map = new Map();
+        // map.set("nombre","jon");
+        // map.set("apellido","saca");
+        // map.set("edad","las");
+        // map.set("panochas","jajajaaj");
+        // map.set("xd","xdxdxdxd");
+        // map.set("caca","jijijjiiijijijijijij");
+        //     console.log(map);
+        //     console.log(map.size);
+        //     console.log(map.has("edad"));
+        //     console.log(map.get("nombre"));
+        //     map.set("correo","saca@hotmail.com")
+        //     console.log(map);
+        //     map.delete("edad");
+        //     console.log(map);
+        
+        // for (let [key,value] of map){
+        //     console.warn(`ve: ${key},or: ${value}`)
+        // }
+        
+        // map.set(19,"diecinueve");
+        // map.set(20,"veinte");
+        // map.set(true,"verdadero");
+
+        // console.log(map)
+
+        // const map2 = new Map([
+        //     ["nombre","saca"],
+        //     ["li","las"],
+        //     ["pa","panochas"]
+        // ])
+        // // metodos key y values
+        // const llaves = [...map2.keys()];
+        // const valores = [...map2.values()];
+        // console.warn(llaves);
+        // console.warn(valores);
+        // map2.forEach(i=> console.error(i))
+// +++++++++++++++TERMINA EL TIPO DE DATO ES6 MAP+++++++++++++++++++
+
+        // WEAK SET Y MAP, sirven para almacenar referencias denbiles 
+        // pa que el recolector de basura las mande a la shit duando el balor sea nulo
+        // se convierten en elementos no iterables, no se usa clear(), .size
+
+        // const ws = new WeakSet();
+
+        // let valor1 = {"valor1":1};
+        // let valor2 = {"valor2":2};
+        // let valor3 = {"valor3":3};
+
+        // ws.add(valor1);
+        // ws.add(valor2);
+        // console.warn(ws);
+
+        // setInterval(() => console.log(ws),1000);
+
+        // setTimeout(() => {
+        //     valor1 = null;
+        //     valor2 = null;
+        //     valor3 = null;
+        // },4000);
+
+        // const wm = new WeakMap();
+        
+        // let llave1 = {};
+        // let llave2 = {};
+        // let llave3 = {};
+
+        // wm.set(llave1,1);
+        // wm.set(llave2,2);
+        // wm.set(llave3,3);
+        // console.log(wm.has(llave1));
+        // console.log(wm.has("hola"));
+
+        // console.error(wm.get(llave1));
+
+        // wm.delete(llave2)
+
+        // console.warn(wm);
+        
+        // setInterval(() => console.log(wm),1000);
+
+        // setTimeout(() => {
+        //     llave1 = null;
+        //     llave2 = null;
+        //     llave3 = null;
+        // },4000);
+// ++++++++++++++++++++TERMINA LOS DATOS WEAK SET Y MAP+++++++++++++++
+
+        // // al ser elemtos iterables tienen ciertas caracteristicas
+        // // es una especie de apuntador que va recorriendo los elementos en 
+        // // la estructura de datos
+
+        // /* const iterable = new Map([["nombre","lis"]]);
+        // const iterable = new Set([1,2,3,4,5,6,7,8,9]);
+        // const iterable = 'holalalalalalalalalalalallalalalalalalalalallalaaalallal'; */
+        // const iterable = [1,2,3,4,5,6,7,8,9];
+        
+        // // interfase para recorrer
+        // const iterador = iterable[Symbol.iterator]();
+
+        // console.warn(iterable);
+        // console.error(iterador);
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+        // // console.log(iterador.next());
+
+        // let next  =iterador.next();
+
+        // while(!next.done){
+        //         console.error(next.value);
+        //         next = iterador.next();
+        // }
+// ++++++++++++++++++++++++++++TERMIANA LOS ITERABLES +++++++++++++
+
+        // GENERADORES, funcionq eu ayuda a ytrabajar con los datos iterables
+        
+        // function*iterable(){
+        //         // yield es como el await de async , es como un return donde despues de 
+        //         // ejecutarse el siguiente yield
+        //         yield "hola";
+        //         console.log("hola consola");
+        //         yield "hola 2";
+        //         console.warn("seguimos con mas instrucciones de nuestro codigo");
+        //  console.log(y)
+        // }
+
+        // // para todos los valores en la funcion iterable guardalo en arr
+        // const arr = [...iterable()];
+        // console.error(arr);
+//         yield "hola 3";
+        //         yield "hola 4";
+        // }
+
+        // // let iterador = iterable();
+
+        // // for (let y of iterador){
+        // //       
+        // function cuadrado(valor){
+        //         setTimeout(()=>{
+        //                 return console.log({valor,resultado:valor*valor})
+        //         },Math.random()*1000)
+        // }
+
+        // function* Generador(){
+        //         console.warn("inicia generador");
+        //         yield cuadrado(0);
+        //         yield cuadrado(1);
+        //         yield cuadrado(2);
+        //         yield cuadrado(3);
+        //         yield cuadrado(4);
+        //         console.error("termina el generador");
+        // }
+
+        // let gen = Generador();
+        // for (let y of gen){
+        //         console.log(y);
+        // }
+// ++++++++++++++++++++TERMINA LA FUNCIONES GENERADORAS+++++++++++++++++++++++++
+
+// PROXIES , permite crear un objeto basado en un objeto creado de manera literal
+// // recibe el objeto , hace un copia 
+
+//         const persona ={
+//                 nombre:"saca",
+//                 apellido:"las",
+//                 edad:0
+//         };
+
+//         const manejador ={
+//                 set(obj,prop,valor){
+//                         // si es igual la propiedad no existre en el objeto persona
+//                         if(Object.keys(obj).indexOf(prop)===-1){
+//                                 return console.error("la propiedad no existe en el objeto persona");
+//                         }
+//                         if(
+//                                 (prop==="nombre"||prop==="apellido")&&!(/^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$/g.test(valor))
+//                         ){
+//                                 return console.error(`La propiedad "${prop}" solo acepta letras y espacios en blanco`);
+//                         }
+//                         obj[prop]=valor;
+//                 }
+//         }
+
+//         const jon = new Proxy(persona,manejador)
+//         jon.nombre = "jon1";
+//         jon.apellido = "mircha";
+//         jon.edad = 35;
+//         jon.twiter = "@scacsacsc";
+//         console.log(jon);
+// +++++++++++++++++++++++++++++TERMINA LOS PROXIES+++++++++++++++++++
+
+// PROPIEDADES DINAMICAS DE LOS OBJETOS , caundo se tiene que crear propiedades 
+// pa testear 
+
+        // const objUsuarios={
+        //         [`id_${Math.round(Math.round()*100+5)}`]:"valor Aleatorio"
+        // }
+        // console.log(objUsuarios);
+        // const usuarios=["saca", "las","panochas","perro"];
+        // // lo que lo hace dinamico es la propiedad de los corchetes
+        // usuarios.forEach((usuario,index)=>objUsuarios[`id_${index}`]=usuario);
+        // console.log(objUsuarios);
+// ++++++++++++++TERMINA PROPIEDADES DINAMICAS DE LOS OBJETOS++++++++++++++
+        
+        // THIS,
+/*         console.log(this)
+        console.log(this===window)
+
+        this.nombre = "contexto global";
+        console.log(this.nombre);
+        function imprimir(){
+                console.log(this.nombre);
+        }
+        imprimir();
+
+        const obj = {
+                nombre: "contexto objeto",
+                
+                imprimir:function(){
+                console.log(this.nombre);
+                }
+        }
+        obj.imprimir();
+
+        const obj2 ={
+                nombre: "contexto objeto 2",
+                imprimir
+        }
+        obj2.imprimir();
+
+        const obj3 ={
+                nomnre:"contexto objrto 3",
+                imprimir:()=>{
+                        console.log(this.nombre);
+                }
+        }
+
+        obj3.imprimir();
+ */
+/*         function persona(nombre){
+                /* OTRA forma de solucionarlo seria con pasando la propiedad this a 
+                una variable constante que sea propiedad de la funcion entonces queda asi(1) 
+                const that = this;
+                that.nombre =nombre; */
+                // console.warn(this.nombre);
+                // funciones son ciudadanos de primer orden closure
+                // el return crea su propio contexto , pero como en su interior no 
+                // tiene ningun this.nombre se regresa al this del contexto global
+                /*(1)  return function (){
+                        console.error(that.nombre);
+                }  */
+                // // si se retorna como una arrow fuction si da porque no crea contexto y 
+                // agarra la del padre
+                /* return ()=>{
+                        console.warn(this.nombre);
+                }
+                 */
+        // }
+
+        // let jon =new persona("Jon");
+        // jon();
+// +++++++++++++++++++++++++++TERMINA LA EXPLICACION DEL OBJETO THIS+++++++++++++++
+
+        // CALL,APLAY, ,sirven para conserbar la referencia de un scope
+        
+/*         console.log(this);
+        this.lugar = "contexto global";
+
+        function saludar(saludo,aQuien,){
+                console.log(`${saludo},${aQuien}, desde el${this.lugar}`);
+        }
+
+        saludar("saca","las");
+
+        const obj ={
+                lugar: "contexto objeto",
+        }
+
+        // usando el metodo call
+        saludar.call(obj,"hola","jon");
+        saludar.call(null,"hola","han");
+        // en apply 
+        saludar.apply(obj,["adiso","jon"]);
+        saludar.apply(this,["adios","han"]);
+
+        const persona ={
+                nombre:"jon",
+                saludar: function(){
+                        console.log(`hola,${this.nombre}`)
+                }
+        }
+        persona.saludar();
+
+        const otraPersona={
+                // bind enlaza el contexto 
+                saludar: persona.saludar.bind(persona),
+        }
+        otraPersona.saludar(); */
+// +++++++++++++++++++++++++TERMINA EL OBJ THIS CON APPLY, BIND CALL++++++++++++++++++++
+
+        // JSON, notacion de objeto de javaScript, formato ligero de intercambio de datos
+        // antes xml se aplicaba
+
+        // const json={
+        //         cadena:"jon",
+        //         numero:35,
+        //         booleano: true,
+        //         arreglo:["correo","programar","cocinar"],
+        //         objeto:{
+        //                 twiter:"@saca",
+        //                 email: "santiñ@gmail.com"
+        //         },
+        //         nulo: null
+        // }
+
+        // const jsonarr ='{cadena:"jon",numero:35,booleano: true,arreglo:["correo","programar","cocinar"],objeto:{twiter:"@saca",email: "santiñ@gmail.com"},nulo: null}'
+
+        // console.warn(JSON.stringify(json))
+        // console.error(JSON.parse('{"cadena":"jon","numero":35,"booleano":true,"arreglo":["correo","programar","cocinar"],"objeto":{"twiter":"@saca","email":"santiñ@gmail.com"},"nulo":null}'))
+// +++++++++++++++++++TERMINA LA DEFINICIOIN DE JSON Y SUS METODOS+++++++++++++++++++++++++++++++++++++
+
+        
+
+
+     </script>
+</body>
+</html>

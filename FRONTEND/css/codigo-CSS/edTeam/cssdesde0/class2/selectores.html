@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores de Css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="selectores.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <h1 id="indice" >Selectores en Css</h1>
+    Los selectores le dicen al nevegador a que elemento o elementos se le aplicara los estilos 
+    <ul>
+        <a href="#estilos-navegador"><li>Estilos en el navegador</li></a>
+        <a href="#selector"><li>Selectores</li></a>
+        <a href="#slc-smpl-stk"><li>Selectores simples :etiquetas</li></a>
+        <a href="#slc-smpl-clss"><li>Selectores simples :clases</li></a>
+        <a href="#slc-smpl-id"><li>Selectores simples :id</li></a>
+        <a href="#slc-comp-agrp"><li>Selectores compuestos :agrupados</li></a>
+        <a href="#slc-comp-comb"><li>Selectores compuestos :combinados</li></a>
+        <a href="#slc-comp-desc"><li>Selectores compuestos :descendientes</li></a>
+        <a href="#slc-op"><li>Selectores con operadores </li></a>
+        <a href="#slc-atr"><li>Selectores de atributos</li></a>
+        <a href="#slc-atr-comdin"><li>Selector de atributos con comodines</li></a>
+    </ul>
+
+    <hr><h2 id="estilos-navegador">Estilos en el navegador</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <blockquote>
+        Se dice que todo navegador tiene sus propios estilos de css, ha esto se le llama UserAgent , y facilmenete puden ser sobreesxritos por el ususario con el atajo, <code>ctrl+shift+i</code>, podemos ver de una loe sestilos de la pagina en el navegador.
+    </blockquote>
+
+
+    <hr><h2 id="selector">Selectores</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <blockquote>
+        Las etiquetas no les importa el si se encuentran en mayuscula ,o en minuscula , mientas que los atributos con los que se podria llamar el selector si importa en que formato con el que se quiera seleccionar el elemento.
+    <pre>
+    <code>
+        selector{
+            propiedad1: valor1;
+            propiedad2: valor2;
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <blockquote>
+        Selectores simples(una palabra)
+    <pre>
+    <code>
+        h1{
+            
+        }
+    </code>
+    </pre>
+        Selectores compuestos
+    <pre>
+    <code>
+        h1 span {
+
+        }
+    </code>
+    </pre>
+        
+    
+        Selectores con operadores 
+    <pre>
+    <code>
+        h1 + span{
+
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <blockquote>
+        <strong>Selectores con Pseudoclass</strong><br><br>
+    
+        Son selectores de estado, osea que se aplican cuando algo cambia.
+    </blockquote>
+
+
+    <hr><h2 id="slc-smpl-stk">Selectores simples :etiquetas</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <div class="ejemplo">
+        <p>parrafo que sera editado con laa ayuda de sun selector de "etiqueta"</p>
+    </div>
+
+    <blockquote>
+        Son etiquetas , tipos o elementos donde solo se llaman las etiquetas en el css, pero en este tipo de seleccion de elemetos lo que se le hace a una etiqueta, se aplica para todas las que son del mismo tipo en el body. <br><br>
+
+        Mejor usarlo para normazilarlos estilos de los navegadores y hacer que todos sean iguales y que los cambiso que se hagan sean especificos <br><br>
+
+        NOrmalize es un libreria para poder normalizar todas las etiquetas.
+    </blockquote>
+
+    <blockquote>
+        En este ejemplo se modifica el estilo del parrafo desde la etiqueta esto dentro de un div para solo identificarlo mas rapido como el ejemplo
+    <pre>
+    <code>
+        .ejemplo>p{
+            color: gray;
+        }</code>
+    </pre>
+    <em>Todo elemento que sea de class ejemplo y que tenga como hijo directo un parrafo </em> 
+    </blockquote>
+
+
+
+    <hr><h2 id="slc-smpl-clss">Selectores simples :clases</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+
+    <blockquote>
+        Selectores simples de class se indican con un <code>(.)</code> y el nombre de la clss y en el html se incida  cun atributo como class
+    </blockquote>
+
+    <div class="ejemplo"><h3 class="title">dsadsada</h3></div>
+
+    <blockquote>
+        En el caso de que se tuviera en la hoja de estilo otro estilo declarado con etiquetas por ejemplo de parrafo, este se modificaria con ese estilo porque es el estilo que envuelve a todas los parrafos.
+        
+    </blockquote>
+
+    <div class="ejemplo">
+        <h2 class="button">Estilos de un boton con la ayuda de la definicion de una class buttom</h2>
+    </div>
+
+    <blockquote>
+        REcomendaciones de las class
+        <ul>
+            <li>No pueden comenzar con numero</li>
+            <li>Puden comenzar con <code>(-) o (_)</code></li>
+            <li>Pueden tener dos puntos <code>(:)</code></li>
+            <li>Puden ser de una letra</li>
+        </ul>
+    </blockquote>
+
+
+    <hr><h2 id="slc-smpl-id">Selectores simples :id</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <blockquote>
+        Son los que usan identificadores, es decir el atributo de id en html, y como son identificadores quiere decir que son unicos NO son reutilizables <br><br>
+
+        Casi no se usan , porque se usan como anclas en el html o en java para seleccionar los elementos
+    </blockquote>
+
+
+    <hr><h2 id="slc-comp-agrp">Selectores compuestos :agrupados</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+
+    <blockquote>
+        NO es mas que en el selector  agrupar etiquetas, class y/o id que se quiera que tengan ese tipo de estilo. <br><br>
+        En todo caso no es recomendable que se use mucho, solo en casos especificos. <br><br><br>
+
+        SOlo es agrupar con comas todos los elementos que se quiera tengan los mimos estilos
+    <pre>
+    <code>
+        !-- Todos los <code>h1</code>, todos los <code>p</code>p, los que tengan la class <code>.boton</code>, tendran un color : red -->
+        h1,p,.boton{
+            color: red,
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+
+    <hr><h2 id="slc-comp-comb">Selectores compuestos :combinados</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+
+    <blockquote>
+        Es como encontrar combinacion de de los selectores que se apliquen a determinadas etiquetas de html y con ello, la que pertenescan a este conjunto se queden con esas caracteristicas <br><br>
+
+        Pudes usar una combinacion de los selectores simples donde se quiere modificar los estilos, ejemplo, un h1 que tenga igual la class title o en este caso un h1 que tenga el identificador indice, ose solo los h1 que sean indice se van a pintar con un nuevo color
+    <pre>
+    <code>
+        h1#indice{
+            color: darkgoldenrod;
+        }
+    </code>
+    </pre>
+    <em>todos los h1 que contengan el id indice se pìntran de este color</em>
+    </blockquote>
+    
+
+
+    <hr><h2 id="slc-comp-desc">Selectores compuestos descendientes</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+
+    <div>
+        <p>HOla <span>MUNDO</span></p>
+    </div>
+
+    <blockquote>
+        Como un arbol podemos decir que todos los hijos de una etiqueta tengan una classs
+        Se indican con un espacio, poniendo el padre antes del espacio y los hijos despues del espacio
+
+    <pre>
+    <code>
+        div span{
+            color: rgb(250, 209, 162);
+        }
+    </code>
+    </pre>
+    <em>Todos los divs que tengan como hijos un span, y podemos seguir con una agrupacion de hijos </em> 
+    </blockquote>
+
+
+    <hr><h2 id="slc-op">Selectores con operadores</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <blockquote>
+        Con operadores <em operador> (*, >, =, ~) </em> 
+        <ul>
+            <li><code>(*)</code></li>
+            selector universal, osea todo
+            <li><code>(>)</code></li>
+            hijo directo
+            <li><code>(+)</code></li>
+            hermano siguiente
+            <li><code>(~)</code></li>
+            hermanos siguientes 
+        </ul>
+    </blockquote>
+    
+
+        <div>
+            <p>dadsadsa<span>sdadsa</span></p>
+        </div>
+
+        <div>
+            <p>adsdsasd<span>sadsaasd</span></p>
+        </div>
+
+    <blockquote>
+    <pre>
+    <code>
+        div span{
+            color: rgb(250, 209, 162);
+        }
+    </code>
+    </pre>
+    <em>Todos los span que sean hijos de div</em>
+        En la seccion de html de operadores existe un blockquote dentro de un pre entonces despues de est hay dos div  iguales , si se quiere indiar que solo el hermano siguiente de p tenga otras caracteristicas se usa + si se quiere todos los hermanos con <code>(~)</code>  
+    </blockquote>
+
+
+    <hr><h2 id="slc-atr">Selectores de atributos</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+    
+    <input type="text" placeholder="Tu nombre">
+    <input type="number" placeholder="Tu telefono">
+
+    <blockquote>
+        Usan cualquier atributo de html para modificar sus estilos , desde placeholder, hidden type , id class creo 
+    <pre>
+    <code>
+        [placeholder="Tu nombre"]{
+            background-color : darkred;
+        }        
+    </code>
+    </pre>
+    <em>todo placeholder que sea igual a 'tu nombre'</em>
+    </blockquote>
+
+
+    <hr><h2 id="slc-atr-comdin">Selectores de atributos con comodines</h2>
+    <p><a href="#indice">Regresacion al indice</a></p>
+
+    <input type="submit" ><br><br>
+    <a href="https//:ed.te">Ete de color</a><br>
+    <a href="http//:team.ed">ete de color</a><br>
+    <a href="https//:algo.mp4">Ete de color</a><br>
+
+    <blockquote>
+        La mejor forma de usarlo es con la identificacion de rutas <br><br>
+        
+        <strong>Empieza con</strong>[attr^= "value"]
+    <pre>
+    <code>
+        a[href^="https"]{
+            color : red;
+        }
+    </code>
+    </pre>
+        
+        Es como indicar que <strong>termina</strong> con [attr$= "value"]
+    <pre>
+    <code>
+        a[href$=".mp4"]{
+            color: blueviolet;
+        }
+    </code>
+    </pre>
+        
+        En <strong>cualquier lugar</strong> debe de contenerlo [attr*= "value"]
+    <pre>
+    <code>
+        a[href*="team"]{
+            color: royalblue;
+        }
+    </code>
+    </pre>
+    </blockquote>   
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

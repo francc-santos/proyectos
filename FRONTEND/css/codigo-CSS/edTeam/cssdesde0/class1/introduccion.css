@@ -1,0 +1,16 @@
+
+/* En el caso de las custome properties, se usan para estos casos donde se debe de tener un color definicdo para varias etiquetas o elementos , y qu een caso quese quiera cambiar solo se deba de cambier el valor de la variable */
+
+:root{
+    --color:hsl(19, 100%, 90%);
+    ;
+}
+
+
+/* Se modifican todos los h1 con la class 'ejemplo' */
+h1.ejemplo{
+    /* color: blueviolet; */
+    /* Llamada de las variables en css */
+    color : var(--color)
+}
+

@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+/*nuestro contenedor al tener flex afecta a sus hijos*/
+.container{
+    border: 0.3rem solid black;  
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    /*pa acortarlo en al tamaño de su contenido*/
+    /*align-items: baseline;*/
+    /*pa strecharlo a los bordes de su padre*/
+    /*align-items: stretch: ;;*/
+    /*pa reposicionar los itemes de acuerdo al tamaño dela pagina*
+    /*flex-direction: row;*/
+    /*lo mofifica de una forma mas resposiva*/
+    /*flex-wrap: wrap;*/
+    /*nos ayuda a alinear el contenido de forma horixontal*/
+    /*justify-content: center;*/
+    /*nos ayudaa dejar espacio*/
+    /*justify-content: space-around;*/
+    /*nos ayuda a dar espacios equivalentes*/
+    justify-content: space-evenly;
+}
+.box{
+    width: 10rem;
+    height: 10rem;
+    /*pa llenar el contenedor con las box*/
+    /*flex-basis: 10rem;*/
+    /*flex-grw: 1;*/
+}
+.box1{
+    background-color: violet;
+        /*pa cambiar las posiciones de los item*/
+    /*order, pero si no se ordena el item se pasa a la izquierda*/
+}
+.box2{
+    background-color: yellow;
+    /*pa que un item tome el espacio que sobra del contenedor
+    y cuando se empieza a crecer se acomoda*/
+    /*flex-grow: 1;*/
+}
+.box3{
+    background-color: tomato;
+}
+.box4{
+    background-color: turquoise;
+}
+.box5{
+    background-color: blue;
+}
+.box6{
+    background-color: brown;
+}   

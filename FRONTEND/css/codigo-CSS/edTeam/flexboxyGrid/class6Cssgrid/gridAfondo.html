@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css grid a fondo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="gridAFondo.css">
+</head>
+<body>
+    
+    <h1 id="indice">Css grid a fondo</h1>
+    <ul>
+        <a href="#alinearItem"><li>Alinear items</li></a>
+        <a href="#alinearTracks"><li>Alinear tracks</li></a>
+        <a href="#gridPlacement"><li>Grid placement</li></a>
+    </ul>
+
+
+    <h2 id="alinearItem">Alinear items</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="grid">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <blockquote>
+        
+    <ul>
+        <li>Alineacion de los items en el eje x</li>
+        <code>justify-self</code>
+        <li>Alineacion de los items en el eje y</li>
+        <code>aling-self</code>
+        <li>Alineacion de los <strong>container</strong> en el eje x</li>
+        <code>justify-items</code>
+        <li>Alineacion de los <strong>container</strong> en el eje y</li>
+        <code>aling-items</code>
+    </ul>
+        Tambien es facil de recordar ya que se encuentra en plural osea que se refiere a mover todos los items desde el container, mientras que podemos mover cada item por separado con el uso de <em>self</em> ya qu este indica que solo se afectara a uno mismo
+        <br><br>
+        Recordar que en este ejemplo lositems son diferentes a los tracks ya que los tracks buscan una uniformidad en la reparticion del espacio del container y puede que los items tengan no ocupen el espacio del track correspondiente 
+        <br>
+        Es decir esta propiedad lo que hace es alinear el item con respecto al track correspondiente 
+    </blockquote>
+
+    <h2 id="alinearTracks">Alinear tracks</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e2grid">
+        <div class="e2item">1</div>
+        <div class="e2item">2</div>
+        <div class="e2item">3</div>
+    </div>
+    <blockquote>
+        Como se comentaba antes no se pude perder de vista que por defecto si los items no tinen dimenciones definidas no los itesm ocuparan todo el espacio disponible del track y espo dodria ser confuso ya que mover el track y los items es diferente. <br>
+        Porque podriamos forzar a que el track no ocupe todo el espacio disponible del container
+    <ul>
+        <li>Alinaer tracks en x</li>
+        justify-content
+        <li>Alinaer tracks en y</li>
+        aling-content
+    </ul>
+        Es facil de recordar que es para los <em>tracks</em> porque hace referencia al contenido del container. Recordar que en grid tenemos dos direcciones de uso.
+
+        <br><br>
+        El Item existe en el navegador y el track es creado por el navegador para poder colocar los items.
+    </blockquote>
+
+    <h2 id="gridPlacement">Grid placement</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e3container">
+        <div class="e3item">1</div>
+        <div class="e3item">2</div>
+        <div class="e3item">3</div>
+        <div class="e3item">4</div>
+        <div class="e3item">5</div>
+        <div class="e3item">6</div>
+        <div class="e3item">7</div>
+        <div class="e3item">8</div>
+        <div class="e3item">9</div>
+        <div class="e3item">10</div>
+        <div class="e3item">11</div>
+        <div class="e3item">12</div>
+        <div class="e3item">13</div>
+        <div class="e3item">14</div>
+        <div class="e3item">15</div>
+        <div class="e3item">16</div>
+        <div class="e3item">17</div>
+        <div class="e3item">18</div>
+        <div class="e3item">19</div>
+        <div class="e3item">20</div>
+        <div class="e3item">21</div>
+        <div class="e3item">22</div>
+        <div class="e3item">23</div>
+        <div class="e3item">24</div>
+    </div>
+
+    <hr>
+    <div class="e4container">
+        <div class="e4item">1</div>
+        <div class="e4item">2</div>
+        <div class="e4item">3</div>
+        <div class="e4item">4</div>
+        <div class="e4item">5</div>
+        <div class="e4item">6</div>
+        <div class="e4item">7</div>
+        <div class="e4item">8</div>
+        <div class="e4item">9</div>
+        <div class="e4item">10</div>
+        <div class="e4item">11</div>
+        <div class="e4item">12</div>
+        <div class="e4item">13</div>
+        <div class="e4item">14</div>
+        <div class="e4item">15</div>
+        <div class="e4item">16</div>
+        <div class="e4item">17</div>
+        <div class="e4item">18</div>
+        <div class="e4item">19</div>
+        <div class="e4item">20</div>
+        <div class="e4item">21</div>
+        <div class="e4item">22</div>
+        <div class="e4item">23</div>
+        <div class="e4item">24</div>
+    </div>
+    <hr>
+    <div class="e5container">
+        <div class="e5item">1</div>
+        <div class="e5item">2</div>
+        <div class="e5item">3</div>
+        <div class="e5item">4</div>
+        <div class="e5item">5</div>
+        <div class="e5item">6</div>
+        <div class="e5item">7</div>
+        <div class="e5item">8</div>
+        <div class="e5item">9</div>
+        <div class="e5item">10</div>
+        <div class="e5item">11</div>
+        <div class="e5item">12</div>
+        <div class="e5item">13</div>
+        <div class="e5item">14</div>
+        <div class="e5item">15</div>
+        <div class="e5item">16</div>
+        <div class="e5item">17</div>
+        <div class="e5item">18</div>
+        <div class="e5item">19</div>
+        <div class="e5item">20</div>
+        <div class="e5item">21</div>
+        <div class="e5item">22</div>
+        <div class="e5item">23</div>
+        <div class="e5item">24</div>
+    </div>
+    <hr>
+    <div class="e6container">
+        <div class="e6item">1</div>
+        <div class="e6item">2</div>
+        <div class="e6item">3</div>
+        <div class="e6item">4</div>
+        <div class="e6item">5</div>
+        <div class="e6item">6</div>
+        <div class="e6item">7</div>
+        <div class="e6item">8</div>
+        <div class="e6item">9</div>
+        <div class="e6item">10</div>
+        <div class="e6item">11</div>
+        <div class="e6item">12</div>
+        <div class="e6item">13</div>
+        <div class="e6item">14</div>
+        <div class="e6item">15</div>
+        <div class="e6item">16</div>
+        <div class="e6item">17</div>
+        <div class="e6item">18</div>
+        <div class="e6item">19</div>
+        <div class="e6item">20</div>
+        <div class="e6item">21</div>
+        <div class="e6item">22</div>
+        <div class="e6item">23</div>
+        <div class="e6item">24</div>
+    </div>
+    <blockquote>
+        <em>Es el algoritmo que utiliza CSS rid para poner en su lugar los elementos en el grid y puede ser la cuçauso del la mayoria de los errores que grid al no entender como se deforman los </em>
+    <ul>
+        <li>grid-auto-flow</li>
+        determina el sentido del grid, el valor por defecto es row, el sentido en el que se acomodan los items <br><br>
+        si el numero de columas esta definido y hay mas items que posiciones posibles esto se colocan segun el flow de grid y ocupan el espacio de su contenido
+        <li>grid-auto-columns</li>
+        cada que se creen nuevas columnas por el contenidon no entra en la grilla 
+        <li>grid-auto-rows</li>
+        definir un espacio de columna que va a utilizar las filas ficticias
+        <br><br>
+        Los huecos se crean por el flow, que hace que los elementos busquen una secuencia de acuerdo a como se comporta su antecesor, es decir que por ejemplo si el flow esta en rows y el 9 se expande dos columnas el dies va a seguir en la misma fila si no se ocupa todo el espacio.
+        <li>grid-auto-flow: rows|columns <code>dense</code></li>
+        Elimina los huecos, busca un hueco en donde poder entrar
+    </ul>
+
+    </blockquote>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+/*hace referencia a la etiqueta del estilo root*/
+html{
+    /*Esta setiacion donde 1rem=10px*/
+    font-size: 62.5%;
+}
+p{
+    font-size: 1.6rem;
+}
+main div{
+    font-size: 2rem;
+}

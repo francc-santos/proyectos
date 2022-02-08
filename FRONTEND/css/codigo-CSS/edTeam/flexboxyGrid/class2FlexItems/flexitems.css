@@ -1,0 +1,128 @@
+#e1{
+    display:flex;
+    height: 200px;
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+}
+#e1::after{
+    flex: 1;
+    content: "";
+    display: block;
+    height: 5px;
+    background: linear-gradient(toright,red, green);
+    margin-right: .5em;
+}
+#e1::before{
+    flex: 1;
+    content: "";
+    display: block;
+    height: 5px;
+    background: linear-gradient(toleft,red, green);
+    margin-right: .5em;
+}
+
+#e2{
+    display: flex;
+    font-size: 3em;
+    background: yellow;
+}
+
+.e2Item{
+    background: pink;
+    flex-grow: 10;
+}
+.e2Item:nth-child(even){
+    background:purple;
+}
+.e2Item:nth-child(3){
+    flex-grow: 3;
+    /* CANTIDAD DE FLEX GROW CALCULADA POR EL NAVEGADOR 
+        10
+        10
+        3
+        10
+        10
+        10
+        10
+        10
+        10
+        10
+        = 93 
+    FACTROR DE CRECIMIENTO 
+        FC = ESPACIO DISPONIBLE / 93
+
+    TEniendo el factor de crecimiento, el navegador lo multiplica por el valor de flex-grow en cada caso y lo suma 
+        dimencion de crecimiento * fc 
+    */
+}
+
+#e3{
+    display: flex;
+    font-size: 3em;
+}
+
+.e3Item{
+    background-color: crimson;
+    width: 300px;
+    flex-shrink: 4;
+}
+
+.e3Item:nth-child(even){
+    background-color: darkblue;
+}
+
+.e3Item:nth-child(3){
+    flex-shrink: 5;
+    background-color: darkkhaki;
+}
+
+#e4{
+    display: flex;
+    font-size: 2em;
+    background-color: yellow;
+}
+
+.e4Item{
+    background-color: violet;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.e4Item:nth-child(even){
+    background-color: lightcoral;
+}
+
+#e5{
+    display: flex;
+    font-size: 2em;
+    background-color: yellow;
+}
+
+.e5Item{
+    background-color: violet;
+    flex: 1 1 0;
+}
+.e5Item:nth-child(even){
+    background-color: lightcoral;
+}
+
+#e6{
+    display: flex;
+    font-size: 1.2em;
+    background-color: yellow;
+    height: 200px;
+}
+.e6Item{
+    background-color: violet;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+}
+.e6Item:nth-child(3){
+    background-color: rgb(110, 57, 57);
+    order: -1;
+}
+.e6Item:first-child{
+    background-color: darkgreen;
+    order: -2;
+}

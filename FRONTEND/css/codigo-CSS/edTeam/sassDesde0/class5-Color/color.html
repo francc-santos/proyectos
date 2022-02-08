@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color en Sass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body>
+    <h1 id="indice">Color en Sass</h1>
+    <ul>
+        <a href="#cmkyyRgb"><li>Modos de color CMYK y RGB</li></a>
+        <a href="#hsl"><li>Color Hsl</li></a>
+        <a href="#hexadecimal"><li>Notacion hexadecimal y circulo cromatico</li></a>
+        <a href="#funciones"><li>Funciones de color Sass</li></a>
+    </ul>
+    <h2 id="cmkyyRgb">Modos de color CMYK y RGB</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    <ul>
+        <li>Modo de color sustractivo</li>
+        El modo suctractivos se llama asi porque a medida que se va añadiendo se le quita luz <br>
+        Es del modo de uso de los medios impresos.
+        <li>Modo de color aditivo</li>
+        Mientras que en el modo aditivo se le añade luz entremas color se le ponga y este es el que nos interesa ya que es el estandar de los pantallas electronicas
+    </ul>
+    Ya dentro del modo aditivo 
+    <ul>
+        <li>rgb</li>
+        Los tonos que podemos alcanzar combinado red, green , blue son 255,255,255 =2⁸*2⁸*2⁸=  16Milones de posibles colores que es lo mismo que profundidad de color de 24bits <br>
+        <code>rgb(red,green, blue)</code>, puede que el calculo de una darknes, seria mas complicado
+    </ul>
+    </blockquote>
+
+    <h2 id="hsl">Color HSl</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    <ul>
+        <li>hue</li>
+        Tono del color que va desde 0 a 360º , empieza desde le rojo en 0 y 360º , azul en 90º, 
+        <li>saturation</li>
+        intensidad del color, que va desde el gris hasta el color con buena instensidad, osea que un valor de 100 en este parametro deberia de regresar el color  
+        <li>ligthness</li>
+        la cantidad de luz , que en valor de 100 es blanco
+        , en valor de 0 es negro y en 50 es el color real.
+    </ul>
+    </blockquote>
+
+    <h2 id="hexadecimal">Notacion Hexadecimal y circulo cromatico</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        La notacion hexadecimal sigue siendo lo mismo que <code>rgb</code>, solo que la combinacion se da en con dos valores de 16 que al multiplicarlos dan los valores 256 valores de colores posibles, en caso de que se repitan estos dos valores se puede omitir uno. <br><br>
+        <code>#rrggbb</code>
+        <br><br>
+        Para el uso del circulo cromatico 
+        <ul>
+            <li>0y 360º red</li>
+            <li>60º yellow</li>
+            <li>120º verde</li>
+            <li>180º cyan</li>
+            <li>240º azul</li>
+            <li>270º magenta</li>
+        </ul>
+    </blockquote>
+
+    <h2 id="funciones">Funciones de color Sass</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Funciones de color con RGB
+        <ul>
+            <li>red($color)</li>
+            <li>green($color)</li>
+            <li>blue($color)</li>
+        </ul>
+        -> Todas devulven la cantidad de su clor indicado que eçse encuentra enun color pasado como argumento <br><br>
+        Funciones de HSl
+        <ul>
+            <li>hue($color);</li>
+            <li>saturation($color);</li>
+            <li>ligthness($color);</li>
+            <li>darken($color,cantidad)</li>
+            <li>ligthen($color,cantidad)</li>
+            <li>saturate($color,cantidad)</li>
+            <li>dsesasurate($color,cantidad)</li>
+            <li>ajust-hue($color,cantidad): la</li>
+            cantidad que resive es la cantidad que va a rotar desde el 0º
+        </ul>
+    </blockquote>
+
+
+
+</body>
+</html>

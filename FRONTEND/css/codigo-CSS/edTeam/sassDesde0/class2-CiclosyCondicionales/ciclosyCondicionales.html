@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ciclos y Condicionales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <h1 id="indice">Ciclos y condicionales</h1>
+    <ul>
+        <a href="#estructura"><li>Estructura de un proyecto sass</li></a>
+        <a href="#extend"><li>@extends</li></a>
+        <a href="#condicionales"><li>Condicionales</li></a>
+        <a href="#for"><li>Ciclo @for</li></a>
+        <a href="#each"><li>Ciclo @each</li></a>
+        <a href="#ejerciciosCiclos"><li>Ejercicios con ciclos</li></a>
+    </ul>
+
+    <h2 id="estructura">Estructura de un proyecto Sass</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    <ul>
+        <li>Crear un carpeta Css</li>
+        <li>Crear un carpeta Scss</li>
+        <li>html a nivel de la raiz</li>
+        <li>al nivel de Scss crear carpetas</li>
+        componentes, configuacion, moduls, tipography, hacks, etc
+    </ul>
+    </blockquote>
+
+    <h2 id="extend">@extend</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Nos permite crear placeholder(su usa para gurdar bloques de estilos que luego se utilizaran) y extenderlos en selectores.
+        <br><br>
+        Pude ser usado para definir las caracteristicas en comun de difernetes componentes etiquetas, o class y por si fuera poco tambien podemos exender directamente desde una class. <br>
+        <em>NO extender etiquetas hijas, porque es se extiende como si la nueva class fuera hijio es mejor incluso solo usar el placeholder</em>
+    <pre>
+    <code>
+        /* Uso de @extend */
+        %button{
+            display: inline-block;
+            margin: 1em 0;
+            padding: .5em 1.5em
+        }
+
+        /* Se llama de esa forma */
+        .button{
+            @extend %button
+        }
+        .button--alert{
+            @extend %button;
+            background: red;
+            color: #fff;
+        }
+    </code>
+    </pre>
+    Es de lo mas comun que ua accion de hiver y active tengan el mismo estilo
+    </blockquote>
+
+    <h2 id="condicionales">Condicionales</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Como en cualquier lenguaje de programacion podemos evaluar une condicion y si es que esta se cumple o no se realizara una accion dependiendo el caso.
+        <br><br>
+        Podemos evaluar condicionales aritmeticas, logias (== != > )
+    <pre>
+    <code>
+        /* Uso de condicionales */
+        $dev: false !default;
+        $dev: true;
+        @if $dev{
+            *{
+                outline: 1px solid red;
+            }
+        }
+        @if 5>3{
+            content: '5 es mayor que 3';
+        }@else if 3>5{
+            content: '3 es mayor que 5 entonces nunca se genera';
+        }@else{
+            content: 'ninguna de las condiciones se cumplio';
+        }
+
+        // - == igualdad
+        // - != diferencia
+        // - ! negacion
+        // - and para usar combinaciones de condicionales
+        // - or disyuncion de condicionales , se puede usar o no () entre las condiciones.
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="for">Ciclo @for</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>    
+        Ciclos o iteraciones , sirven para repetir muchas veces una accion.
+    <pre>
+    <code> 
+        /* Uso de iteraciones|ciclos */
+
+        @for $i from 0 to 10 {
+            @if $i % 2 == 0{
+                .column-#{$i}{
+                    width: $i * 1%;
+                }
+            }
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="each">Ciclo @each</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Realizar una accion repetidamente.
+    <pre>
+    <code>
+        /* Uso del ciclo each */
+        $colors: red green blue;
+        @each $color in colors {
+            .button-#{$color}{
+                background: #{$color};
+            }
+        }
+        $colorsmaps : ( 
+            primary: red,
+            secondary: green,
+            terceary: blue
+        );
+        @each $colormapK, $colormapV in $colorsmaps {
+            .boton-#{$colormapK}{
+                color : $colormapV;
+            }
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="ejerciciosCiclos">Ejercicios con ciclos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Spectro con ayuda de cliclos en Sass
+    <pre>
+    <code>
+        $specter: 0;
+        @for $i from 1 to 360{
+            body{
+                $specter : append($specter , $hsl($i,100,50) ,comma )
+            }
+        }
+
+        body{
+            background: linear-gradient($specter);
+            min-height: 100vh;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+
+</body>
+</html>

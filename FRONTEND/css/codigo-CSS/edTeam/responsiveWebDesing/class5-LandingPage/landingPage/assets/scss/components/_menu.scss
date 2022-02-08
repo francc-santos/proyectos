@@ -1,0 +1,60 @@
+.main-menu{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    /* display: flex; esto se uso en desktop */
+    @include mqFrom(l){
+        display: flex;
+    }
+
+}
+.main-menu__item{
+    padding: 1rem;
+}
+.main-menu__link{
+    color: $border-color;
+    margin-left: 1rem;
+    @include mqFrom(l){
+        color: $text-color;
+    }
+}
+
+.main-nav{
+    /* display: none; Se uso en desktop */
+    position: fixed;
+    height: calc(100vh - #{$header-height});
+    width: 80vw;
+    background: $text-color;
+    top: $header-height;
+    right: -80vw; /* Para poder sacarlo de la pantalla */
+    transition: right .3s;
+    padding-top: 1rem;
+    /* Estilos para corregir la posicion del hamburger en mobile */
+    z-index: var(--z-fixed);
+
+
+    @include mqFrom(l){
+        position: static; /* anula el top y rigth la posicion estatica */
+        background: transparent;
+        padding-top: 0;
+        height: auto;
+        width: auto;
+    }
+    &.show{
+        right: 0;
+    }
+}
+
+.main-menu-toogle__hamburger{
+    $color-hamburger: black;
+    width: 2.2rem;
+    height: 1.6rem;
+    /* Division de del elemento en 5 barras  */
+    background: linear-gradient($color-hamburger  20%, transparent 20%, transparent 40%, $color-hamburger 40%, $color-hamburger 60% transparent 60%, transparent 80%, $color-hamburger 80%);
+    cursor: pointer;/* para que cuando este hover se cambie el cursor a la manita */
+
+    @include mqFrom(l){
+        display: none;
+    }
+}

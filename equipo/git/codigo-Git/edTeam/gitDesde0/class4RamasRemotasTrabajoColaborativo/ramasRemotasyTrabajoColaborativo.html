@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramas remotas y trabajo colaborativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <h1 id="indice">Ramas remotas y trabajo colaborativo</h1>
+
+    <ul>
+        <a href="#conflictos"><li>Resolviendo conflictos</li></a>
+        <a href="#ignore"><li>Ignorando archivos</li></a>
+        <a href="#ramasRemotas"><li>Manejo de ramas remotas</li></a>
+        <a href="#subiendoCambios"><li>Subiendo nuestros cambios</li></a>
+        <a href="#crearRamasRemotas"><li>Crear ramas remotas</li></a>
+    </ul>
+
+    <h2 id="conflictos">Resolviendo conflictos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Al mezclar dos ramas donde se haya editado los mismos archivos. <br><br>
+        Lo que hace git es marcar un fallo de contenido y mandar al archivo unas lineas de texto donde se indica el cotenido de las difernetes ramas , y para <strong>solucionarlo</strong> podemos editarlo direcot en el etitor de codigo o podemos cancelar el merge 
+    </blockquote>
+    <blockquote>
+    <pre>
+    <code>
+        git merge --abort 
+        <em>abortar la union de ramas aun asi se hay
+        solucionado el conflicto</em>
+
+        git add archivo_mergeado
+        <em>despues de solucionado el conflicto podemos 
+        marcarlo ponerlo denueveo en el area de preparacion,
+        para despues poder hacer un commit en la rama donde 
+        se mergeo</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="ignore">Ignorando archivos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Podemos ignorar archivos que ni sea como tal parte tan importante de proyecto.
+    </blockquote>
+    <blockquote>
+        En la raiz de nuestro proyecto debemos de crear un archivo de <strong>git-ignore = .gitignore</strong>, dentro de este con solo poner el nombre del archivo o carpeta podemos ignorar los elementos, podemos usar la notacion de UNIX con los puntos y to.
+    <pre>
+    <code>
+        requisitos.txt
+        <em>En etse caso el archivo qucon el nombre 
+        <code>requisitos.txt</code> va a ser ignorado</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="ramasRemotas">Manejo de ramas remotas</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Git funciona sin necesidad de internet hasta este punto. Aqui es donde vamos a poner nuestro repo dentro de la nueve de git. 
+    </blockquote>
+    <blockquote>
+    <ul>
+        <li>create repository</li>
+        <ul>
+            <li>nombre</li>
+            <li>descripcion</li>
+            <li>iniziar el repositorio con un archivo readme (si | no)</li>
+        </ul>
+    </ul>
+        Para poder descargar el proyecto hay dos formas
+        <ul>
+            <li>https</li>
+            <li>ssh</li>
+            necesitamos darle una llave a git para autorizar a mi pc para descargar el repo 
+            <ul>
+                <li>vamos settings del perfil</li>
+                <li>ssh an gpg keys </li>
+                donde las llaves que tenemos es la ciontidad de coputadoras que hemos autorizado al info
+                <li>en terminal</li>
+            <pre>
+            <code>
+                ssh-keygen -t rsa
+            </code>
+            </pre>
+            </ul>
+                <li>cunado salga el grafico es que ya se genero la llave</li>
+                <li>podemso ir a la carpeta .ssh y ver lo de <code>id_rsa.pub y id_rsa</code></li>
+                <li>en github podemos agregar una nueva llave ssh, pegando el contenido del <code>id_rsa.pub</code></li>
+                <li>añadiendo la llave podemos descargar desde git</li>
+        </ul>
+        Cuando se ha descaragado genera una carpeta 
+    <pre>
+    <code>
+        git clone url_del_repo | clave_ssh
+        <em>para poder cloanar el repositorio que se quiera ,
+        en caso de que sea publico se descar solillo , en el 
+        caso de ser privado </em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <blockquote>
+        En caso de que el repositorio local ya se encuentre generado y con archivos y sus respectivos commits lo que se debe de hacer es:
+
+        <ul>
+            <li>Entrar a github y crear el repositorio</li>
+            <li>Anadir un <strong>origin</strong> al repositorio con</li>
+        <pre>
+        <code>
+            git remote add origin https://github.com/NOMBRE_USUARIO/NOMBRE_PROYECTO.git
+        </code>
+        </pre>
+        </ul>
+    </blockquote>
+
+    <h2 id="subiendoCambios">Subiendo nuestros cambios</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Una ves que ya se tenga la llave podemos ir al proyecto, <strong>creo que la chula es crear en blanco el proyecto en github y depues clonarlo para hacer el push</strong>
+    </blockquote>
+    <blockquote>
+        Cuando clonas un proyecto desde github se genera una rama <code>origin</code>, que es como el master de ahi
+    <pre>
+    <code>
+        git push origin master
+        <em>se sube el repo a orige desde master </em>
+
+        git remote -v
+        <em>vemos desde donde y a donde se envia la info </em>
+    </code>
+    </pre>
+    En el log podemos ver que el head apunta a <strong>master</strong> y a <strong>origin/master</strong>, es decir git ya sabe en este momento que este conetenido pertenece a la rama local y esta está conectada con origin del remoto <br><br>
+
+    Al hacer un nuevo commit tambien se debe de empujar desde master hasta origin, no se si se pude cambiar el head a origin master. <br><br>
+
+    En el caso de que en la nueve haya un cambio podemos hacer 
+
+    <pre>
+    <code>
+        git fetch origin
+        <em>trae los cambios de origin pero en la rama de 
+        combinacion de <em>origin/master</em></em>
+
+        git <strong>pull</strong> origin master
+        <em>trae lo de origin master </em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="crearRamasRemotas">Crear ramas remotas</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        En coso de que se necesite una rama de prueba en la nuve podemos subirla con un push , y en github podemos ver las ramas existentes.
+    </blockquote>
+    <blockquote>
+    <pre>
+    <code>
+        git push origin test
+        <em>subiendo la rama test a la nube, como parte de 
+        origin</em>
+    </code>
+    </pre>
+    </blockquote>
+
+</body>
+</html>

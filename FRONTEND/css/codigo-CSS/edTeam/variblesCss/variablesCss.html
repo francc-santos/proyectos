@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de varibles de Css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;600&display=swap" rel="stylesheet">
+    <!-- Link de hojas de estilo -->
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="varaiblesCss.css">
+</head>
+<body>
+    
+    <h1 id="indice">Variables de Css</h1>
+    <ul>
+        <a href="#queson"><li>¿Qué son las varibles de Css?</li></a>
+        <a href="#scope"><li>Scope</li></a>
+        <a href="#cssvssass"><li>Variables CSS vs varibles de SASS</li></a>
+        <a href="#cssenrwd"><li>Variables CSS en responsive Web Desing</li></a>
+        <a href="#manipularconJs"><li>Obtener y manipular variables de Css con Js</li></a>
+        <a href="#indicadoresdeScroll"><li>Ejercicio: Indicador de scroll</li></a>
+        <a href="#selectorcoloresRgb"><li>Ejercicio: Selector de color RGB</li></a>
+        <a href="#variacionesdeComponentes"><li>Variables de Css en variaciones de componentes </li></a>
+        <a href="#temas"><li>Crear temas con variables de Css</li></a>
+    </ul>
+
+    <h2 id="queson">¿Qué son las variables de Css?</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Espacio de memoria que almacena un valor, claramente pude ser recuperado, se encuentran como <em>custom properties</em>
+
+        <br><br>
+        Para declararla de manera global ese debe de poner en elemento mas grande o que se encuentra mas arriba , como por ejemplo en <code>html</code> o mejor en la pseudoclase <code>:root</code> que tiene una mayor especificidad.
+    <pre>
+    <code>
+        :root{ /* selector */
+            --color-h1/* Propiedad */: red /* valor*/; /* regla */
+            --box-shadow: 2px 2px 5px #000;
+        }
+        
+        h1{
+            color: var(--color-h1,purple);
+            box-shadow: var(--box-shadow);
+        }
+    </code>
+    </pre>
+        Las vaiables son key-sensitive y ademas con una coma podemos establecer un <strong>fault-back</strong> que es un valor que se tomara en caso de que la variable no haya sido encontrada que ademas puede ser otra variable.
+    </blockquote>
+
+    <h2 id="scope">Scope</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <article>
+        <p>Hola mundo de un color</p>
+        <section>
+            <p>adios mundo de un color</p>
+        </section>
+    </article>
+    <p>hola mundo desde otro color</p>
+    <blockquote>
+        Es el hambito, el espacio o el lugar donde una variable existe y desde este puede ser recuperado su valor, fuera de este hambio la variable no existe.
+        <br><br>
+        En este caso el scope depende mucho del DOM, y tienen herencia desciendo el valor desde donde se declaro y se nota en el eljemplo , ya que gracias a la herencia el color de los parrafos va cambiando.
+    <pre>
+    <code>
+        p{
+            color: var(--color);
+        }
+        body{
+            --color: purple;
+        }   
+        article{
+            --color:red;
+        }
+        section{
+            --color:green;
+        }        
+    </code>
+    </pre>
+        Podemos llamar a las propiedades custom desde otros archivos que estn linquedos el mismo html , asi solo llamando las variables de una , inclusive se pueden llamar desde el mismo archivo Html en las etiquetas , redefinirlas , etc, etc
+    </blockquote>
+
+    <h2 id="cssvssass">Variables Css vs variables Sass</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Existen grasndes ventajas tanto en las variables de CSS como las de preprocesadores como SASs, recomedado usar las dos, conociendo las ventajas que nos da el uso de una como el de otras.  <br><br>
+        <a href="https://www.sassmeister.com/">Pagina para probar codigo Sass</a>
+        <br><br>
+    <ul>
+        <li>Las variables de SASs se puden declarar sin la ayuda de un selector y las de CSs si</li>
+        <code>$color: red;</code> <br>
+        <pre>
+        <code>
+            body{
+                background: $color;
+            }
+        </code>
+        </pre>
+        <li>Las variables Sass tienen scope de bloque y las de CSS de DOM </li>
+
+        <li>Operaciones (aritmeticas vs calc())</li>
+        <pre>
+        <code>
+            $En Sass
+            $size: 3em;
+            div{
+                height: ($size * 2) + 5em
+            }
+        </code>
+        <code>
+            --En CSS
+            :root{
+                --size: 3em;
+            }
+            div{
+                height: calc(var(--size)*2+5em)
+            }
+        Le decimos al navegador que lo calcule el.
+        </code>
+        </pre>
+        <li>En Sass podemos existen ciertas funciones para los valores de las propiedades</li>
+        <pre>
+        <code>
+            $En Sass
+            div{
+                color: darken($color,20)
+            }
+        </code>
+        </pre>
+        <li>Las variables Sass pueden ser interpolodas y las de CSs nop</li>
+        Podemos costruir un selector, propiedades 
+        <pre>
+        <code>
+            $red: red;
+            $green: green;
+            $blue: blue;
+
+            @each $color in $red, $green, $blue{
+                .#{$color}{
+                    color: $color;
+                }
+            }
+        </code>
+        </pre>
+        <li>Sass tiene problema al redefinir , mientras que las de Css simon que si</li>
+        <pre>
+        <code>
+            --En Css, no se puede hacer en SAss
+            :root{
+                --color: red;
+            }
+            div{
+                color: var(--color);
+            }
+            div{
+                --color: green;
+            }
+        </code>
+        </pre>
+        <li>Las variables Sass no existen despues de la compilacion , meientras que las de CSS simon que existen en el DOM</li>
+    </ul>
+    </blockquote>
+
+    <h2 id="cssenrwd">Variables Css en responsive web Desing</h2>
+    <p><a href="#indice">regreso</a></p>
+    <div class="e3">
+        <h1>Bienvenidos</h1>
+        <div class="row">
+            <div class="column"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem reiciendis fugit id similique nostrum dolorum ad mollitia iusto eveniet deserunt minus laudantium ipsam, sequi nihil voluptas illo atque minima iure?</p></div>
+            <div class="column"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem reiciendis fugit id similique nostrum dolorum ad mollitia iusto eveniet deserunt minus laudantium ipsam, sequi nihil voluptas illo atque minima iure?</p></div>
+            <div class="column"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem reiciendis fugit id similique nostrum dolorum ad mollitia iusto eveniet deserunt minus laudantium ipsam, sequi nihil voluptas illo atque minima iure?</p></div>
+            <div class="column"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem reiciendis fugit id similique nostrum dolorum ad mollitia iusto eveniet deserunt minus laudantium ipsam, sequi nihil voluptas illo atque minima iure?</p></div>
+        </div>
+    </div>
+    <blockquote>
+        La manera de aprovechas estas variables en el responsive web desing, es con la redefinicion, cambiando nuestros paradigmas.
+        <br></br>
+
+    </blockquote>
+
+    <h2 id="manipularconJs">Obtener y manipular varibles de Css con js</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e4">
+        <h2 class="e4">Hola mundo</h2>
+        <article class="e4">
+            <p class="e4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas eaque, dolorum, sequi assumenda aperiam eius quos ut eveniet sed provident consequatur libero. Magnam, reiciendis accusamus quas modi soluta esse illo.</p>
+        </article>
+    </div>
+    <blockquote>
+        CSSOM, es el modelos de objetos de CSs, que es parecido DOM que es para HTML, 
+    </blockquote>
+
+    <h2 id="indicadoresdeScroll">Ejercicio: Indicadores de scroll</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e5div">
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+        <p class="e5scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, accusantium numquam at laudantium eos, eaque optio provident culpa quisquam illum ut, ea fugit esse sed quod. Libero mollitia aliquid nostrum.</p>
+    </div>
+    
+    <blockquote>
+
+    </blockquote>
+
+    <h2 id="selectorcoloresRgb">Ejercicio: selectores de color RGB</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e6rgb">
+        <label>Red<input type="range" value="0" step="1" max="255" id="red"></label>
+        <label>Green<input type="range" value="0" step="1" max="255" id="green"></label>
+        <label>Blue<input type="range" value="0" step="1" max="255" id="blue"></label>
+    </div>
+    <blockquote>
+
+    </blockquote>
+
+    <h2 id="variacionesdeComponentes">Variables Css en variaciones de componentes</h2>
+    <p><a href="#indice">regreso</a></p>
+    <div class="e7variacioncomponentes
+    ">
+        <div class="button">Boton</div>
+        <div class="button--alert">Boton</div>
+        <div class="button--cta">Boton</div>
+    </div>
+    <blockquote>
+        como sabemos los compoenentes son un conjunto de codigo que define el comportamiento y/o el aspecto de una herramienta.
+        <br><br>
+        Podemos realizar una variacion en este caso del aspecto con ayuda de las variables css.
+    </blockquote>
+
+    <h2 id="temas">Crear temas con variables de Css</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+
+    </blockquote>
+
+    <script src="variablesCss.js"></script>
+</body>
+</html>

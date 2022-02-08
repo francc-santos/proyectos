@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="gridItems.css">
+</head>
+<body>
+    <h1 id="indice">Grid items</h1>
+    <ul>
+        <a href="#flexiblesFr"><li>tracks flexibles con fr</li></a>
+        <a href="#flexiblesMinContent"><li>tracks flexibles con min-content, max-content y fit-content()</li></a>
+        <a href="#flexiblesMinMax"><li>tracks flexibles con minmax(), auto-fit y auto-fill</li></a>
+        <a href="#utilizarAreas"><li>utilizar areas</li></a>
+        <a href="#galeriaFotos"><li>Galeria de fotos con css grid</li></a>
+    </ul>
+
+    <h2 id="flexiblesFr">tracks flexibles con fr</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1Container">
+        <div class="e1Item">Item 1</div>
+        <div class="e1Item">Item 2</div>
+        <div class="e1Item">Item 3</div>
+        <div class="e1Item">Item 4</div>
+        <div class="e1Item">Item 5</div>
+        <div class="e1Item">Item 6</div>
+        <div class="e1Item">Item 7</div>
+        <div class="e1Item">Item 8</div>
+        <div class="e1Item">Item 9</div>
+        <div class="e1Item">Item 10</div>
+    </div>
+
+    <div class="e1Container diferent">
+        <div class="e1Item diferent">1</div>
+        <div class="e1Item diferent">Item 2</div>
+        <div class="e1Item diferent">Item 3</div>
+        <div class="e1Item diferent"> 4</div>
+        <div class="e1Item diferent">Item 5</div>
+        <div class="e1Item diferent">Item 6</div>
+        <div class="e1Item diferent">7</div>
+        <div class="e1Item diferent">Item 8</div>
+        <div class="e1Item diferent">Item 9</div>
+        <div class="e1Item diferent">Item 10</div>
+    </div>
+    <blockquote>
+        Los tracks pueden crecer, diminuir, tener tamaño variable, los tracks pueden ser flexibles y esto se da con la ayuda de la unidad <code>fr</code>, pero esta solo se ajusta hasta lo minimo que pude ocupar el contenido y si se respeta este en una pantalla mas pequeña es cuando se genera el scroll horizontal feo, 
+        <br>
+        Como en el segundo ejemplo con las mismas porpiedades pero diferente contenido se coportade diferente manera
+
+    <pre>
+    <code>
+        div class="e1Container">
+            div class="e1Item">Item 1/div>
+            div class="e1Item">Item 2/div>
+            div class="e1Item">Item 3/div>
+            div class="e1Item">Item 4/div>
+            div class="e1Item">Item 5/div>
+            div class="e1Item">Item 6/div>
+            div class="e1Item">Item 7/div>
+            div class="e1Item">Item 8/div>
+            div class="e1Item">Item 9/div>
+            div class="e1Item">Item 10/div>
+        /div>
+    
+        div class="e1Container diferent">
+            div class="e1Item diferent">1/div>
+            div class="e1Item diferent">Item 2/div>
+            div class="e1Item diferent">Item 3/div>
+            div class="e1Item diferent"> 4/div>
+            div class="e1Item diferent">Item 5/div>
+            div class="e1Item diferent">Item 6/div>
+            div class="e1Item diferent">7/div>
+            div class="e1Item diferent">Item 8/div>
+            div class="e1Item diferent">Item 9/div>
+            div class="e1Item diferent">Item 10/div>
+        /div>
+
+        .e1Container{
+            background-color: blueviolet;
+            font-size: 2em;
+            padding: 1em;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-gap: 1em;
+            margin: 1em;
+        }
+        .e1Item{
+            background-color: darkmagenta;
+        }
+        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="flexiblesMinContent">tracks flexibles con min-content, max-content y fit-content()</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e2Container">
+        <div class="e2Item">Bienvenidos</div>
+        <div class="e2Item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod esse commodi reprehenderit earum laboriosam, aperiam ullam aspernatur facere recusandae dignissimos! Ipsa, nam earum! Praesentium eius non, labore dignissimos hic natus!</div>
+        <div class="e2Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt=""></div>
+    </div>
+    <blockquote>
+        Permite que tanto las columnas como las filas se adabtena al minimo del contendido = lo minimo sin que nada se desvorde, el maximo de contenido o bien al el minimo contenido hasta que llegue un contenido que llene un maximo indicado con la funcion fit-content()
+
+    <pre>
+    <code>
+        div class="e2Container">
+            div class="e2Item">Bienvenidos/div>
+            div class="e2Item">Lorem ipsum dolor sit amet/div>
+            div class="e2Item">img src="https://www.xtrafondos.com/
+                wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron">/div>
+        /div>
+
+        .e2Container{
+            background-color: darkmagenta;
+            padding: 1em;
+            display: grid;
+            gap: 1em;
+            /* grid-template-columns: min-content min-content; */
+            /* grid-template-columns: min-content max-content; */
+            grid-template-columns: min-content fit-content(200px)
+        }
+        .e2Item{
+            background-color: darkviolet;
+        }
+        
+        .e2Item img{
+            width: 500px;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="flexiblesMinMax">tracks flexibles con minmax(), auto-fit y auto-fill</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e3Container">
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+        <div class="e3Item"><img src="https://www.xtrafondos.com/wallpapers/resized/dove-cameron-recostada-8688.jpg?s=large" alt="dove cameron"></div>
+    </div>
+    <blockquote>
+        La funcion minmax(), sirve para poner un maximo y un minimo pero en este caso puede que se desvorde ya que no se respeta el contenido <br><br>
+        En el caso de auto-fill y auto-fit, lo que decimos es crea tanatas columnas o filas como puedas de este tamaño
+
+    <pre>
+    <code>
+        .e3Container{
+            background-color: darkmagenta;
+            padding: 1em;
+            display: grid;
+            gap: 1em;
+            /* grid-template-columns: min-content min-content; */
+            /* grid-template-columns: min-content max-content; */
+            grid-template-columns: repeat(auto-fill, minmax(200px,1fr))
+        }
+        .e2Item{
+            background-color: darkviolet;
+        }
+        
+        .e3Item img{
+            width: 200px;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="utilizarAreas">utilizar areas</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e4Body">
+        <header class="e4Item">header</header>
+        <aside class="e4Item">aside</aside>
+        <main class="e4Item">main</main>
+        <footer class="e4Item">footer</footer>
+    </div>
+    <blockquote>
+        Cualqiuer espacio rectancular dividido por lineas de css grid es una area, estas se puden definir con la propiedad <code>grid-template-areas</code>
+
+    <pre>
+    <code>
+        .e4Body{
+            font-size: 2em;
+            min-height: 500px;
+            display: grid;
+            gap: 1em;
+        }
+        .e4Item{
+            background-color: blueviolet;
+        }
+        @media screen and (min-width: 1024px) {
+            .e4Body{
+                grid-template-areas: 'header header'
+                                     'aside main'
+                                     'footer footer';
+                grid-template-rows: 2em 1fr 2em;
+                grid-template-columns: 1fr 3fr;
+            
+            }
+        
+            header{
+                grid-area: header;
+            }
+            aside{
+                grid-area: aside;
+            }
+            main{
+                grid-area: main;
+            }
+            footer{
+                grid-area: footer;
+            }
+        }
+        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="galeriaFotos">Galeria de fotos con css grid</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e5gallery">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/anya-taylor-joy-photoshoot-2021-7815.jpg?s=large" alt="">
+    </div>
+    <blockquote>
+
+    </blockquote>
+
+</body>
+</html>

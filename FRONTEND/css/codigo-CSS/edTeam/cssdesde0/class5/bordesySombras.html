@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bordes y sombras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bordesySombras.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Bordes y sombras</h1>
+    <ul>
+        <a href="#border"><li class="">Border</li></a>
+        <a href="#border-r"><li class="">Border Radius</li></a>
+        <a href="#outline"><li class="">Outline</li></a>
+        <a href="#box-shadow"><li class="">Box shadow</li></a>
+    </ul>
+
+    <h2 id="border">BOrder</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="ejemplo">
+        <div class="box"></div>
+    </div>
+
+    <blockquote>
+    En el ajemplo anterior podemos dar el estilo del borde a la caja mediante, es un div con la clase box
+    <pre>
+    <code>
+        .box{
+            width: 400px;
+            height: 250px;
+            background-color: pink
+            border: 1px solid black; 
+            /* esto es llamado un shorthand de 
+            border-width
+            border-style
+            border-color */
+        }
+    </code>
+    </pre>
+
+    En caso de que no se tenga un color se toma el del elemento
+
+    <pre>
+        <code>
+        .box{
+            width: 400px;
+            height: 250px;
+            background-color: pink;
+            border-width: 4px 6px 7px 8px;
+            border-style: solid dashed dotted double;
+            border-color: black blueviolet yellow yellowgreen;
+        }
+        </code>
+    </pre>
+    UN hack de css para hcer triangulos es hacer un cuadrado con los bordes al, y un padding de 0, transparentar todos , despues con las cascada colorer el borde borde del lado que quieras que aparesca el triangulo.
+    </blockquote>
+    
+
+    <h2 id="border-r">BOrder Radius</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="ejemplo">
+        <div class="box-2"><div class="box-3"></div></div>
+    </div>
+    
+
+    <blockquote>
+    <pre>
+        <code>
+        :root{
+            --width:400px;
+            --height:250px;
+            --bg: blueviolet;
+            --br:50px;
+        }
+            
+        .box-2{
+            width: var(--width);
+            height: var(--height);
+            background-color: var(--bg);
+            border-radius: var(--br);
+        }
+        </code>
+    </pre>
+    Lo que hace el navegador es como dibujar un circulo y toma un cuarto del circulo para redondear el borde del box model
+    </blockquote>
+
+    <blockquote>
+        Si se usan porcentajes toma las medidas en este caso del padre y por eso pude que salga en algunos porcentajes como si fuera una elipse, pero su se usan medidas fisicas podemos dar igual la medida de x i y
+
+    <pre>
+        <code>
+        .box-2{
+            width: var(--width);
+            height: var(--height);
+            background-color: var(--bg);
+            border-radius: var(--br);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 5px;
+            
+            /* border radius : x y */
+            
+            /* un shorthand apara poder hacer todo de una pude ser 
+            border-radius: xxxx / yyyy*/
+            border-radius: 100px 50px 80px 40px / 200px 50px 90px 80px;
+        }
+
+        .box-3{
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            border-radius: 50%;
+        }
+        </code>
+    </pre>
+    </blockquote>
+
+
+    <h2 id="outline">Outline</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es un border que se dibuja por fuera y que no afecta en nada a la posicion, es como si le quitara espacio al margin, casi el unico uso, es para poder resaltar un error , un elemento , donde se debe de fijar el ususario, etc.
+        
+    <pre><code>
+        .box-4{
+            outline: 5px solid red;
+        }
+    </code></pre>
+    </blockquote>
+
+    <h2 id="box-shadow">BOx Shadow</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="ejemplo">
+        <div class="circle"></div>
+    </div>
+
+    <blockquote>
+    <pre>
+        <code>
+        box-shadow: h-offset v-offset blur spread color | inset;
+
+        .ejemplo .circle{
+            width: 200px;
+            height: 200px;
+            background: blueviolet;
+            box-shadow: 20px 10px ;
+        }
+        </code>
+    </pre>  
+        Lo que va des pues de pipe puede ser opcional 
+        <ul>
+            <li>h-offset</li>
+            quiere decir que tanto se va a mover en horizontal 
+            <li>v-offset</li>
+            que tanto se va a mover en vertical 
+            <li>blur</li>
+            es el difuminado en <code>px</code>
+            <li>spread</li>
+            que tanto se va a moevr el difuminado
+            <li>inset</li>
+            indica que la sobra se quiere que sea dentro de la figura.
+        </ul>
+
+        por default toman el color del texto de el elemento que se tiene que tomar la sombre, se pueden crear las sombras que se quieran separando por comas y tambien a estos se le pueden dar las las propiedades del principio 
+    </blockquote>
+
+</body>
+</html>

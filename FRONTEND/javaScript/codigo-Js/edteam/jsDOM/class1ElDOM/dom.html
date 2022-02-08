@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>El DOM</title>
+</head>
+<body>
+    <h1 id="indice">El DOM</h1>
+    <ul>
+        <a href="#dom"><li>El DOM</li></a>
+        <a href="#nodos"><li>NOdos</li></a>
+        <a href="#seleccionar-n"><li>Seleccionar nodos</li></a>
+        <a href="#colecciones-n"><li>Colecciones de nodos</li></a>
+        <a href="#atributos"><li>Atributos</li></a>
+        <a href="#contenido"><li>Contenido</li></a>
+        <a href="#crear-elementos"><li>Crear elementos en el DOM</li></a>
+    </ul>
+    
+    <h2 id="dom">El DOM</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Cuando hablamos de DOM, es de dibujar cosas en pantalla, lo que ve el ususrio final cuando carga una pagina.
+
+        DOM, Document objet model, de hecho todo el html es un tipo de documento, si ons fijamos hasta vemos que empieza con el DOCTYPE, es para estructurar documentos, un objeto es una una instancia de una classe, y model es la estructura particular de los oobjetos de html. paar poner al sencilla toda etiqueta de html es un objeto, desde su apertura hasta su cierre, cada objte puede tener hijos, desde el texto y las etieuetas que se encuentren anidadas dentro de otra.
+
+        Usando la consola del navegador podemos ver que los atributos del objeto documento, con:
+        <pre>
+        <code>
+            document
+            document.doctype
+            document.head
+            dcument.title
+            document.body
+            document.scripts
+            documetn.stylesheets
+            document.image[3]
+
+            document.getselection()
+        </code>
+        </pre>
+        Una interesante es obtener el texto que ha sido subrayado con:
+        <pre>
+        <code>
+            document.getselection().toString()
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="nodos">Nodos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es el nombre correcto para referirse a los elemento del DOM, recordar que el DOM no es parte de la especificacion de JavaScript, sino que es una API web que se consume con JavaScript, es similar a hablar del local storage, canvas, geolocalizacion, multimedia, no son parte tecnicamente del lenguaje en si. 
+
+        Entonces un nodo es cada etiqueta html, asi como los atributos, el texto., es como un arbol que se va ramificando, donde cada que se remfica es un nodo. LOs nodos en el navegador se pueden ver con la propiedad nodetype que todos los nodos la tienen.
+
+        <pre>
+        <code>
+            .nodetype
+            .nodeName /*Este es keysensitive usamos para verificar */
+        </code>
+        </pre>
+
+        Los nodos que generalmente nos van a interesar son <strong>element-node, text-node, coment-node</strong>
+
+        TODA etiqueta HTML es un ELEMENTO., asi que al ejecutar el nodetype, devuelve un 1 = elemento, 2= atributo, 3= texto, 8= comentario
+    </blockquote>
+
+    <h2 id="seleccionar-n">Seleccionar nodos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Hay mas formas, pero de esta manera es como casi el 99% de casos va a funcionar o va a ser la respuesta correcta.
+        <ul>
+            <li>document.getElmentById('nombre-id') | document.getElementsByTagName()</li>
+            Como su nombre lo dice es seleccionar un elemento por su id, siempre reservar los ids para js y no para css, una rason es que no se pueden reusar, de manera que cuando se quiere referenciar un objeto muy en particular es mejor usar el id., y en rediemiento es mucho mejor.
+            <pre>
+            <code>
+                const title = document.getElementById('indice')
+                title.style.color = 'darkblue'
+            </code>
+            </pre>
+            CON SELECTORES DE CSS
+            <li>document.querySelector() | element.querySelector()</li>
+            Como se ve en el titulo es que los elementos puden ser seleccionados desde lo mas alto osea el documento, o desde un elemento. 
+
+            Seleccionando el hi con selectores de css en este caso es compuesto de id
+            <pre>
+            <code>
+                const tittlee = document.querySelector('#indice')
+                title.style.background = 'darkgrenn'
+            </code>
+            </pre>
+
+            <li>document.querySelectorAll() | element.querySelectorAll()</li>
+            Como se ve en el titulo es que los elementos puden ser seleccionados desde lo mas alto osea el documento, o desde un elemento.
+
+            Aunque devuelva una solo elmento lo devuelve en una lista , en la cual podemos acceder a sus posiciones desde los <strong>([])</strong>, 
+
+            <ul class="listaSelector" id="listaId">
+                <li>ejemplo</li>
+                <li>ejemplo</li>
+                <li>ejemplo</li>
+                <li>ejemplo</li>
+                <li>remobible</li>
+                <li>ejemplo</li>
+                <li>ejemplo</li>
+            </ul>
+        </ul>
+    </blockquote>
+
+    <h2 id="colecciones-n">Coleccciones de nodos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        IMPORTANTE 
+        Cunado io uso querySelectorAll() la consola me devuelve una info extra, es decir todas las poropiedades que se pueden ver cada que se imprime en consola un valor de que se extrajo desde el DOM.
+
+        <pre>
+        <code>
+            const items = document.querySelectorAll('li'),
+            listt = document.querySelector('ul')
+
+            console.log(items); /* nodeList(#elemnetos)[li,li,...] */
+            console.log(listt); /* elementoHtml */
+        </code>
+        </pre>
+
+        nodelist = lista de nodo; cualquier tipo de nodos pueden ser desde el texto , atributos y las misma etiquetas del html, nunca devuelve un array
+        paar convertirlo:
+        <pre>
+        <code>
+            nodelist = [...document.querySelectorAll('li')]
+            o
+            nodelist = Array.from(document.querySelectorAll('li'))
+        </code>
+        </pre>
+        htmlcollection = es una lista de elementos , osea solo trae las etiquetas con todo y todo.
+    </blockquote>
+
+    <h2 id="atributos">Atributos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        SOn lo mismo que en html
+        <ul>
+            <li>getAtribute()</li>
+            sirve para obtener los atributos de un elemento.
+            <pre>
+            <code>
+                title = document.getElementById('indice')
+                console.log(title.getAttribute('id'));
+                console.log(title.getAttribute('class'));
+                console.log(title.getAttribute('value'));
+            </code>
+            </pre>
+            Puede que en caso de que no exixta lo que se pida y en el caso de agregar un stilo o algo, cuse un error y ya no se pueda ejecutar lo que resta dle programa
+            <li>setAtribute()</li>
+            sirve para poner atributos a un elemento
+            <pre>
+            <code>
+                const listta = document.querySelector('ul')
+                listta.setAttribute('id','no-ordenada')
+            </code>
+            </pre>
+            se setea un id no-ordenada a las listas no ordenadas que se encuentran ene este documento
+            <li>classList
+                selecciona los elementos por las classs y cuenta con las funciones
+                <ul>
+                    <li>.add()</li>
+                    aniadir una o mas classes
+                    <pre>
+                    <code>
+                        listta.classList.add('lista','lista-noordenada')
+                    </code>
+                    se agrega dos classes a las listas no ordenadas del docuemento
+                    </pre>
+                    <li>.remove()</li>
+                    remover una classs
+                    <li>.toggle()</li>
+                    hacer algo en caso de que tenga o no una class
+                </ul>
+            </li>
+
+            <li>id</li>
+            <li>value</li>
+            para los formularios saber que inserto el usuario
+        </ul>
+    </blockquote>
+
+    <h2 id="contenido">Contenidos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Lo que se encuentra dentro de un elemento , y lo podemos usar para escribir dentro de un elemento desde js. En caso de que se quiera escribir html y que este sea interpretado por el dom seria el uso de innerHTML y es mejor escribir la cadena como teplate <strong>(``)</strong>
+        <ul>
+            <li>textContent</li>
+            Tiene lo que esta dentro de los elementos, y lo de sus hijos.
+            <pre>
+            <code>
+                title = document.getElementById('indice')
+                console.log(title.textContent);
+            </code>
+            </pre>
+            <li>innerHTML</li>
+            es practicamente lo mismo que textcontent, pero en caso de que tenga elementos hijos regresa los elementos con todo y etiquetas.
+            <pre>
+            <code>
+                console.log(title.innerHTML);
+            </code>
+            </pre>
+            Regresa todo el elemento html pero en forma de string
+            <li>outerHTML</li>
+            <pre>
+            <code>
+                console.log(title.outerHTML);
+            </code>
+            </pre>
+        </ul>
+    </blockquote>
+
+    <h2 id="crear-elementos">Crear elementos del DOM</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>document.createElement()</li>\
+            Para poder crear un elemento.
+            <pre>
+            <code>
+                const insersion = document.createElement('Es un texto que se va a insertar en el dom')
+
+                insersion.textContent('es un texto que quiro insertar  en el DOM')
+                insersion.classList.add('textou')
+                insersion.id = 'identificador-texto'
+            </code>
+            </pre>
+            <li>appendChild()</li>
+            Para poder insertarlo en el DOM, existen ,as formas que se veran mas adelante.Siempre en el ultimo hijo.
+            <pre>
+            <code>
+                document.body.appendChild(insersion)
+            </code>
+            </pre>
+        </ul>
+    </blockquote>
+
+    <script src="dom.js"></script>
+</body>
+</html>

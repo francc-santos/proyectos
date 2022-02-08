@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Manipulacion del DOM</title>
+</head>
+<body>
+    <h1 id="indice">Manipular el DOM</h1>
+    <p>Prentesis super grande es que tenemos que recordar que podemos ejecutar un metodo desde una ecpresion, osea que podemos ejecutar eeste metodo en una expresion que representa una variablem. Pude ser que nos responda la pregunta de que otra forma pude ser llamada esta variable.</p>
+    <ul>
+        <a href="#traversing"><li>Dom traversing</li></a>
+        <a href="#insert-before"><li>InserBefore()</li></a>
+        <a href="#ejercicio-1"><li>Ejercicio de InsertBefore()</li></a>
+        <a href="#insert-adjacent"><li>InsertAdjacent</li></a>
+        <a href="#hijo-rep"><li>Remplazar hijos</li></a>
+        <a href="#m-jquery"><li>Metodos de jQuery</li></a>
+        <a href="#clonar-eliminar"><li>Clonar y eliminar</li></a>
+        <a href="#crear-elementosyfragmentos"><li>Crear elementos y fragementos</li></a>
+        <a href="#templates"><li>Templates HTML</li></a>
+        <a href="#css-om"><li>CSSOM (CSS)</li></a>
+    </ul>
+
+    <h2 id="traversing">Dom traversing</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="parent" class="parent"> Padre
+        <div class="child"> hijo1</div>
+        <div class="child"> hijo2
+            <div class="grandson">nieto1</div>
+            <div class="grandson">nieto2</div>
+            <div class="grandson">nieto3</div>
+        </div>
+        <div class="child">hijo3</div>
+        <div class="child">hijo4</div>
+    </div>
+
+    <blockquote>
+        Mucho de los metodos de manipulacion del DOM es en lo que se basan los frameworks de react , angular, y tambien jqwery.
+
+        En si el DOM traversing es como no movemos a traves del DOM, desde que tomamos un elemento del DOM y a partir de este podemso recorrer sus hermanos, su papa , etc.
+        <ul>
+            <li>Hermanos</li>
+            <ul>
+                <li>nextSibling</li>
+                <li>nextElementSibling</li>
+                <li>previousSibling</li>
+                <li>previousElementSibling</li>
+            </ul>
+            <li>Padres</li>
+            se pude accender mas de un nivel obteniendo el padre del pader con la propiedad de  padre y la porpiedad de padre de padre.
+            <ul>
+                <li>parentNode</li>
+                <li>parentElement</li>
+            </ul>
+            <li>Hijos</li>
+            <ul>
+                <li>childNOdes</li>
+                todos los nodos hijos, es decir los elemntos , atributos, contenido, etc.
+                <li>children</li>
+                solo devuelve elementos = solo etiquetas 
+                <li>firstChild</li>
+                solo un nodo, aveces puede ser un salto de linea, etc.
+                <li>firstElementChild</li>
+                Ete si deveuelve un elemento 
+                <li>lastChild</li>
+                solo nodos , pude ser desde un salto de linea hasta un atributo.
+                <li>lastElementChild</li>
+                el ultimo elmento hijo
+                <li>hasChildNodes()</li>
+                devuelve true si es que el elmento seleccionado tiene hijos 
+            </ul>
+        </ul>
+    </blockquote>
+
+    <h2 id="insert-before">InserBefore(nuevo,elementoSiguiente)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <strong>apendChild</strong>, para insertar un elemento despues de otro, pero primero tiene que estar creado <br><br>
+
+        InsertBefore, sirve cunado no simpre se quiere insertar un elmento en la ultima posiion del documento, por eso se usa insertarantes de un elemento dado , Algo a tomar en cuenta es que no se pude insartar un elemento desde la referencial del abuelo sino que es desde el papa.
+        <pre>
+        <code>
+            /* Insercion del mismo elemento pero ahora con al funcion de insertbefore() */
+            console.warn("Insercion de un nuevo elemento desde la funcion de insertbefore(nuevo, elementoSiguiente)");
+
+            const childs = Array.from(parent.children),
+                childParent  = childs.filter(child => child.children.length>0)[0],
+                grandSons  =Array.from(childParent.children),
+                grandSon3 = grandSons.filter(child=> child.textContent.trim()==="Nieto 3")[0]
+
+                childParent.insertBefore(newElement,grandSon3)
+        </code>
+        </pre>
+        Evitar hacer for, es mejor usar las funciones de filter map foreach , etc; estan mejor optmizadas estas funciones lo que puede que ons ahorre tiempo de ejecucion, coonociendo que tenemos que salvagurdar esto mas en un lenguaje como javaScript
+    </blockquote>
+
+    <h2 id="ejercicio-1">Ejercicio de InsertBefore()</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <article id="post">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquid minus eaque dolores nihil reprehenderit labore. Quisquam in rerum maiores at quaerat placeat animi. Error eligendi quam nisi. A, omnis.</p>
+    </article>
+
+    <blockquote>
+        Ejercicio de insert before donde se coloca un anuncio justo en la mitadad de los parrafos del articulo, se toma el elemento articulo pos su id , despues de se observa los hijos qu tiene, se calcula la mitada entre los hijos, y despues se retorna el hijo de enmedio para insertar antes de este el anuncio.
+    </blockquote>
+
+    <h2 id="insert-adjacent">InsertAdjacent('position',nuevoElemento)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Tomas un elemento del DOM y le dices una posicion donde quieres que se inserte un elemento nuevo. Donde las posiciones que se puden usar son:
+        <ul>
+            <li>beforebegin</li>
+                Antes de iniciar que seria en terminos de elmentos su hermano anterior
+            <li>afterend</li>
+                Despues de terminar, que seria su hermano siguiente 
+            <li>afterbegin</li>
+                Despues de empezar, seria su primer hijo
+            <li>beforeend</li>
+                Antes de terminar, seria su ultimo hijo.
+        </ul>
+
+        NO solo podemos insertar elmentos de html , sino que podemos insertar texto y hasta html, cambiando el metodo de acuerdo a lo requerido.
+        <ul>
+            <li>insertAdjacentElement</li>
+            <pre>
+            <code>
+                parent.insertAdjacentElement('beforebegin', newElement)
+            </code>
+            </pre>
+            <li>insertAdjacentHTML</li>
+            Aqui es mejor el uso de (``)
+            <pre>
+            <code>
+                parent.insertAdjacentHTML('afterend',`h1>Nuevo elemento declarado directamente con HTML/h1>`)
+            </code>
+            </pre>
+            <li>afterbegin</li>
+            <pre>
+            <code>
+                parent.insertAdjacentText('afterbegin','Un nuevo nodo del DOM a sido insertado')
+            </code>
+            </pre>
+        </ul>
+    </blockquote>
+
+    <h2 id="hijo-rep">Remplazar hijos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        con el metodo <strong>'parent'.replaceChild(newElement,oldElement)</strong> <br><br>
+        
+        <pre>
+        <code>
+            const parent = document.getElmentById('padre'),
+                newElement = document.createElment('h3')
+                newElement.textContent = 'El un h3 que replaza al hijo que se encontraba en esta posicion.'
+                parent.replaceChild
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="m-jquery">Metodos de jQuery-like</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son metodos que son parecidos como jquery tarataba el DOM
+        <ul>
+            <li>before()</li>
+            hermano anterior 
+            <li>after()</li>
+            hermano siguiete 
+            <li>prepend()</li>
+            primer hijo
+            <li>append()</li>
+            ultimo hijo
+            <li>'child'.replaceWith()</li>
+            Tines que econtrar al hijo y remplazarlo con un nuevo hijo.
+        </ul>
+    </blockquote>
+
+    <h2 id="clonar-eliminar">Clonar y eliminar</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>cloneNOde(true|false)</li>
+            Recordando que un elemento seleccionado en cualquier pagina podemosreferenciarlo con <code>$0</code> <br><br><br>
+            Este metodo recibe el primer parametro  un boolean con el cual indicamos si se quiere copiar todos los nodos del elemento.
+            <li>remove()</li>
+            Recordando que un elemento seleccionado en cualquier pagina podemosreferenciarlo con <code>$0</code>
+        </ul>
+    </blockquote>
+
+    <h2 id="crear-elementosyfragmentos">Crear elementos y fragementos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="lista-fragment">
+
+    </div>
+    <blockquote>
+        <ul>
+            <li>createElment('tipo-etiqueta')</li>
+            Ya sabemos que este metodo es para crear en forma  un elemento en el y poder insertarlo en el DOM, y debemos de pasar el tipo de elemento que se quiere crear.
+            <li>createDocumentFragment()</li>
+            Gurdar estructuras en memoria para despues insertarlo, es decir es mejor para el rendimeinto de la pagina usar los fragmentos de html para insertar de una todo el contenido que venga desde una api
+            <pre>
+            <code>
+                const teacher = ['Alexys','Beto','Jon']
+
+                const teacherList = document.createElement('ul'),
+                    teacherListContainer = document.getElementById('lista-fragment'),
+                    teacherListFragment = document.createDocumentFragment()
+
+                    teacherListContainer.appendChild(teacherList)
+
+                    teacher.forEach( teacher => {
+                        const li = document.createElement('li')
+                        teacherListFragment.appendChild(li)
+                        li.textContent = teacher
+                    })
+            </code>
+            </pre>
+        </ul>
+        Una buena recomendacion es que esto de modififcar el DOM se realice con mejor con frameworks como react , aungular, vue , tinen un mejor manejo del redimiento de la pagina, lo cual se agradecera para el rendiemento de la pagina, pero es bueno saber manejarlo con vanilla js.
+    </blockquote>
+
+    <h2 id="templates">Templates HTML</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <template id="plantilla">
+        <h2></h2>
+        <p></p>
+    </template>
+    
+    <div id="container-template">
+
+    </div>
+    <blockquote>
+        Permite crear plantillas que luego pudan ser reutilizadas. <br><br>
+        
+        Resulta que las plantillas <code>template</code> en html son como fragmentos de html, que podemos usar para copiar una estructura de html, y con ello poder llenarla e insertarla en una contenedor de contenido que lo este esparando. <br>
+        Es practicamnete hacer lo de crear un frgmrnto desde js pero ahora desde el HTML. 
+
+        <pre>
+        <code>
+
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="css-om">CSSOM (CSS)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <h1 id="style">Elemento que va a ser modificado desde el Js </h1>
+
+    <blockquote>
+        Es el modelo de objetos de Css, es como un dom de css. <br>
+        <ul>
+            <li>style</li>
+            Cunado se selecciona un elmento de css, se pude acceder a la propiedad de style donde podemos setear cualquier caracteristica de css, desde luego , solo que si la propiedad de css tiene guion (-), en el lado de JS se encuentra con lowerCamelCase flexDirection = flex-direction. 
+            <li>matchMedia('(media-query-css)')</li>
+            Las media quey son mas poderosas, es decir que esto funcino para ver por ejempli cuando la pantalla tiene una ancho menor al esperado o mayor.
+            <br>
+            Tiene una propiedad donde nos dice si es que cumple con la media-query <br><br>
+            Es bueno usarlo cuando se quiere cambiar de posicion a los elementos en tiempo real.
+            <li>getComputedStyle()</li>
+            sacar los valores de los estilos computados 
+            <li>'elemet'.getBoundingClientRect()</li>
+            Sirve para ver la posicion y tamaño de cualquier elemento
+
+        </ul>
+    </blockquote>
+
+    <script src="manipulacionDelDom.js"></script>
+</body>
+</html>

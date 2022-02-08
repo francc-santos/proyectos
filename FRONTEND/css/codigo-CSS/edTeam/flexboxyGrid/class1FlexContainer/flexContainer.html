@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox y grid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="flexContainer.css">
+</head>
+<body>
+    <h1 id="indice">Flexbox y grid</h1>
+
+    <ul>
+        <a href="#queEs"><li>Que es Flexbox?</li></a>
+        <a href="#soporte"><li>Soporte de los navegadores a flexbox</li></a>
+        <a href="#mainycross"><li>Main axis y cross axis</li></a>
+        <a href="#flujo"><li>Flujo de flexbox</li></a>
+        <a href="#alinacion"><li>Alineacion de flexbox</li></a>
+    </ul>
+
+    <h2 id="queEs">Que es flexbox?</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Una manera de diseniar con css <br><br>
+
+        Modelo de layout = es geometria indica en que posicion se pone un elmento en la pantalla , laoyout solo es geometria.<br><br>
+
+        Mientras que timing es darle color,etc; donde la mejor forma de crear todo la apariencia de una pagina es separar el comportameiento del timing y del del layout <br><br>
+
+        COn flexbox podemos alinaer desde la horizontal y la vertical y ademas de esto podemos hacer flexibles los elementos, que uno sea mas grande de otro.
+    </blockquote>
+    
+    <h2 id="soporte">Soporte de los navegadores a flexbox</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Practiacmente todos los navegadores lo soportan, podemos usar la pagina <a href="https://caniuse.com/">canIUse</a>, si se quiere dar soporte a una version antigua , lo mejor es usar la menos cantidad de frameworks posibles 
+    </blockquote>
+        
+    <h2 id="mainycross">Main axis y cross axis</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <img src="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" alt="imagen de comportamiento de flexbox">
+
+    <div class="flex-container" id="e1">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+    </div>
+
+    <blockquote>
+        Necesita de la relacion de padres e hijos para que pueda actuar el modelo de layout. <br><br>
+
+        El <em>flexcontainer</em> es el padre en el modelo de layout, mientras que los <em>flex items</em> representan a los hijos, cuanado a un elemento de <strong>se el pone la propiedad display: flex, se vuleve un flex container y los hijos en items que pudenn crecer o comprimirse en este moemento</strong> <br><br>
+
+        <strong>Main y cross axis</strong> son de los conceptos mas importentes de flexbox,que el main cruza al container de manera horizontal de izquierda a derecha y el cross lo cruza de manera vertical de arriba hacia abajo , pero pueden ser cambiados 
+        <br><br>
+        <pre>
+            <code>
+                div class="flex-container">
+                    div class="flex-item">1/div>
+                    div class="flex-item">2/div>
+                /div>
+            </code>
+        <code>
+            .flex-container #e1{
+                background-color: #333;
+                display: flex;
+                flex-direction: row-reverse;
+            }
+            
+            .flex-item{
+                background-color: #eee;
+                padding: 1rem;
+                margin: .4em;
+            }
+            </code>
+        </pre>
+        Los elementos se acomodan a lo largo del main axis, sin importar que compotamiento tenga este.
+    </blockquote>
+
+    <h2 id="flujo">Flujo de flexbox</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="flex-container" id="e2">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item">9</div>
+    </div>
+
+    <blockquote>
+        Al flex container se le puede poner la propiedad <em>flex o inline-flex</em>, donde el primero se comporta como block y el segundo como elmento de linea <br><br>
+        La diferencia solo es para el papa <br><br>
+
+        En si <strong>flex-direction</strong> determina la direcciona del <em>main axis</em>. <br>
+        <strong>Flex-wrap</strong> te indica como los hijos se van a alinear a una (no-wrap) o varias lineas (wrap). que es modificar el comportamiento de <em>cross-axis</em>
+        <pre>
+        <code>
+            .flex-container#e2{
+                background-color: #333;
+                display: flex;
+                /* flex-direction: row-reverse;
+                flex-wrap: wrap-reverse ; */
+                /* shorthand */
+                flex-flow: row-reverse wrap-reverse;
+            }            
+        </code>
+        </pre>
+
+        Al final la propiedad que puede reflejar el flujo del main axis y el cross es un shorthand que es <strong>flex-flow: row-reverse wrap-reverse;</strong>
+        
+    </blockquote>
+    
+    <h2 id="alinacion">Alineacion de flexbox</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="flex-container" id="e3">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item">9</div>
+    </div>
+
+    <blockquote>
+    <ul>
+        <ul> Alineacion de items 
+            <li>justify-content</li>
+            Alinea los items en el eje principal = <strong>main axis </strong>
+            <ol>
+                <li>flex-start</li>
+                    El valor predeterminado que se inicia desde donde se encuente el main axis  
+                <li>flex-end</li>
+                    Se acomoda al final, es decir emppieza desde el main-end
+                <li>center</li>
+                    Ce centran respecto al eje principal 
+                <li>space-aroud</li>
+                    Calcula el navegador el margin
+                <li>space-between</li>
+                    Es espacio que se genera es entre ellos 
+            </ol>
+            <li>aling-items</li>
+            Alinea los items en el eje secundario = <strong>cross axis</strong>  dentro de la linea , osea con respecto al <strong>contenedor</strong>
+            <ul>
+                <li>Flex-start</li>
+                    Se acomadan al principio del contenedor
+                <li>center</li>
+                    Se centran con respecto al contenedor 
+                <li>flex-end</li>
+                    Se acomoda en el final del contenedor
+                <li>Strech</li>
+                    Ocuapan todo el height disponible del contenedor, en caso de que se tenga un height los items no se van a mover 
+                <li>Baseline</li>
+                    A la linea base del contenido 
+            </ul>
+        </ul>
+        <ul>Alineacion de lineas 
+            <li>aling-content</li>
+            Alinea las lineas respecto al container, <strong>NO los items</strong>
+            <br>
+            Tiene las misma propiedades del justify-content
+            <ul>
+                <li>flex-end</li>
+                    todas la lineas se van pa bajo  
+            </ul>
+        </ul>
+    </ul>
+        Para flexbox el text conten cuenta como un item
+    </blockquote>
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+/* Entendiendo el scope de las variables y la herencia , este caso gracias al DOm y la herencia  */
+:root{ /* selector */
+    --color-h1/* Propiedad */: red /* valor*/; /* regla */
+    --box-shadow: 2px 2px 5px #000;
+}
+
+h1{
+    color: var(--color-h1,purple);
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Ejemplo de reasignacion de varibles en css */
+
+p{
+    color: var(--color);
+}
+body{
+    --color: purple;
+}   
+article{
+    --color:red;
+}
+section{
+    --color:green;
+}
+
+
+/* Ejemplo de uso de las variables css en diseño web resposivo */
+:root{
+    --font-size: 2em;
+    --column-size: 100%;
+}
+*, *::before, *::after{
+    /* Para que no de problemas lo del padding añadido */
+    box-sizing: border-box;
+}
+.e1 h1{
+    font-size: var(--font-size);
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.column{
+    width: var(--column-size);
+}
+
+@media screen and (min-width:1024px){
+    .e3 h1{
+        --font-size: 5em;
+    }
+    .column{
+        --column-size: 33.33%;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+/* Obtencion y manipulacion de variables del Dom con Js */
+
+:root{
+    --color: yellow;
+    --color-text: green;
+}
+h2.e4{
+    color: var(--color-text);
+}
+
+/* Ejercicio de indicador de scroll */
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+:root{
+    --bar-color: purple;
+    --width: 0;
+}
+/* creando el espacio para poder indicar el scroll */
+body::before{
+    content: '';
+    display: block;
+    height: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bar-color);    
+    
+    width: calc(var(--width) * 1vw);
+}
+
+
+
+/* Ejercicio de rgb cambio en el body */
+:root{
+    --red: 0;
+    --green: 0;
+    --blue: 0;
+}
+
+
+.e6rgb{
+    display: grid;
+    min-height: 100vh;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(var(--red), var(--green), var(--blue));
+}
+img{
+    width: 100vh;
+}
+label{
+    width: 55vw;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: .25rem;
+    padding: .5rem;
+    display: flex;
+}
+input{
+    margin-left: auto;
+    display: block;
+    width: 40vw;
+}
+
+
+
+/*Uso de variables de css en la variacion de componentes */
+
+:root{
+    --main-color: blue;
+}
+[class*=button]{
+    display: inline-block;
+    padding: 1em 2em;
+    text-decoration: none;
+    border: none;
+    margin: 1em;
+    color: #fff;
+    background-color: var(--main-color);
+}
+.button--alert{
+    --main-color:darkorange;
+}
+.button--cta{
+    --main-color: red;
+}
+
+
+/* Creacion de temas con variables de CSS */

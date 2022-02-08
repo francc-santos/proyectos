@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilares de css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Indice</h1>
+    <ul>
+        <a href="#funcionamiento"><li>Como funciona CSS</li></a>
+        <a href="#especificidad"><li>Especificidad</li></a>
+        <a href="#cascada"><li>Cascada</li></a>
+        <a href="#estilos-computados"><li>Estilos computados</li></a>
+        <a href="#herencia"><li>Herencia</li></a>
+    </ul>
+
+    <hr><h2 id="funcionamiento">Como funciona Css</h2>
+    <p><a href="#indice">Regreso al incicio</a></p>
+
+    <blockquote>
+        Los tres conceptos que se tienen que tener en css, que son, la cascada,la especificidad,la herencia.
+    </blockquote>
+    <blockquote>
+        En el caso que un titulo tal vez pueda obtener los estilos desde diferentes fuentes, puede que los estilos no se prioricen son la cascada, o con librerias externas, que puede que tengan conflictos. <br><br>
+        Entender los criterios es el principio de la arquietectura CSS, la arquitectura es como organizas todo un proyecto los archivos, codigo, las clases para que no haya conflictos y sea manejable y escalable, para armar una buena arquitectura CSS necesitamos entender los fundamentos
+    </blockquote>
+    <blockquote>
+        <ul>
+            <li>Especificidad</li>
+            <li>Cascada</li>
+            <li>Herencia</li>
+        </ul>
+        Estos conceptos nos ayudan a entender como funciona CSS, como resuelve los conflictos y como se definen las arquitecturas css <br><br>
+
+        <em>Arquitecturas de CSS</em><br><br>      
+            SMACSS <br>
+            OOCSS <br>
+            ITCSS
+    </blockquote>
+
+
+    <hr><h2 id="especificidad">Especificidad</h2>
+    <p><a href="#indice">Regreso al incicio</a></p>
+
+    <blockquote>
+        Especificidad, que hace referencia a algo muy puntual, osea que en este caso el navegador busca cual de todos es mas especificico , <em>cual esta apuntando directamente al elemento</em>  y cual es el mas general, o tene mas class o ids referenciados. <br><br> 
+        
+        <ul>
+            <li> General = el que envuelve muchas etiquetas</li>
+            <li> Especifico = envuelve menos etiquetas </li>
+        </ul>
+    </blockquote>
+
+    <blockquote>
+        La especificidad se calcula con sumas donde se le da un valor a cada tipo de selector
+    </blockquote>
+    <blockquote>
+        <ul>
+            <li>etiquetas y pseudoelementos           1</li>
+            <li>classes, atributos y pseudoclases     10</li>
+            <li>id                                    100</li>
+            <li>estilos en linea                      1000</li>
+        </ul>
+    </blockquote>
+
+    <blockquote>
+        Mucha especificidad es mala practica <br>
+    
+        <a href="https://jonassebastianohlsson.com/specificity-graph/">Pagina para ver la grafica de especificidad del codigo en css </a>
+    </blockquote>
+
+
+    <hr><h2 id="cascada">Cascada</h2>
+    <p><a href="#indice">Regreso al incicio</a></p>
+    
+    <blockquote>
+        <p>LOS ESTILOS QUE VIENEN DESPUES sobre escriben al anterior, tambien pasa con las mismas propiedades de css, pero puede que esto se rompa con la <em>especificidad</em> por eso se debe de considerar solo usar class</p>
+    </blockquote>
+    <blockquote>
+        Podemos ignorar la cascada poniendo la propiedad css <code>!important</code> <br><br>
+        
+        Pero <strong>nada puede sustituir a los estilos en linea</strong>  que con los que <strong>se escriben como atributo en el html</strong> 
+    </blockquote>
+
+    <hr><h2 id="estilos-computados">Estilos computados</h2>
+    <p><a href="#indice">Regreso al incicio</a></p>
+
+    <blockquote>
+        Es como el output que da el navegador de acuerdo a la entrada del css, esta en la pestaña de desarrollador de computed.
+    </blockquote>
+
+    <hr><h2 id="herencia">Herencia</h2>
+    <p><a href="#indice">Regreso al incicio</a></p>
+
+    <blockquote>
+        Capacidad que tienen los elementos de html de heredar los estilos de sus padres o ancestros, algo <strong>importante los estilos de las cajas no se hereda</strong>
+    <pre><code>
+        body{
+            color: blue ;
+        }
+        /* Esto hereda una gran parte de los estilos a sus hijos */
+    </code></pre>
+    </blockquote>
+    <blockquote>
+        En caso de que se quisiera <strong>forzar</strong> la herencia del padre, se tiene que colocar la propiedad y en el atributo <strong>inherit </strong> 0 <strong>initial </strong>para hacer que tome el valor por default. <br><br>
+
+        <ul>
+            <li>inherit</li>
+            forzar la herencia del padre se debe de usar la propiedad y valor inherit
+            <li>initial</li>
+            para hacer que tome al valor por default del navegador 
+        </ul>
+
+        Un enlace por ejemplo no hereda todas las caracteriticas de su padre.
+    </blockquote>
+
+</body>
+</html>

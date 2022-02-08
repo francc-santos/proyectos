@@ -1,0 +1,75 @@
+$size: 200px;
+
+body{
+    // podemos realizar operaciones con las variables
+    padding: $size * 2;
+    $width: 20px;
+    margin: $width;
+}
+p{
+    margin: $width;/* Esta invocacion marca erroro porque solo podemos usar esta baraiable en el scope de la regla anterior */
+}
+
+/* Intterpolacion de vaiable 
+    -Donde se debe usar es con la porpiedad calc()
+*/
+
+$color : red;
+.#{$color}{
+    color : $color;
+}
+
+
+/* Anidamiento */
+
+ul{
+    margin: 0;
+    display: block;
+    animation: menu 1s;
+
+    @media screen and (min-width: 640px){
+        display: flex;
+    }
+    @keyframes menu {
+        to{
+            color: red;
+        }
+    }
+    /* Para llmara el papa de la anidacion se puede hacer referencia a este con ->&, se hace referenciapor la sintaxis y el espcio que deja al compilar */
+    &:hover{
+        background-color: lightblue;
+    }
+    grid-template: {
+        columns: 100px 100px;
+        rows: auto;
+    } 
+}
+
+
+/* Observando los tipos de datos */
+$string: quote(hola);
+$number: 20em;
+$color: darken(red, 30);
+$boolean: true;
+$listas: 1px solid #000;
+$map: (
+    color: red,
+    font: arial,
+    size: 20px
+);
+body{
+    background: type-of($value: $string);
+    content: $string;
+    font-size: $number/10;
+    font: map-get($map,font);
+}
+
+
+
+/* Uso de la importacion */
+@import "menu";
+
+/* _menu.scss asi indicamos qeu este archivo no se debe de compilar como un arhivo sino que se quede en donde se importa, en variables se deben de declar las variables antes de la importacion */
+
+
+

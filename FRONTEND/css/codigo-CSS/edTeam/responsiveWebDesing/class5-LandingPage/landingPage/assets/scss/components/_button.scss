@@ -1,0 +1,12 @@
+.button{
+    color: var(--color-boton);
+    display: inline-block;
+    border: 1px solid ; /* los botones suelen usar el color del texto asignado */
+    padding: .5em 1em;
+    border-radius: .25rem;
+
+    &:hover{
+        background: var(--color-boton);
+        color: #fff;
+    }
+}

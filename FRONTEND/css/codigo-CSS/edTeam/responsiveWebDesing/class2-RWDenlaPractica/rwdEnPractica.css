@@ -1,0 +1,80 @@
+.e1 p{
+    font-size: 2em;
+    background: yellow;
+    margin: 0 auto;
+    width: 75%;
+    min-width: 320px;/* no se hace mas pequeño que esto */
+    max-width: 800px;/* no crece mas de esto */
+}
+
+.e2 p{
+    font-size: 2em;/* 32px */
+    background: yellow;
+    margin: 0 auto;
+    width: 75%;
+    min-width: 320px;/* no se hace mas pequeño que esto */
+    max-width: 800px;/* no crece mas de esto */
+}
+.e2 span{
+    font-size: 2em;/* 64px */
+}
+
+.e2 button{
+    font-size: 4em;
+    border: none;
+    border-radius: .25em;
+    background-color: violet;
+    color: #fff;
+    padding: .5em 1.5em;
+    margin: 2rem;
+}
+
+
+:root{
+    --bar-width: 13px;
+}
+.e3 {
+    padding-bottom: 100em;
+    width: 75%; /* 1/2 */
+}
+.e3 footer{
+    font-size: 2em;
+    background: violet;
+    width: 100vw; /* 1/4 */
+    width: calc(100vw- var(--bar-width));
+}
+
+
+.e4{
+    background: darkgoldenrod;
+    width: 25vmin;
+    height: 25vmin;
+}
+.e4 header{
+    background: darkgoldenrod;
+    color: cornsilk;
+    text-align: center;
+    padding: 9vmin 0;
+}
+
+
+.e5{
+    display: flex;
+    flex-wrap: wrap;
+}
+.e5 p{
+    background-color: goldenrod;
+    margin: .5em;
+    font-size: 1.5em;
+    flex: 1 1 200px;
+}
+
+
+.e6{
+    display:grid;
+    gap:1em;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+}
+.e6 p{
+    background-color: goldenrod;
+}

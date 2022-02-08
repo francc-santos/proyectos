@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Container</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="gridContainer.css">
+</head>
+<body>
+    
+    <h1 id="indice">Grid Container</h1>
+
+    <ul>
+        <a href="#gridCss"><li>Que es css grid?</li></a>
+        <a href="#terminologiaElementos"><li>Terminologia y elementos de CSS grid</li></a>
+        <a href="#inspeccionElementos"><li>Inspeccionar elementos de CSS Grid</li></a>
+        <a href="#definirTracks"><li>Definir tracks (filas y columnas)</li></a>
+        <a href="#gridGap"><li>Propiedad grid-gap y unidad fr</li></a>
+        <a href="#gridItems"><li>Posicionar grid-items</li></a>
+        <a href="#gridColumn"><li>Propiedades grid-column y grid-row</li></a>
+        <a href="#funcionRepeat"><li>Funcion repeat() y creacion de layout </li></a>
+    </ul>
+
+    <h2 id="gridCss">Que es css grid?</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        hasta donde lo puedo ver ahorita <strong>grid</strong> ayuda como una extension de flexbox, ya que este es un modelo de layout de una linea, si bien existe un main axis y un cross-axis estos solo sirven para alineacion, pero para layout en flexbox solo podemos usar el main axis , nunca el cross-axis.
+
+        <strong>Css grid</strong>, a diferencia de flexbox permite organizar (ya no alinear) a traves de dos ejes horizontal y vertical (inline y block)
+        <em>No importa la posicion de un elemento en el codigo de html para construir el layout, al igual que flexbox requiere de una relacion de padres a hijos </em>
+    </blockquote>
+
+    <h2 id="terminologiaElementos">Terminologia y elementos de CSS grid</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul> Elmentos que existen en el DOM <br><br>
+            <li><strong>grid-container</strong></li>
+                Es el elemento al que le hayamos aplicado la propiedad 
+                <br> display: grid;
+                <br> display: inline-grid;
+                <br>La diferencia entre estos dos es como se conportan respecto a su alrededor 
+            <li>grid-items</li> 
+                <br> hijos directos 
+                <br> pseudoelemntos ::before y ::after
+                <br> texto
+        </ul>
+        <ul> <br> NO existen en el DOM, el navegador los crea para posicionar y alinear elmentos <br><br>
+            <li>grid-tracks</li>
+                Son las filas y columnas 
+            <li>grid-lines</li>
+                las separaciones de los tracks , se encuentran delimitando los trascks
+            <li>grid-cells</li>
+                Es la interseccion entre una fila y una columna 
+            <li>grid-areas</li>
+                Cualquier area rectangular delimitada por 4 grid-lines
+        </ul>
+        Podriamos definir areas y de acurdo a la colocacion de este mandar el contenido que queramos
+    </blockquote>
+
+    <h2 id="inspeccionElementos">Inspeccionar elementos de CSS Grid</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        En es inpector de popiedadades podemos de chrome o en mozila podemos darnos cuenta en el apartado de <strong>reglas</strong> qie podemos activar una caracteristica de <strong>display-grid</strong>
+    </blockquote>
+
+    <h2 id="definirTracks">Definir tracks (filas y columnas)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1Container">
+        <div class="e1Item">1</div>
+        <div class="e1Item">2</div>
+        <div class="e1Item">3</div>
+        <div class="e1Item">4</div>
+        <div class="e1Item">5</div>
+    </div>
+    <blockquote>
+        Para denifinir tracks, tenemos propiedades, con <code>grid-template-colums: medida_columna</code> y tambien la propiedad de <code>grid-template-rows</code>, a estas propiedades le podemos dar valores en porcentajes  en pixeles o como sea, algo que tambien nos ayuda es con las alturas podemos darle cualquier altura
+    <pre>
+    <code>
+        div class="e1Container">
+            div class="e1Item">1/div>
+            div class="e1Item">2/div>
+            div class="e1Item">3/div>
+            div class="e1Item">4/div>
+            div class="e1Item">5/div>
+        /div>
+
+        .e1Container{
+            display: grid;
+            height: 300px;
+            background-color: yellow;
+            font-size: 2em;
+            grid-template-columns: 200px 300px 100px 50px ;
+        }
+        
+        .e1Item{
+            background-color: thistle;
+        }
+        .e1Item:nth-child(even){
+            background-color: tan;
+        }
+    </code>
+    </pre>
+        En este caso le dimos un item de mas pa ver donde se colocaba y obtuvo las caarcteristicas de su hermano de arriba 
+    </blockquote>
+
+    <h2 id="gridGap">Propiedad grid-gap y unidad fr</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e2Container">
+        <div class="e2Item">1</div>
+        <div class="e2Item">2</div>
+        <div class="e2Item">3</div>
+        <div class="e2Item">4</div>
+        <div class="e2Item">5</div>
+        <div class="e2Item">6</div>
+        <div class="e2Item">7</div>
+        <div class="e2Item">8</div>
+        <div class="e2Item">9</div>
+    </div>
+    <blockquote>
+        <em>Nos permite marcar un separacion entre los elementos laterales y verticales, <code>grid-column-gap y grid-row-gap</code> </em>
+        pero puede que la adicion de estas separaciones nos hag un scrol lateral que no nos guste y esto se pude solucionar calculado manualmente o con la caracteristica <code>fr</code> que incica una proporcion del padre
+    <pre>
+    <code>
+        div class="e2Container">
+            div class="e2Item">1/div>
+            div class="e2Item">2/div>
+            div class="e2Item">3/div>
+            div class="e2Item">4/div>
+            div class="e2Item">5/div>
+            div class="e2Item">6/div>
+            div class="e2Item">7/div>
+            div class="e2Item">8/div>
+            div class="e2Item">9/div>
+        /div>
+
+        .e2Container{
+            display: grid;
+            height: 300px;
+            background-color: yellow;
+            font-size: 2em;
+            grid-template-columns: 1fr 2fr 1fr ;
+            grid-template-rows: 1fr 6fr 3fr ;
+            /* grid-column-gap: 1em;
+            grid-row-gap: 1em; */
+            /* Shordhand 
+            grid-gap: rows, columns */
+            gap: 1em;
+        }
+        
+        .e2Item{
+            background-color: thistle;
+        }
+        .e2Item:nth-child(even){
+            background-color: lightgreen;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="gridItems">Posicionar grid-items</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e3body">
+        <footer>footer</footer>
+        <main>main</main>
+        <aside>aside</aside>
+        <header>header</header>
+    </div>
+    <blockquote>
+        Los items siguen el flujo natural de arriba hacia abajo y de izquierda a derecha
+
+        <br> <br>
+        De manera predeterminada un elmento ocupa un track por lo que no es necesario indicar le el end 
+    </blockquote>
+
+    <h2 id="gridColumn">Propiedades grid-column y grid-row</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    Usando el ejemplo anterior es como el css lo modifica.
+    <pre>
+    <code>
+        .e3body{
+            display: grid;
+            background-color: yellow;
+            min-height: 400px ;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 4em 1fr 4em;
+            gap: 1em;
+        }
+        
+        header{
+            background-color: burlywood;
+            /* Indican los numeros de las lineas */
+            grid-row-start: 1;
+            /*
+            grid-column-start:  1;
+            grid-column-end: 3; */
+        
+            /* Podemos resumirlo con el shordhand
+            grid-row: grid-row-start / grid-row-end
+            grid-column: grid-column-start / grid-column-end
+            */
+            grid-column: 1 / 3;
+        
+            /* O con la ayuda de span podemos indicar solamente cuantas columnas es que va a ocupar la linea anterior indica que va a ocupar desde la columna 1 a la 3, esto quiere decir que va a ocupar dos posiciones y eso se pude indicar con la etiqueta de span como: */
+        
+            grid-column: 1 / span 2;
+        }
+        main{
+            background-color: cornflowerblue;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        aside{
+            background-color: bisque;
+            grid-column-start: 1;
+            grid-row-start: 2;
+        }
+        footer{
+            background-color: darkmagenta;
+            grid-row-start: 3;
+            grid-column-start:1 ;
+            grid-column-end:3 ;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="funcionRepeat">Funcion repeat() y creacion de layout</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e4body">
+        <footer class="e4 block">footer</footer>
+        <div class="feature block">feature1</div>
+        <div class="feature block">feature2</div>
+        <div class="feature block">feature3</div>
+        <main class="e4 block">main</main>
+        <aside class="e4 block">aside</aside>
+        <header class="e4 block">header</header>
+    </div>
+    <blockquote>
+    <pre>
+    <code>
+        div class="e4body">
+            footer class="e4 block">footer/footer>
+            div class="feature block">feature1/div>
+            div class="feature block">feature2/div>
+            div class="feature block">feature3/div>
+            main class="e4 block">main/main>
+            aside class="e4 block">aside/aside>
+            header class="e4 block">header/header>
+        /div>
+
+
+        .e4body{
+            display: grid;
+            background-color: yellow;
+            min-height: 400px ;
+            /* repeat (CANTIDAD_TRACKS, ANCHO_DEL_TRACK) */
+            grid-template-columns: repeat(12,1fr);
+            grid-template-rows: 4em 8em 1fr 4em;
+            gap: 1em;
+        }
+        
+        header.e4{
+            background-color: burlywood;
+            /* Indican los numeros de las lineas */
+            grid-row-start: 1;
+            /*
+            grid-column-start:  1;
+            grid-column-end: 3; */
+        
+            /* Podemos resumirlo con el shordhand
+            grid-row: grid-row-start / grid-row-end
+            grid-column: grid-column-start / grid-column-end
+            */
+            grid-column: 1 / 3;
+        
+            /* O con la ayuda de span podemos indicar solamente cuantas columnas es que va a ocupar la linea anterior indica que va a ocupar desde la columna 1 a la 3, esto quiere decir que va a ocupar dos posiciones y eso se pude indicar con la etiqueta de span como: */
+        
+            grid-column: 1 / span 12;
+        }
+        main.e4{
+            background-color: cornflowerblue;
+            grid-row: 3;
+            grid-column: span 9;
+        }
+        aside.e4{
+            background-color: bisque;
+            grid-row: 3;
+            grid-column: 1 / span ;
+        }
+        footer.e4{
+            background-color: rgb(179, 106, 179);
+            grid-row: 4;
+            grid-column: 1 / span 12;
+        }
+        
+        .feature{
+            background-color: violet;
+            grid-column: span 4;
+        }
+        
+        .block{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
+    </code>
+    </pre>
+        Tambien podemos hacer que los items sean contenedores de flex y las mismas propiedades que tiene un contenedor de flex se puden usar con con container grid.
+    </blockquote>
+</body>
+</html>

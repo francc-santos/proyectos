@@ -1,0 +1,16 @@
+h2:target{
+    color: red;
+}
+
+
+#ejemplo-color{
+    background-color: darkorange;
+    background-image: url(https://images.unsplash.com/photo-1629410240133-0c757773762a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+    background-repeat: no-repeat;/* para que se repita en el caso de que se ocupe solo una porsion de las imagen  repeat-x y repeat-y en caso de que se quiera que se repita en x o en y  */
+}
+
+#ejemplo-size{
+    background-color:darkgreen;
+    background-size: contain;
+    /* el size se pude poner en px em rem cover contain etc */
+}

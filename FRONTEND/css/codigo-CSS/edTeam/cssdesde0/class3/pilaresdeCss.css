@@ -1,0 +1,29 @@
+/* EN teoria si se tuviera que especificar mucho esta practica seria buena porque a medida que va creciendo el proyecto va creciendo la especiicidad */
+h1{
+    color:violet;
+}
+
+.title {
+    color: yellowgreen;
+}
+
+#title{
+    color: aqua;
+}
+
+h1.title{
+    color: burlywood;
+}
+
+h1#title{
+    color: coral;
+}
+
+h1#title.title{
+    color: darkgreen;
+}
+
+body > h1#title.title{
+    color: steelblue;
+}
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">COlor</h1>
+    <ul>
+        <a href="#current"><li>Currentcolor</li></a>
+        <a href="#keywords"><li>Color keywords</li></a>
+        <a href="#rgb"><li>Modo RGB</li></a>
+        <a href="#hexadecimal"><li>Notacion Hexadecimal</li></a>
+        <a href="#hsl"><li>Modo HSL</li></a>
+        <a href="#degradado-lineal"><li>Degradados lineales</li></a>
+        <a href="#radial"><li>Degradados radiales</li></a>
+        <a href="#repetidos"><li>Degradados repetidos</li></a>
+        <a href="#ejercicio"><li>Ejercicio Ying-yang</li></a>
+    </ul>
+
+    <h2 id="current">Currentcolor</h2>
+    <p><a href="#indice">Regreso</a></p>
+
+    <blockquote>
+        En las artes donde se usa el color para expersar una idea, existe el concepto de color de frente y el color de fondo, ejemplo en el etidor de codigo el frente son los tonos de las letras y el fondo es el tema que tiene en este comento el editor. <br><br>
+
+        Ademas de esto podemos usar la variable de css <code>Currentcolor</code> para indicar que el colr que queremos usar es el que tienen el padre actualmente 
+    </blockquote>
+    
+
+    <h2 id="keywords">Color keywords</h2>
+    <p><a href="#indice">Regreso</a></p>
+
+    <blockquote>
+        Los color keywords son los que podems usar como sus nombres en ingles, y aqui una <a href="https://www.w3schools.com/colors/default.asp">guia de los colores y sus equivalencias en hexadecimal, rgb, etc</a>
+    </blockquote>
+    
+
+    <h2 id="rgb">Modo RGB</h2>
+    <p><a href="#indice">Regreso</a></p>
+
+    <div class="body-1">RGB</div>
+    
+    <blockquote>
+        En el mundo del color existen dos modos bascicos 
+        <ul>
+            <li>additivo</li>
+            la suma de blanco
+                rgb
+            <li>sustractivo</li>
+            la suma de negro
+                cmyk (cyan magenta yellow black)
+                como las impresoras
+        </ul>
+        
+        En el modo RGB tenemos 8 bits de color, significa que cada canal tiene 2^8 variaciones posibles o 256 posibles variaciones las que comienzan en 0 y terminan en 255. y la cmbinacion de los colres primarios de rgb dan los colores primarios de cmyk.
+    <pre>
+    <code>
+        .body{
+            background-color: rgb(255,0,0);
+            background-color: rgb(0,255,0);
+            background-color: rgb(0,0,255);
+            background-color: rgb(0,255,255);
+            background-color: rgb(255,255,0);
+            background-color: rgb(255,0,255);
+        }
+    </code>
+    </pre>
+        Mientras todos los valores sean iguales sera un tono de gris.Tambien pdems usar el modo rgba que donde el alpha indica transparencia 
+    </blockquote>
+    
+
+    <h2 id="hexadecimal">Notacion Hexadecimal</h2>
+    <p><a href="#indice">Regreso</a></p>
+    <div class="body-2">Hexadecimal</div>
+    
+    <blockquote>
+        Es la forma mas comun de escribir el color en Css, l que pasa es que es el mismo modo rgb pero se escribe de una manera diferente, se usa una notacion con un hash y ls numers y letras desde el 0 al 15 : 
+        0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 
+        0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 
+        Siendo 16x16 = 256, obteniendo todos los valores posibles para ls colres de rgb 
+        ejemplo ff=256 
+    
+    <pre>
+    <code>
+        rgb(255,0,0) = #FF0000
+    </code>
+    </pre>
+
+        Las equivalencias de los numeros primarios son 
+
+    <pre>
+    <code>
+        .body{
+            background-color: #FF0000;
+            background-color: #00FF00;
+            background-color: #0000FF;
+            background-color: #00FFFF;
+            background-color: #FFFF00;
+            background-color: #FF00FF;
+        }
+    </code>
+    </pre>
+        Un hack es que si los valores se repiten se pude omitir uno de los valores, ademas que si se pude usar la transparencia en la notacion hexadecimal  
+    </blockquote>
+    
+
+    <h2 id="hsl">Modo HSL</h2>
+    <p><a href="#indice">Regreso</a></p>
+    <div class="body-3">HSL</div>
+    
+    <blockquote>
+        Es el modo fisico de como entendemos los calores, pude ser!. 
+        tiene que ver con
+        <ul>
+            <li>H</li>
+            hue, es el tono del 0 al 360 
+            se basa en el circulo cromatico
+            0 y 360 = color rojo y si esto se divide en 3 se obtienen los colres primarios de rgb , ademas si de divide alreves son los colores del modo cmyk
+                <ul>
+                    <li>0 = rojo</li>
+                    <li>60 = amarillo</li>
+                    <li>120 = verde</li>
+                    <li>180 = cyan</li>
+                    <li>240 = azul </li>
+                    <li>300 = magenta</li>
+                    <li>360 = rojo </li>
+                </ul>            
+            <li>S</li>
+            saturation intensidad del color de 0(GRIS) a 100(COLOR PURO)
+            del gris al color puro
+            <li>l</li>
+            light luz de 0 negro a 100% blanco 
+            como si pusieramos una lampara justo enfrente del color, lo mas cercano a la lampara sera mas blanco, osea pa tener el color puro debe de estar en el 50%
+        </ul>
+
+    <pre>
+    <code>
+        .body{
+            background-color: hsl(0, 100%, 50%);
+            background-color: hsl(120, 100%, 50%);
+            background-color: hsl(220, 100%, 50%);
+            background-color: hsl(180, 100%, 50%);
+            background-color: hsl(90, 100%, 50%);
+            background-color: hsl(120, 100%, 50%);
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    
+
+    <h2 id="degradado-lineal">Degradados lineales</h2>
+    <p><a href="#indice">Regreso</a></p>
+
+    <div class="body-4">lineales</div>
+    
+    <blockquote>
+        Permiten tener varios colores y que vayan cambiando entre ellos de la manera que le indiquemos , podemos decir donde se debe empezar el degradado, desde que posicion se debe de dar, y desde hacia donde se quiere que termine. <br><br>
+
+        Son background-image porque estos pueden tener mas de un color 
+    </blockquote>
+
+    
+
+    <h2 id="radial">Degradados radiales</h2>
+    <p><a href="#indice">Regreso</a></p>
+    <div class="body-5">radial</div>
+    
+    <blockquote>
+        Cambio de colores a partir de un foco, podemos mover ese foco con el atributo <code>at</code>, podemos decidir desde conde empezar el degradado, con <code>size y shape</code> podemos modificar el tamanio y la forma <br><br>
+
+        Palabras clave para indicar el tamanio:
+        <ul>
+            <li>closest-side</li>
+            <li>farthest-side</li>
+            <li>closest-corner</li>
+            <li>farthest-corner</li>
+        </ul>
+    </blockquote>
+    
+
+    <h2 id="repetidos">Degradados repetidos</h2>
+    <p><a href="#indice">Regreso</a></p>
+    <div class="body-6">radial repeat</div>
+    
+    <blockquote>
+        No es lo mismo que el background-repeat, sino que vamos a tener una mejor union de todos los degrdados que lo conforman,tambien se puede hacer lo de la posicion donde se quiere que empieze el degradado. <br> 
+        Lo mismo se puede hacer con degradados lineales 
+    </blockquote>
+    
+
+    <h2 id="ejercicio">Ejercicio Ying-yang</h2>
+    <p><a href="#indice">Regreso</a></p>
+
+
+    <div class="ying-yang"></div>
+    <blockquote>
+        Declaramos una varaible de size para poder dar el tamaño maximo que tomara el div con nuestro ying-yang, le damos esa medida a el widht y height coloreamo el borde un px hacemos que sea un circulo con el border raius y lo colocamos en medio, despues con el calulo de la segunda medica podemos 
+    </blockquote>
+    
+
+</body>
+</html>

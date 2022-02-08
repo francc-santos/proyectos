@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas resueltos con Flexbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="problemasResueltos.css">
+</head>
+<body>
+    <h1 id="indice">Problemas resueltos con flexbox</h1>
+
+    <ul>
+        <a href="#centradoAbsoluto"><li>Centrado absoluto</li></a>
+        <a href="#menuResposivo"><li>Menu resposive </li></a>
+        <a href="#bannerAnimado"><li>Banner animado</li></a>
+        <a href="#elementosAplastado"><li>Solucionar elementos aplastados</li></a>
+        <a href="#tarjetaUsuario"><li>Tarjeta de usuario</li></a>
+        <a href="#layoutResposive"><li>Layout resposive </li></a>
+    </ul>
+
+    <h2 id="centradoAbsoluto">Centrado absoluto</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e1">
+        <h1>Hola mundo</h1>
+    </div>
+    <blockquote>
+        Podemos acomodarlo con  las propiedades del container,que seria justify-content, aling-items ambos en center. <br>
+        Pero la porpiedad de margin en los items si adquiere el valor de auto podemos usarlo para centrar el item
+    <pre>
+    <code>
+        div id="e1">
+            h1>Hola mundo/h1>
+        /div>
+
+        #e1{
+            display:flex;
+            height: 300px;
+            width: auto;
+            background-color: lightcoral;
+        }
+        
+        h1{
+            margin: auto;
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="menuResposivo">Menu resposive</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <ul class="menu">
+        <a href="#" class="link__item"><li class="tema">Tema1</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema2</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema3</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema4</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema5</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema6</li></a>
+        <a href="#" class="link__item"><li class="tema">Tema7</li></a>
+    </ul>
+    <blockquote>
+    <pre>
+    <code>
+        ul class="menu">
+            a href="#" class="link__item">li class="tema">Tema1/li>/a>
+            a href="#" class="link__item">li class="tema">Tema2/li>/a>
+            a href="#" class="link__item">li class="tema">Tema3/li>/a>
+            a href="#" class="link__item">li class="tema">Tema4/li>/a>
+            a href="#" class="link__item">li class="tema">Tema5/li>/a>
+            a href="#" class="link__item">li class="tema">Tema6/li>/a>
+            a href="#" class="link__item">li class="tema">Tema7/li>/a>
+        /ul>
+
+        .menu{
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        .link__item{
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .link__item{
+            display: block;
+            padding: .5em 1em;
+        }
+        
+        .tema{
+            border-bottom: 1px solid #222;
+        }
+        
+        .tema:hover{
+            background-color: rgba(0, 0, 0, .2);
+        
+        }
+        
+        .menu{
+            width: 50%;
+            background-color: #333;
+        }
+        
+        
+        @media screen and (min-width:960px){
+            .menu{
+                display: flex;
+                width: 100%;
+            }
+            .link__item{
+                flex: 1;
+            }
+            .tema{
+                text-align: center; 
+            }
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="bannerAnimado">Banner animado</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="banner">
+        <div class="banner__item"><p class="banner__title">1</p></div>
+        <div class="banner__item"><p class="banner__title">2</p></div>
+        <div class="banner__item"><p class="banner__title">3</p></div>
+        <div class="banner__item"><p class="banner__title">4</p></div>
+    </div>
+
+    <blockquote>
+    <pre>
+    <code>
+    
+    div class="banner">
+        div class="banner__item">p class="banner__title">1/p>/div>
+        div class="banner__item">p class="banner__title">2/p>/div>
+        div class="banner__item">p class="banner__title">3/p>/div>
+        div class="banner__item">p class="banner__title">4/p>/div>
+    /div>
+
+    .banner{
+        display: flex;
+        background-color: yellow;
+        height: 200px;
+    }
+    .banner__item{
+        flex: 1;
+        color: blanchedalmond;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: flex-grow 0.2s;
+    }
+    .banner__item:hover{
+        flex-grow: 10;
+    }
+    .banner__item:hover .banner__title{
+        transform: rotate(0);
+    }
+    .banner__item:nth-child(even){
+        background-color: peru;
+    }
+    .banner__title{
+        transform: rotate(-90deg);
+        transition: transform 0.2s 0.2s ;
+    }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="elementosAplastado">Solucionar elementos aplastados</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="chat">
+        <div class="chat__entry">
+            <div class="chat__user"><img src="https://www.xtrafondos.com/wallpapers/dua-lipa-2021-7976.jpg" alt="img de usuario"></div>
+            <div class="chat__message">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, dolorum rem. Officia consequuntur ipsa quaerat quibusdam omnis perferendis, natus quisquam commodi dolorem optio. Voluptas consequatur eum natus, impedit quidem voluptates.</div>
+        </div>
+        <div class="chat__entry">
+            <div class="chat__user"><img src="https://www.xtrafondos.com/wallpapers/dua-lipa-2021-7976.jpg" alt="img de usuario"></div>
+            <div class="chat__message">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </div>
+        </div>
+    </div>
+
+    <blockquote>
+        En el caso de las imagenes  podemos hacer que este dentro de un item como un div y asi conservara su forma original
+        <br><br>
+        La causa de esto es que la propiedad <code>aling-items</code> por defecto esta en strech, osea que todos lo hijos tendran la mima altura, otra forma de solucionarlo es hacer que el valor de <code>aling-items</code> sea diferente a strech
+
+        <br><br>
+        Recordar que encerrarlo en un contenedor solo hace que se pueda gurdar la proporcion, no quiere decir que se gurden las mediadas, en el caso del ejemplo del chat en principio todos los items tinen como valor en 1 la propiedad flex-shrink por lo que todod los shrinks se contraen 
+    </blockquote>
+
+
+    
+    <h2 id="tarjetaUsuario">Tarjeta de usuario</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="body">
+        <div class="user">
+            <img src="https://www.xtrafondos.com/wallpapers/resized/dua-lipa-2021-7976.jpg?s=large" alt="sdsdsdsd" class="user__img">
+            <div>
+                <div class="user__name">lis</div>
+                <div class="user__country">bolivia</div>
+                <div class="user__possition">cto</div>
+            </div>
+        </div>
+    </div>
+
+    <blockquote>
+    <pre>
+    <code>
+    div class="body">
+        div class="user">
+            img src="https://www.xtrafondos.com/wallpapers/resized/dua-lipa-2021-7976.jpg?s=large" alt="sdsdsdsd" class="user__img">
+            div>
+                div class="user__name">lis/div>
+                div class="user__country">bolivia/div>
+                div class="user__possition">cto/div>
+            /div>
+        /div>
+    /div>
+
+
+    .body{
+    display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+    }
+    .user{
+        padding: 1em;
+        border: 1px solid #ccc;
+        background-color:  #fff;
+        border-radius: .25rem;
+        margin:1em;
+        display: flex;
+        align-items: center;
+    }
+    .user__img{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 1em;
+    }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="layoutResposive">Layout resposive</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="bodyy">
+        <header>Header</header>
+        <div class="content">
+            <main>Main</main>
+            <aside>Aside</aside>
+        </div>
+        <footer>Footer</footer>
+    </div>
+    <blockquote>
+    <pre>
+    <code>
+
+        div class="bodyy">
+            header>Header/header>
+            div class="content">
+                main>Main/main>
+                aside>Aside/aside>
+            /div>
+            footer>Footer/footer>
+        /div>
+
+        .bodyy{
+            width: 100vh;
+            flex-direction: column;
+            display: flex;
+        }
+        header{
+            background-color: darkmagenta;
+        }
+        main{
+            background-color: darkorchid;
+            flex: 1;
+        }
+        aside{
+            background-color: darkorange;
+            width: 25%;
+        }
+        footer{
+            background-color: deeppink;
+        }
+        .content{
+            display: flex;
+            flex: 1;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+</body>
+</html>

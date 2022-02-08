@@ -1,0 +1,65 @@
+.e1video{
+    height: 0;
+    padding-bottom: 56.35%;/* con esto se da la proporcion de 16:9 que estan todos los vidios */
+
+    > iframe,
+    > video{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.e1Container{
+    width: 75%;
+    max-width: 960px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Video resposive con grid */
+
+.e2VideoViewport{
+    --unit: 6vmax;/* con js podeoms calcular lo grande que deberia ser la variable y actulizarla */
+    --width: calc(var(--unit)*16);
+    --height: calc(var(--unit)*9);
+    width: var(--width);
+    height: var(--height);
+}
+.e2VideoGrid{
+    background: red;
+    display: grid;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(9,1fr);
+    position: relative;
+
+    &::before{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    > iframe,
+    > video{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.e1Img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    /*  solo funciona para una imagen con un resolucion que  gastaria mucho ancho de banda */
+}
+.e1Img{
+    background: red;
+    background: url(img) center / cover;
+
+    @media screen and (min-width: 640px){
+        background: url(otraImg) center / cover;
+    }
+}

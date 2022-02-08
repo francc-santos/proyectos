@@ -1,0 +1,32 @@
+body{
+    font-family:'Barlow Condensed', sans-serif;
+    padding: 1rem;
+}
+
+h2:target{
+    color: darksalmon;
+    font-size: 3rem;
+    margin: 0;
+}
+
+h1 h2{
+    padding: 1rem;
+    font-weight: 900;
+}
+p a{
+    padding: 1.5rem;
+}
+
+blockquote{
+    font-weight: 800;
+    line-height: 1.5rem;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: .75em;
+    background-color: #eee;
+    font-weight: 500;
+}
+
+code{
+    color: darkorange;
+}

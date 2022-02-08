@@ -1,0 +1,21 @@
+/*LAS ETIQUETAS H2 que sean cercanas a un parrafo, 
+entonces pinta de esse color los árrafos que son cercanos
+a las etiquetas h2 adyacent sibling */
+/*h2 + p{
+    color: goldenrod;
+}*/
+/*GENERAL SIBLING,donde los hermanos generales son los que 
+se enciuentran en el contenedors, siempre y cuando esxista un h2*/
+/*h2 ~ p{
+    color: rgb(46, 10, 112);
+}*/
+/*HIJO PADRE, del padre div que sea mayor que una etiqueta parrafo o
+la etiqueta parrafo que sea hija de un div*/
+div > p{
+    color: salmon;
+}
+/*SI Div p, entonces todas se pintaran porque todas son hijas de div general*/
+/*div p{
+    color: sienna;
+}*/
+/**/

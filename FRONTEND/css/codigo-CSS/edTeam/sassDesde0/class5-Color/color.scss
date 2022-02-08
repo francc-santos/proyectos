@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(23, 200,146);
+}
+
+/* Funciones de color con Sass 
+Funciones de RGB
+    red($color)
+    green($color)
+    blue($color)
+-> Todas devulven la cantidad de su clor indicado que eçse encuentra enun color pasado como argumento
+
+Funciones de HSl
+    hue($color);
+    saturation($color);
+    ligthness($color);
+
+    darken($color,cantidad)
+    ligthen($color,cantidad)
+    saturate($color,cantidad)
+    dsesasurate($color,cantidad)
+    ajust-hue($color,cantidad): la cantidad que resive es la cantidad que va a rotar desde el 0º
+*/
+
+body{
+    $color : rgb(30,100,200);
+    h: hue($color);
+    s: saturation($color);
+    l: ligthness($color);
+}
+

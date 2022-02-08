@@ -1,0 +1,7 @@
+/*em, toma el tamaño de fuente que tiene el prade directo*/
+body{
+    font-size: 20px;
+}
+.text-container{
+    font-size: 1.5em;
+}

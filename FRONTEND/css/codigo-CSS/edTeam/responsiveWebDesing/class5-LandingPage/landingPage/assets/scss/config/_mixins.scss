@@ -1,0 +1,11 @@
+@mixin mqFrom($bp) {
+    @if map-has-key($breakpoitns, $bp) {
+        @media screen and (min-width:map-get($breakpoitns,$bp)) {
+            @content;
+        }
+    }@else{
+        @media screen and (min-width:$bp) {
+            @content;
+        }
+    }
+}

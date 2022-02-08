@@ -1,0 +1,27 @@
+$breakpoints:(
+    small: 320px,
+    medium: 640px,
+    large: 1024px,
+    xlarge: 1200px,
+);
+
+@mixin rwd($bp){
+    @if map-has-key($breakpoint, $bp){
+        @media screen and (min-width: map-get($breakpoints, $bp)){
+            @content;
+        }
+    }
+    @media screen and (min-width: $bp){
+        @content;
+    }
+}
+
+body{
+    @include rwd(small){
+        background-color: yellow;
+    }
+    @include rwd(500px){
+        background-color: darkblue;
+    }
+}
+

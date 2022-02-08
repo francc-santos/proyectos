@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="box-model.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Box model index</h1>
+    <p> EL box model es el que indica al navegador que forma, en que posicion y en que tamaño, va a dibujar el elemento en la pantalla</p>
+    <ul>
+        <a href="#linea-bloque"><li>Elementos de linea y bloque</li></a>
+        <a href="#display"><li>Propiedad display</li></a>
+        <a href="#margin"><li>Margin</li></a>
+        <a href="#pading"><li>Padding</li></a>
+        <a href="#bordes"><li>Bordes</li></a>
+        <a href="#bx-sizg"><li>Propiedad box-sizing</li></a>
+    </ul>
+
+    <h2 id="linea-bloque">Elementos de linea y bloque</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Algo que se tiene que ver, es el <strong>layout model</strong> que usa el navegador <br><br>
+        Es la geometria que usa el navegador para decidir donde va cada elemento, que tamanio tiene y cuanto se separa o se aproxima a los demas elementos, es la maquetacion
+    <pre><code>
+        latout model:
+            Box model 
+            POsition 
+            Flexbox
+            Css grid 
+        Son modulos de css que definen como armar el layout, pero todo sale del BOXMODEL, donde todos los elementos de html son rectangulos por default
+    </code></pre>
+    </blockquote>
+
+    <blockquote>
+        Existen dos tipos de cja o elementos
+        <ul>
+            <li>Inline</li>
+            Ocupan solo el espacio necesario para su contenido; los de linea, imagenes , no tienen dimensiones , se ajustan al contenido
+            <li>De bloque </li>
+            Ocupa todo el espacio horizontal disponible 
+            podemos verlo con un background, crea un salto de linea , tienen ancho width y alto height, aunque se modifique el tamanio de ancho pq ya dio el espacio no se recorre el espacio
+        </ul>
+
+        Unidades de longitud (medidas de tamaño) <br>
+            tambien pude haber unidades de tiempo, de rotacion, etc.
+            px
+        <ul>
+            <li>em = 100% del tamanio de fuente actual</li>
+            <li>rem = % del tamanio de body, la r es de raiz</li>
+        </ul>
+    </blockquote>
+
+
+    <h2 id="display">Propiedad display</h2>
+    <p><a href="#indice">regreso</a></p>
+
+        <blockquote>
+            Definir como se va a mostrar un elemento en pantalla , si es como bloque , como linea , como linea y bloque a la ves o no se va a mostrar para nada. <br><br>
+            Propiedades de display
+            <ul>
+                <li><strong>block</strong></li>
+                hace que todo elemento se comporte como bloque, ocupe toda la linea etc.
+                <li><strong>Inline</strong></li>
+                ps se comporta como un elemento de linea
+                <li><strong>Inline-block</strong></li>
+                uno al lado del otro , pero que se le puede dar ancho y alto, las imagenes son pro naturaleza inline-block
+                <li><strong>none</strong></li>
+                hace que no se muestre el elemento, puede ser para ocultar elementos al cambiar de tamanio de pantalla.
+                <li><strong>Flex</strong></li>
+                <li><strong>grid</strong></li>
+            </ul>
+        <pre>
+            <code>
+                h1 {
+                    display: Inline;
+                    o
+                    display: block;
+                    o
+                    display: none;
+                }
+            </code>
+        </pre>
+        </blockquote>
+
+
+    <h2 id="margin">Margin</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="ejemplo">
+        <div class="box">Hola1</div>
+        <div class="box">HOla2</div>
+    </div>
+
+    <blockquote>
+        Define la separacion externa de un elemento
+        <pre><code>
+            .box{
+                width: 200px;
+                height: 100px;
+                background: pink;
+                margin: 10px;
+            }
+        </code></pre>
+    </blockquote>
+    <blockquote>
+        Si se inspecciona el elmentose pude ver la box de las herramientas de desarrollador con la propiedad  <code>float</code> podemos mover elementos de bloque se ballan uno al lado del otro, pero ya no se usa mucho por lo de flexbox y grid
+    </blockquote>
+    
+    <blockquote>
+        Defininicion todos los mergenes 
+    <pre>
+    <code>
+        .box{
+            margin-top: 20px
+            margin-right:30px
+            margin-bottom:10px
+            margin-left:50px
+        }
+    </code>
+    </pre>
+
+        Pero se pueda hacer toda la definicion de los margenes, en una sola propiedad se le llama <strong>shorthand</strong>, y empieza a definirse en la manesillas del reloj como en el ejemplo anterior
+    <pre>
+    <code>
+        .box{
+            margin: 20px 30px 10px 50px;
+        }
+    </code>
+    </pre>
+        En caso de que falte una propiedad se usa la misma medida de acuerdo a su espejo.
+        Tambien puden ser mediante porcentajes pero no es usual, es relativo a su padre <br>
+
+        Para poder centra un box se puede hacer
+    <pre>
+    <code>
+        .box{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </code>
+    </pre>
+        NO setear en 0 culaquier medida se usa la propiedad de auto
+    </blockquote>
+
+    <blockquote>
+        COLAPSADO DE MARGENES VERTICALES <br>
+        Cuando hay margenes verticales se contraen , y no se suman los margenes verticales, o es como que no se puede , lo recomendale es usar <code>bottom</code>, o se puede usar un padding cuando se separa un hijo de un papa. <br><br>
+
+        O en caso de que se quiera mover elemento conservadon la prporcion entre estos se pueden usar mergenes relativos.
+    </blockquote>
+
+
+    <h2 id="padding">Padding</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es muy similar al margin solo que de manera interna, osea que es la separacion del limite de una caja y su contenido.
+    </blockquote>
+
+    <div class="ejemplo">
+        <div class="box2">HOla3</div>
+    </div>
+
+    <blockquote>
+    <pre>
+    <code>
+        css 
+        .box2{
+            width: 200px;
+            height: 100px;
+            background: pink;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 50px;
+        }
+    </code>
+    </pre>
+        Los estilos que tiene el cuadrado anterior 
+    </blockquote>
+
+    <blockquote>
+        Es la separacion del contenido con su contenedor
+    <pre>
+    <code>
+        css 
+        .box2{
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+        }
+    </code>
+    </pre>
+        De igual forma que el margin se puede modificar cada lado del padding, asi como el resumen en una sola etiqueta de margin
+        se puede hacer por porcentajes, pero en este caso es relativo al mismo elemento.
+    </blockquote>
+
+
+    <h2 id="bordes">Bordes</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Los bordes son la linea que aparecen al rededor , que por default no aparecen, en este caso solo tenemos que tener en cuenta que estos son parte del modelo de la caja <br><br>
+    </blockquote>
+
+
+    <h2 id="bx-sizg">Propiedad box-sizing</h2>
+    <p><a href="#indice">regreso</a></p>
+
+
+    <blockquote>
+        Es como calcula el navegador el tamanio de la caja final. A donde va a aplicar el width y el height que nosotros le estamos pasando, la caja en si termina hasta el border, para poder indicar que respete el tamanio contando el border y el padding le tenemos que decir con <code> box-sizing : border-box</code> pude causar que se desborde el texto
+
+    <pre><code>
+        css 
+        .box2{
+            box-sizing: border-box;
+        }
+    </code></pre>
+        O podemos decir que todos los elemetos block se comporten como border-box, y asi que el tamanio indicado desde el principio se respete y no cresca con el padding y el border
+    <pre><code>
+        con el uso de pseudoelementos 
+        *, *:before, *:after{
+            box-sizing: border-box;
+        }
+    </code></pre>
+    </blockquote>
+
+</body>
+</html>

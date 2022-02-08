@@ -1,0 +1,104 @@
+/*Documento que aplica los estilos de forma de cascada*/
+Al genetrar los estilos se pued hacer de tres diferentes maneras
+* De forma referencaida donde esta le etiqueta link y apunta a el archivo de estilos
+* De forma , donde generaos un contenedor de estilos, donde agregamos los estilos en 
+  el mismo archivo de htaml
+* De forma enbebida ,dende el atributo stlyle se hace presente en la etieuta que se
+  quiere modificar
+
+Forma de llamar a las etiquetas para ponerle los estilos
+    * Por el elemento(etiqueta), que seria p,h,h1
+    * Por medio de clases, que es ir al atributos que quieres estilar, y ponerle 
+      el atributo class deode los vas a nombrar como quieras todo lo anterior en al 
+      archivo de html, mientras que en el CSS se llama con .NombrePuesto
+    * Por medio de ID, es añadir el atributo id a la etiqueta que se quiere estilar
+      y luego en el CSS se llama por medio de #NombrePuesto
+
+SEUDO CLASES Y SEUDO ELEMENTOS
+    BEM=ayuada con una metodologia para llamar a las clases para CSS
+    los seudo elementos nos ayudan a dar formatos especificos a las clases***
+
+ANATOMIA DE UNA REGLA EN CSS
+    selector: que elemento se va a seleccionar
+    delaracion: la propiedad y el valor
+        propiedad: que se modificar
+        valor: valor de la propiedad
+
+MODELO DE CAJA 
+    margin: lo que hay de la caja hacia afuera
+    boder: la linea que define a cada elemento
+    padding: espacio para posicionar el contenido de la caja
+    content:imagenes,video,etc
+    width:lo largo de laque se genera 
+    higth: el alto de la caja
+    top,bottom,left rigth
+
+HERENCIA 
+    por lo general el navegador hace la herencia entre etiqueta,entonces
+    si se modifica la etiqueta html , se notara la herencia
+    para romperlo, se puede generar la especificidad
+controlar el orden al declarar CSS
+    importancia: si dos declaraciones tienen la misma importancia, decide la especificidad 
+                 que regla se va a aplicar
+                 primero el navegador carga sus estilos
+                 cumplir los css que genero io 
+                 aplicar los estilos que vengan con !important
+    especificidad:si dos declaraciones tienen la misma especificidad entonces decide el orden
+                importan
+                lnline stlyle
+                #id
+                .class
+                tag
+    orden en las fuentes:
+
+ESPECIFICIDAD 
+  nos ayuda a ver que estilo se va a ver por ensima de la otra
+  COMBINADORES
+    permite combinar multiples selectores y crear una mayor especificidad
+
+MEDIDAS
+  Absolutas: son picxeles, NO cambia sin importar el tamaño  
+  Relativas: SI van a cambiar, son porcentajes, em, rem
+    em: la medidas se ajustan de acuerdo al padre mas cercano
+    rem: las medidas se sjustan de acuerdo a la raiz html donde podemos formatearlo
+    vh,vw: poder dimensionar los contenedores y que se redimensionen
+    min,max-width(heigth): sirven para limitar el crecimiento de un contenedor 
+
+POSICION 
+  static: es la posicioin que te da pro defecto el navegador
+  absolut: se sale del contenedor padre y ya puede ser movido
+  relative: no pierde al contenedor padre pero ya se puede mover
+  fixed:
+  sticky:
+
+DISPLAY
+  block:es la parte deonde queda el testo y cuando es un display sin formatear ocupa todo el
+  espacio., lo que hace que el texto tenga que bajar a la siguiente linea
+  inline:solo ocupa el espacio que requiere su contenido
+  flex: nos ayuda a hacer un layout mas responsive
+
+VARIABLES
+  custom properties: variables css donde podemos guardar un valor y usarlo, podria guardar
+  tamaño del la fuente paralos parrfos , la fuente en si, y lo mismo para los header 
+  cabeceras ,etc
+
+WEB FONTS
+  es lo que controla las fuentes
+    Fuentes genericas: las que ya vienen seteadas en mi picxeles
+    en el navegador se encuentra en: configuracion->diseño->personalizarfuente->
+    para una nueva fuente es mejor pegar el link de googlefonts al head 
+
+
+
+Estrategias de responsive: mostly fluid
+  investigar grid layout
+
+imagenes responsive
+
+ACCESIBILIDAD
+  semantica:todas las etiquetas que nos indican donde estamos,
+  usar en contenedor div solo para especificos,
+  texto:no se va a poder incrementar si se usa con px porque es relativa,mejor usar rem
+
+labels alt titles
+  titles:podemos dar una descripcion, que podria ser un hipervinculo

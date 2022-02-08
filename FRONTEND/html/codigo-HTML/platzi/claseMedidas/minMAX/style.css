@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*que el contenedor main este ocupando el 100%,medida relativa*/
+main{
+    /*se va a ajustar de acuerdo al dispositivo*/
+    width: 100vw;
+    height: 100vh;
+    background-color: khaki;
+}
+section{
+    width: 60%;
+    height: 500px;
+    /*pa centrar el saction*/
+    margin: 0 auto;
+    /*limitar el crecimiento o la disminusion de los contenedores*/
+    min-width: 320px;
+    max-width: 500px;
+    /*lo minimo que se va a mostrar de tu contenedor van a ser */
+    min-height: 500px;
+    background-color: lavender;
+}

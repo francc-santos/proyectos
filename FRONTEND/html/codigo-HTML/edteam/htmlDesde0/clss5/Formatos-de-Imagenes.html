@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Contenido embebido</title>
+</head>
+<body>
+
+    <h1 id="indice">Contenido Embebido</h1>
+    <ul>
+        <a href="#formato"><li>Formato de imagenes</li></a>
+        <a href="#llamada"><li>Llamada de las imagenes en el html</li></a>
+        <a href="#srcset"><li>Srcset, elegir de acurdo al viewport el tamaño de la imagen</li></a>
+        <a href="#picture"><li>Picture</li></a>
+        <a href="#figure"><li>Figure</li></a>
+        <a href="#audioyvideo"><li>Audio y video</li></a>
+        <a href="#embed"><li>Insercion de contenido externo</li></a>
+    </ul>
+
+
+    <h2 id="formato">Formatos de imagenes</h2>
+    <p><a href="#indice">regreso</a></p>
+    <hr>
+    <blockquote>
+        <ul>
+            <dl>
+                <dt>SVG</dt>
+                <dd>Es el que tine formato de vectores en la web</dd>
+    
+                <dt>Mapa de bits</dt>
+                <dd>
+                    <li>png = para transparencias </li>
+                    <li>jpg jpge = para fotos</li>
+                    <li>gif = para animaciones</li>
+                    <li>webp = por google, es como un jpg que soporta transarencias </li>
+                </dd>
+            </dl>
+        </ul>
+    </blockquote>
+
+    <h2 id="llamada">Llamada de las imagenes en el html</h2>
+    <p><a href="#indice">regreso</a></p>
+    <hr>
+    <img src="" alt="Se muestra si es que la imagen no es encontrada, tambien sirve para la accesibilidad, es como un descripcion, ademas google lo usa para encontrar la imagen" width="100" height="50">
+
+    <blockquote>
+        no es recomendable el uso de heigth porque se deformaria la imagen , pero no es obligatorio porque se pude dar el formato desde el CSS <br> <br>
+        
+        <quote>Es preferible que la imagenes que se usen de fuentes externas sean de funetes que sean confiables o mejor que siempre se emcuentren den tu proyecto</quote> <br><br>
+
+        <code>
+            img src="" alt="Se muestra si es que la imagen no es encontrada, tambien sirve para la accesibilidad, es como un descripcion, ademas google lo usa para encontrar la imagen" width="100" height="50">
+        </code>
+    </blockquote>
+
+
+    <hr>
+    <h2 id="srcset">Srcset</h2>
+    <p><a href="#indice">regreso</a></p>
+    <img srcset="img1 2x, img2 3x, img3 4x"  src="imgDefault" alt="">
+    
+    <blockquote>
+        <h3>Device Pixel Ratio </h3>
+        La relacion entre los pixeles reales de la pantalla osea fisicamente , frente a los pixeles de viewport que es la cantidad de pixeles disponibles que tenemos en pantalla para mostrar contenido <br><br>
+        EL proque del uso del viewport es para que al escalar la imagen tengan un mayor nitidez <br> <br>
+        Por eso lo que debemos saber es el device pixel ratio para saber cual imgen mandar por eso lo de tener la misma imagen en diferentes tamanios
+    <pre>
+    <code>
+        img srcset="img1 2x, img2 3x, img3 4x"  
+                src="imgDefault" 
+                    alt="">
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr>
+    <h2 id="picture">Picture</h2>
+    <p><a href="#indice">regreso</a></p>
+    <picture>
+        <source src="img" media="(min-with: 800px)">
+        <source src="img2" media="(min-with: 400px)">
+        <source src="img3" media="(min-with: 200px)">
+    </picture>
+    <blockquote>
+        De manera obvia debemos de poner el mayor en la cima  <br><br>
+        Esta wuea sirve para cambiar la imagen en relacion al dispositivo que visualiza la pagina web
+    <pre>
+    <code>
+        picture>
+            source src="img" media="(min-with: 800px)">
+            source src="img2" media="(min-with: 400px)">
+            source src="img3" media="(min-with: 200px)">
+        /picture>
+    </code>
+    </pre>
+    </blockquote>
+
+
+
+    <hr id="figure">
+    <h2>Figure</h2>
+    <p><a href="#indice">regreso</a></p>
+    <figure>
+        <img src="img" alt="">
+    </figure>
+    <blockquote>
+        Representa que pude cortar un contenido principal y ademas pude tener una descripcion , es decir que en un articulo donde se muestra algo que representa, pero no necesariamente es para imagenes , puede ser para codigo sitas,poemas , etc. <br><br>
+        Como el entorno figure en latex
+    <pre>
+    <code>
+        figure>
+            img src="img" alt="">
+        /figure>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr>
+    <h2 id="audioyvideo">Audio y video</h2>
+    <p><a href="#indice">regreso</a></p>
+    <video src="video.mp4" with ="500" controls muted poster="img " autoplay muted></video>
+    <audio src="audio.mp3" controls></audio>
+
+    <blockquote>
+        LO mas recomedable es que el audio y el video sean traidos de fuentes externas sitios espacialisados en la reproduccion, porque debemos de manejara la codificacion porque consume mas anchobanda  mp4 h264 
+    <pre>
+    <code>
+        video src="video.mp4"
+                with ="500" controls 
+                    muted poster="img " 
+                        autoplay 
+                            muted>/video>
+        audio src="audio.mp3"  
+                controls>/audio>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr>
+    <h2 id="embed">Insercion de contenido externo</h2>
+    <p><a href="#indice">regreso</a></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QjCcuzDXXac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <blockquote>
+        Mediante el uso de los iframe es como se pude insertar contenido de otras partes que tengan su propia logica
+        <pre>
+        <code>
+            iframe src="https://www.youtube.com/embed/QjCcuzDXXac" 
+                        title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; 
+                            width="560" height="315" 
+                                autoplay; 
+                                    clipboard-write; 
+                                        encrypted-media; 
+                                            gyroscope; 
+                                                picture-in-picture" allowfullscreen>/iframe>
+        </code>
+        </pre>
+        Se pude hacer con instagram y hasta tablas de formularios con Wuffoo
+    </blockquote>
+    
+
+
+</body>
+</html>

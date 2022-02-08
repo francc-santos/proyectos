@@ -1,0 +1,163 @@
+#e1{
+    display:flex;
+    height: 300px;
+    width: auto;
+    background-color: lightcoral;
+}
+
+h1{
+    /* Moviendo los valores de los diferentes margenes podemos ver el item hujoen cualquier posicion  */
+    margin: auto;
+}
+
+
+/* --------Thema 2----------------- */
+/* Reseteacion de los estilos del navegador */
+.menu{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.link__item{
+    text-decoration: none;
+    color: #000;
+}
+
+.link__item{
+    display: block;
+    padding: .5em 1em;
+}
+
+.tema{
+    border-bottom: 1px solid #222;
+}
+
+.tema:hover{
+    background-color: rgba(0, 0, 0, .2);
+
+}
+
+.menu{
+    width: 50%;
+    background-color: #333;
+}
+
+
+@media screen and (min-width:960px){
+    .menu{
+        display: flex;
+        width: 100%;
+    }
+    .link__item{
+        flex: 1;
+    }
+    .tema{
+        text-align: center; 
+    }
+}
+
+
+/* -----------------Thema3 Baner animado ----------- */
+
+.banner{
+    display: flex;
+    background-color: yellow;
+    height: 200px;
+}
+.banner__item{
+    flex: 1;
+    color: blanchedalmond;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: flex-grow 0.2s;
+}
+.banner__item:hover{
+    flex-grow: 10;
+}
+.banner__item:hover .banner__title{
+    transform: rotate(0);
+}
+.banner__item:nth-child(even){
+    background-color: peru;
+}
+.banner__title{
+    transform: rotate(-90deg);
+    transition: transform 0.2s 0.2s ;
+}
+
+.chat{
+    width: 350px;
+    background-color: #111;
+    height: 80vh;
+    padding: 1em;
+}
+.chat__entry{
+    display: flex;
+    margin-bottom:1em;
+}
+.chat__user{
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+.chat__user img{
+    width: 100%;
+}
+.chat__message{
+    padding-left: 1em;
+    color: bisque;
+}
+
+/* Tarjeta de ususario */
+.body{
+display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+.user{
+    padding: 1em;
+    border: 1px solid #ccc;
+    background-color:  #fff;
+    border-radius: .25rem;
+    margin:1em;
+    display: flex;
+    align-items: center;
+}
+.user__img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 1em;
+}
+
+
+.bodyy{
+    width: 100vh;
+    flex-direction: column;
+    display: flex;
+}
+header{
+    background-color: darkmagenta;
+}
+main{
+    background-color: darkorchid;
+    flex: 1;
+}
+aside{
+    background-color: darkorange;
+    width: 25%;
+}
+footer{
+    background-color: deeppink;
+}
+.content{
+    display: flex;
+    flex: 1;
+}

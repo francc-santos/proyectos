@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramas locales y el historial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <h1 id="indice">Ramas locales y el historial</h1>
+
+    <ul>
+        <a href="#historialCambios"><li>Historial de cambios</li></a>
+        <a href="#vizualizacionHistorial"><li>Opciones de visualizacion del historial</li></a>
+        <a href="#ramasLocales"><li>Ramas locales</li></a>
+        <a href="#creandoRamasLocales"><li>Creando ramas locales</li></a>
+        <a href="#fuciondeRamas"><li>Fucionando ramas</li></a>
+    </ul>
+
+
+    <h2 id="historialCambios">Historial de cambios</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es el uso de <code>git log</code>, recordando los estados que pude tener git , espacio de trabajo contiene los arcihvos que pueden eres modificados, o pueden añadirse nuevos archivos, para poder pasar los archivos nuevos o modificados a nuestra area de preparacion usamos el <code>git add</code>, y una ves que esten los archivos en el area de preparacion podemos hacer el <code>code</code> para el repo. <br><br>
+
+        Con el historial del los cambios podemos ver que ha sido del poryecto a lo largo del tiempo.
+    <pre>
+    <code>
+        git checkout hash_del_commit 
+        <em>En el area de preparacion podemos usarlo para ver el codigo en  un commit, es porque la cabecera se encuentra en este commit seleccionado <strong>desde aqui podemos tomar el codigo que teneiamos y poder hacer una nueva version desde este punto </strong> </em>
+
+        git checkout master 
+        <em>regresa al ultmio estado commiteado</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="vizualizacionHistorial">Opciones de vizualizacion del historial</h2>    
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        podemos ver infoamcion extara con el uso de banderas de que se encuentran en la documentacion de git, que siempre esta donde se descargan los recursos.
+
+    <pre>
+    <code>
+        git log --raw
+        <em>nos dice que modificaciones se hicieron en el commit</em>
+
+        git log --summary
+        <em>Es practicamene lo que ya entrega <code>git log</code></em>
+
+        git log --oneline
+        <em>todo los commit se intregan en una linea con el hash corto y el mensaje</em>
+
+        git log --oneline -n 5
+        <em>solo muestar los ultimos 5 commits</em>
+
+        git log --pretty=format:"El autor fue %an"
+        <em>podemos dar un formato con diferentes comodines que aparecen el la ultima parte de la docuementacion de <code>log</code></em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="ramasLocales">Ramas locales</h2>    
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        A la linea del tiempo principal le llamamos <code>master</code>, la que por defiult tenemos en cuneta. <br><br>
+
+        Tomando el ejemplo de endgame podemos notar que esta se puede dividir en un punto y generarse nuevos eventos en esta nueva linea , adems que se puede volver a unir con la linea que se partio. <br><br>
+        
+        Pues asi es como puede verse las ramas de git, con sus propios logs, etc. Funcion cuando se quiere un cambio repentino en el , se pude crear una nueva linea donde no se afecte a la linea normal. Pero ni la nueva linea ni al anterior se van a enterar de los cambios sucedidos en cada una. <br><br>
+
+        Casda liea de tiempo en git se le llamara <strong>rama (branc)</strong>
+        
+    </blockquote>
+
+    <h2 id="creandoRamasLocales">Creando ramas locales</h2>    
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Recirdar mirar donde se encuentar nuestro head que indica el nodo (luagar ) en el tiempo donde nos encontramos actualmente.
+
+    <pre>
+    <code>
+        git checkout -b nombre_nueva_rama
+        <em>Se crea una nueva rama con el nmombre: nombre_nueva_rama</em>
+
+        git branch
+        <em>vemos las ramas que tenemos creadas y en cual rama no encontramos actualmente</em>
+
+        git log --all
+        <em>toda la info de las ramas</em>
+
+
+        git log --oneline --graph --decorate
+        <em>tipo arbol de als rammas y con decoraciones </em>
+
+        git checkout master
+        <em>cambiamos a la rama master</em>
+
+        git switch master
+        <em>cambio a master  a partir de la version 2.23</em>
+    </code>
+    </pre>
+    Podemos avanzar commits en todas las linaeas que al unirlas podemos tener conflictos 
+    </blockquote>
+
+    <h2 id="fuciondeRamas">Fucionando ramas</h2>    
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Unir las ramas creo que solo en pares, unos puntos a tener en cuenta 
+        <ul>
+            <li></li>
+            pude que hayamos tocado los mismo archivos en las ramas 
+            <li></li>
+            solucionar conflictos 
+        </ul>
+    <pre>
+    <code>
+        git merge rama_a_copiar
+        <em>copia los commits de la rama indicada a la rama en la que no sencontrammos </em>
+
+        git branch -d rama_a_eliminar
+        <em>no se puede eliminar une rama en la que nos enocntramos, </em>
+    </code>
+    </pre>
+    </blockquote>
+
+
+</body>
+</html>

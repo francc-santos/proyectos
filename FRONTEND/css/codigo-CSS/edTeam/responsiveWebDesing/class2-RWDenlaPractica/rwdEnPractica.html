@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposive Web Desing en la Practica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rwdEnPractica.css">
+</head>
+<body>
+    <h1 id="indice">Resposive Web desing en la practica</h1>
+    <ul>
+        <a href="#porcentaje"><li>Unidades relativas: Porcentaje</li></a>
+        <a href="#emRem"><li>Unidades relativas: em y rem</li></a>
+        <a href="#viewport1"><li>Unidades de viewport (part1)</li></a>
+        <a href="#viewport2"><li>Unidades de viewport (part2)</li></a>
+        <a href="#rwdFlexbox"><li>Resposive Web Desing flexbox</li></a>
+        <a href="#rwdGrid"><li>Resposive Web desing css grid</li></a>
+        <a href="#breakpoint"><li>Breakpoint</li></a>
+    </ul>
+
+    <h2 id="porcentaje">Unidades relativas: Porcentaje</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam rem quidem dolorum dolor cupiditate quaerat possimus? Eos fugit ea porro possimus voluptate! Adipisci obcaecati, commodi maiores similique omnis odit.</p>
+    </div>
+    <blockquote>
+        Cuando se habla de resposive web  desing, las unidaes de medida en su mayoria no pueden ser absolutas, es mejor usar relativas al crecimento del viewport y no tener que declarar una nidada por cada ajuste <br><br>
+        Cn la ayuda del porcentaje podemos controlar el comportamiento de un elemento en diferentes tamaños dando un max-width y un min-width podemos controlar el crecimiento y con el width que sea un porcentaje del viewport.
+    <pre>
+    <code>
+        .e1 p{
+            font-size: 2em;
+            background: yellow;
+            margin: 0 auto;
+            width: 75%;
+            min-width: 320px;/* no se hace mas pequeño que esto */
+            max-width: 800px;/* no crece mas de esto */
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="emRem">Unidades relativas: Em, Rem</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e2">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam error reiciendis repellat labore ad laboriosam officiis at sed soluta, minus tempora eaque facilis consequuntur quia corporis ipsam voluptates tenetur commodi? <strong>hola <span>mundo</span></strong></p>
+
+        <button>botn</button>
+    </div>
+    <blockquote>
+        Relacionadas con el tamaño de fuente, 
+    <ul>
+        <li>em= tamaño de fuente del contexto</li>
+            el fontsize se hereda , toma el del papa o el abuelo mas cercano que tenga un tamaño definido. 
+            <br>
+            1em =100% de la funte del contexto
+            al cambiar el tamaño de fuente el valor de 1em se redefine , sea con un valor absolut un un relativo.
+            <br>
+            em para cambios internos dentro de un elemento
+        <li>rem= tamaño de fuente de la raiz= html</li>
+            1rem=100% de root, usar rem para layout
+    </ul>
+    <pre>
+    <code>
+        .e2 p{
+            font-size: 2em;/* 32px */
+            background: yellow;
+            margin: 0 auto;
+            width: 75%;
+            min-width: 320px;/* no se hace mas pequeño que esto */
+            max-width: 800px;/* no crece mas de esto */
+        }
+        .e2 span{
+            font-size: 2em;/* 64px */
+        }
+        
+        .e2 button{
+            font-size: 4em;
+            border: none;
+            border-radius: .25em;
+            background-color: violet;
+            color: #fff;
+            padding: .5em 1.5em;
+            margin: 2rem;
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="viewport1">Unidades de viewport (part1)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e3">
+        <footer>footer</footer>
+    </div>
+    <blockquote>
+    <ul>
+        <li>vw=viewportWidth </li>
+        1vw=1% del ancho del viewport
+        Esta no dependen del papa como porcentaje, solo se basan en el tamaño del viewport.
+        <br>
+        el 100% de el width tambien toma en cuenta el ancho debajo de la barra
+        <li>vh=viewportHeight </li>
+        1vh=1% del alto del viewport
+        <li>vmin=minumumViewport </li>
+        1vmin=1% del lado menor del viewport
+        <li>vmax=maximumViewport </li>
+        1vmin=1% del lado mayor del viewport
+    </ul>
+    <pre>
+    <code>
+        :root{
+            --bar-width: 13px;
+        }
+        .e3 {
+            padding-bottom: 100em;
+            width: 75%; /* 1/2 */
+        }
+        .e3 footer{
+            font-size: 2em;
+            background: violet;
+            width: 100vw; /* 1/4 */
+            width: calc(100vw- var(--bar-width));
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <div class="e4">
+        <header>bienvenidos </header>
+    </div>
+    <h2 id="viewport2">Unidades de viewport (part2)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Funcionalidades imporantes para las medidas de viewport es crear elmentos que tengan cierta proporcion, ejemplo: en la construccion de una barra de header que se ajuste de acuerdo al viewport con <code>vmin</code>
+    <pre>
+    <code>
+        .e4{
+            background: darkgoldenrod;
+            width: 25vmin;
+            height: 25vmin;
+        }
+        .e4 header{
+            background: darkgoldenrod;
+            color: cornsilk;
+            text-align: center;
+            padding: 9vmin 0;
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="rwdFlexbox">Resposive Web Desing flexbox</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e5">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quis quasi eos amet placeat voluptatem reiciendis doloribus? Vero ipsa, dolore dolor voluptatem placeat veniam at maxime commodi atque cumque itaque?</p>
+    </div>
+    <blockquote>
+    <pre>
+    <code>
+        .e5{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .e5 p{
+            background-color: goldenrod;
+            margin: .5em;
+            font-size: 1.5em;
+            flex: 1 1 200px;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="rwdGrid">Resposive Web Desing Grid</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e6">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis iure nihil vero quidem excepturi, rem ut. Recusandae dolorem, cumque fuga tempore accusantium error molestias perferendis, saepe excepturi, iure in.</p>
+    </div>
+    <blockquote>
+    <pre>
+    <code>
+        .e6{
+            display:grid;
+            gap:1em;
+            grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+        }
+        .e6 p{
+            background-color: goldenrod;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="breakpoint">Breakpoint</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son los puntos de quiebre y pueden ser arbitrarios para que un diseño se vea en cada pantalla de menera chula, boostrap y fundation usan untos de quiebre diferentes y es asi , se puede definir tu tamaño small con 300px como con 400px, <br></br>
+    <ul>
+        <li>small: 320</li>
+        <li>medium: 640</li>
+        <li>large: 1024</li>
+        <li>xlarge: 1240</li>
+    </ul>
+    <pre>
+    <code>
+        $breakpoints:(
+        small: 320px,
+        medium: 640px,
+        large: 1024px,
+        xlarge: 1200px,
+    );
+
+    @mixin rwd($bp){
+        @if map-has-key($breakpoint, $bp){
+            @media screen and (min-width: map-get($breakpoints, $bp)){
+                @content;
+            }
+        }
+        @media screen and (min-width: $bp){
+            @content;
+        }
+    }
+
+    body{
+        @include rwd(small){
+            background-color: yellow;
+        }
+        @include rwd(500px){
+            background-color: darkblue;
+        }
+    }
+    </code>
+    </pre>
+    </blockquote>
+
+    <script src="rwdEnPractica.js"></script>
+</body>
+</html>

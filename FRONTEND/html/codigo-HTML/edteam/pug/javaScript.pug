@@ -1,0 +1,78 @@
+// la declacion de variables en java script pude ser asiu
+
+- let name = 'saca las panochas perro'
+
+// para llamarlo desde pug no tiene que tener el espacio entre la etiqueta y el = 
+p= name
+
+// CONDICIONALES 
+
+if 5>3
+	p sola mundo
+else 
+	p la condicon no se cumplio 
+
+// CICLOS
+
+- let days = ['lunes', 'martes', 'miercoles', 'jueves']
+
+each day in days 
+	p= day
+	p= `${day.toUpperCase}`
+
+- let pages = ['home', 'quienes somos', 'contacto']
+
+ul 
+	each page in pages 
+		li: a(href= `${page.split(' ').join('-')}.html`)= page 
+
+// recorriendo un objeto Json
+
+- 
+	const EDteam = {
+		ceo: 'Alvaro',
+		cto: 'Alexys',
+		coo: 'Beto'
+	}
+ul 
+	each val, key in EDteam
+		li= `${val} es el ${key.toUpperCase()} de EDteam-`
+
+- 
+	let pagesObjet = [
+		{
+			title: 'Home',
+			url: 'index.html',
+			child: []
+		},
+		{
+			title: 'Services',
+			url: 'services.html',
+			child: [
+				{
+					title: 'web desing',
+					url: 'web-desing.html'
+				},
+				{
+					title: 'SEO',
+					url: 'seo.html'
+				}
+			]
+		},
+		{
+			title: 'Contact us',
+			url: 'contact.html',
+			child: []
+		}
+	]
+
+
+ul
+	each page in pagesObjet 
+		li
+			a(href= page.url)= page.title
+				if page.child.length > 0
+					ul 
+						each subpage in page.child 
+							li: a(href= subpage.url)= subpage.title 
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeros pasos en git </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <h1 id="indice">Primeros pasos en el baile de git</h1>
+    <ul>
+        <a href="#addycommit"><li>Opciones de git add y git commit</li></a>
+        <a href="#modificacion"><li>Modificando la estructural del proyecto</li></a>
+        <a href="#modificadosynuevos"><li>Archivos modificados y archivos nuevos</li></a>
+        <a href="#deshaciendo"><li>Deshaciendo cambios</li></a>
+        <a href="#quitardelAreaPreparacion"><li>Quitando archivos del area de preparacion</li></a>
+        <a href="#verCambios"><li>Ver cambios realizados en cada archivo</li></a>
+    </ul>
+
+    <hr><h2 id="addycommit">Opciones de git add y git commit</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        LOS tre estados siempre juegan una papel importante, recoredando que son <strong>estado de trabajo, area de preparacion y repositorio</strong>, el primero es donde pasamos modificando e archivo que hemos selccionado , despues podemos pasarlo a el area de preparacion, que cuando lo decimadamos podemos pasarlo a el area del repositorio. <br><br>
+
+    <pre>
+    <code>
+        git add 
+        <em>Para poder añadir los cambios, en el area de 
+        preparacion.</em>
+
+        git restore 
+        <em>Poder deshacer los cambios ANTES de pasar a el 
+        area de preparacion.</em>
+
+        git add .
+        <em> significa que estoy agregando todos los archivos 
+        de la carpeta donde nos encontramos, es decir que si 
+        existen mas carpteas no se agregaran los archivos que 
+        se encuentren en ella </em>
+
+        git commit -m ""
+        <em>podemos realizar el mensaje de una para que no se
+        abra el editor de texto</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr><h2 id="modificacion">Modificando la estructura del proyecto</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        En caso de que se modifique la estructura del proyecto podemos ver que la checar el status con <code>git status</code>, que es como si se hubiera borrado de la carptea actual y podemos agragarlo a la area de preparaciona asi sean las nuevas capetas con <code>git add .</code> desde al imagen de la raiz.
+    </blockquote>
+
+    <hr><h2 id="modificadosynuevos">Archivos modificados y nuevos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Cuando tenemos un grupo de modificados podemos añadirlos directamente al repositorio con 
+
+    <pre>
+    <code>
+        git commit -am "Se modificarion los archivos respecto al curso de git io que se !!!!!"
+        <em>poder pasar el add y commit de todos los archivos en el area de trabajo de una, <strong>solo los modificados</strong></em>, en el caso de archivos nuevos solo queda mandarlo al area de preparacion y despues al repositorio, asi como tambien con carpetas .
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr><h2 id="deshaciendo">Deshaciendo cambios realizados</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Nos arepentimos de los cambios hechos <strong>antes de ser commiteado</strong>
+    <pre>
+    <code>
+        git checkout "archivo_reseteable.txt"
+        <em>Se deshacen los cambios realizados en un archivo trackeado , obvio antes de que este sea commiteado</em>
+
+        git checkout -f
+        <em>Todos los camobios realizados en todos los archivos modificados se desharan</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr><h2 id="quitardelAreaPreparacion">Quitando archivos del area de preparacion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Sacando del area de preparacion, es decir revertir el <code>git add . </code>.
+    <pre>
+    <code>
+        git restore --stage nobre_del_archivo_added
+        <em>quitar una archivo del area de preparacion</em>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr><h2 id="verCambios">Ver cambios realizados en cada archivo</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Entendiendo <code>git diff</code> para poder enteder el <code>git log</code>
+    
+    <pre>
+    <code>
+        git diff "archivo_modificado"
+        <em>ver las diferencias de la modificacion del archivo, uno es el que se encuentra en nuestro directorio de trabajo y otro que es su simil que esta en el repositorio almacenado como la ultima version del archivo</em>
+
+        git diff --stat aarchivo_modificado
+        <em>solo estadisticas de lo que se aha modificado</em>
+    </code>
+    </pre>
+    </blockquote>
+
+
+    
+</body>
+</html>

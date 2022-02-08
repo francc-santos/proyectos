@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Document</title>
+    <style>
+        td{
+            /* Es para poner la linea de las celdas */
+            border: 1px solid ;
+            padding: .5em;
+        }
+        /* Para quitar la separacion de las celdas  */
+        table{
+            border-collapse: collapse;
+        } 
+        th{
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="indice">Tablas</h1>
+    <ul>
+        <a href="#basica"><li>Estructura basica de la tabla</li></a>
+        <a href="#completa"><li>Estructura completa de la tabla</li></a>
+        <a href="#agrupacion"><li>Agrupacion de filas y columnas</li></a>
+        <a href="#colgrup"><li>Colgrup</li></a>
+    </ul>
+
+    <hr>
+    <h2 id="basica">Estructura basica de las tablas </h2>
+    <p><a href="#indice">regreso</a></p>
+    <!-- Para poder visualizar se pude usar el atributo de BORDER para mostrar las lineas pero lo mas recomendable es que sea dmodificado esto desde el css -->
+    <table>
+        <thead>
+            <tr>
+                <td>Es una celada en la tabla </td>
+                <td>Es otra celda dentro de la fila </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Una nueva celda de la siguiente fila</td>
+                <td>Una nueva celda de la siguiente fila</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        Table = es la etiquuta que indica que se va a utilizar una tabla en el html
+        <ul>
+            <li>tr</li>
+            indica que es una fila de la tabla 
+            <li>td</li>
+            table data , que es una celda en la fila donde se anida 
+            <li>th</li>
+            table head , que son los que indican el contenido de la columna, en caso de que se cree una cabecera tenemos que crear la etiqueta thead
+            <li>tfoot</li>
+            Para las que requieran de una informacion adicional, como un resumen de los datos que se encuentran dentro de la tabla.
+        </ul> 
+
+    <pre>
+    <code>
+        table>
+            thead>
+                tr>
+                    td>Es una celada en la tabla /td>
+                    td>Es otra celda dentro de la fila /td>
+                /tr>
+            /thead>
+            tbody>
+                tr>
+                    td>Una nueva celda de la siguiente fila/td>
+                    td>Una nueva celda de la siguiente fila/td>
+                /tr>
+            /tbody>
+        /table>
+    </code>
+    </pre>
+    </blockquote>
+
+    
+    <h2 id="completa">Estructura completa de una tabla </h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <table>
+        <thead>
+            <tr>
+                <!-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                <th>Es una celada en la tabla </th>
+                <th>Es otra celda dentro de la fila </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Una nueva celda de la siguiente fila</td>
+                <td>Una nueva celda de la siguiente fila</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <!--  -->
+            </tr>
+        </tfoot>
+        <caption>
+            Una descripacion de la tabla que se vera a continuacion.
+        </caption>
+    </table>
+
+    <blockquote>
+        Uso de la cabecera, se usan para indicar que dato se va a mostrar en la columna
+    <pre>
+    <code>
+        table>
+            thead>
+                tr>
+                    !-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                    th>Es una celada en la tabla /th>
+                    th>Es otra celda dentro de la fila /th>
+                /tr>
+            /thead>
+            tbody>
+                tr>
+                    td>Una nueva celda de la siguiente fila/td>
+                    td>Una nueva celda de la siguiente fila/td>
+                /tr>
+            /tbody>
+            tfoot>
+                tr>
+                    !--  -->
+                /tr>
+            /tfoot>
+            caption>
+                Una descripacion de la tabla que se vera a continuacion.
+            /caption>
+        /table>
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="agrupacion">Agrupacion de filas y celdas</h2>
+    <p><a href="#indice">regreso</a></p>
+    <table>
+        <thead>
+            <tr>
+                <!-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                <th colspan="2">Es una celada en la tabla </th>
+                <th>Es otra celda dentro de la fila </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Una nueva celda de la siguiente fila</td>
+                <td>Una nueva celda de la siguiente fefefeffefe</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <!--  -->
+            </tr>
+        </tfoot>
+        <caption>
+            Una descripacion de la tabla que se vera a continuacion.
+        </caption>
+    </table>
+
+    <blockquote>
+        Que pasa si en el caso de las filas tengan que esta en dos celda, para lograr esto es la agrupacion de columnas que son atributos :
+        <ul>
+            <li>colspan = n</li>
+            <li>rowspan = n</li>
+        </ul>
+    <pre>
+    <code>
+        table>
+            thead>
+                tr>
+                    !-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                    th colspan="2">Es una celada en la tabla /th>
+                    th>Es otra celda dentro de la fila /th>
+                /tr>
+            /thead>
+            tbody>
+                tr>
+                    td rowspan="2">Una nueva celda de la siguiente fila/td>
+                    td>Una nueva celda de la siguiente fefefeffefe/td>
+                /tr>
+            /tbody>
+            tfoot>
+                tr>
+                    !--  -->
+                /tr>
+            /tfoot>
+            caption>
+                Una descripacion de la tabla que se vera a continuacion.
+            /caption>
+        /table>
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="colgrup">Colgroup</h2>
+    <p><a href="#indice">regreso</a></p>
+    <table>
+        <colgroup>
+            <!-- escribir la etiqueta col por cada columna que se tenga -->
+            <col>
+            <col style="background:yellow">
+        </colgroup>
+        <thead>
+            <tr>
+                <!-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                <th colspan="2">Es una celada en la tabla </th>
+                <th>Es otra celda dentro de la fila </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Una nueva celda de la siguiente fila</td>
+                <td>Una nueva celda de la siguiente fefefeffefe</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <!-- ddsadadsadsaddsa -->
+            </tr>
+        </tfoot>
+        <caption>
+            Una descripacion de la tabla que se vera a continuacion.
+        </caption>
+    </table>
+
+    <blockquote>
+        La forma de poder usar las columnas como una unidad
+    <pre>
+    <code>
+        table>
+            colgroup>
+                !-- escribir la etiqueta col por cada columna que se tenga -->
+                col>
+                col style="background:yellow">
+            /colgroup>
+            thead>
+                tr>
+                    !-- Para poder cambiar todo las etiquetas de una podemos usar ctrl+d en VScode -->
+                    th colspan="2">Es una celada en la tabla /th>
+                    th>Es otra celda dentro de la fila /th>
+                /tr>
+            /thead>
+            tbody>
+                tr>
+                    td rowspan="2">Una nueva celda de la siguiente fila/td>
+                    td>Una nueva celda de la siguiente fefefeffefe/td>
+                /tr>
+            /tbody>
+            tfoot>
+                tr>
+                    !-- ddsadadsadsaddsa -->
+                /tr>
+            /tfoot>
+            caption>
+                Una descripacion de la tabla que se vera a continuacion.
+            /caption>
+        /table>
+    </code>
+    </pre>
+    </blockquote>
+</body>
+</html>

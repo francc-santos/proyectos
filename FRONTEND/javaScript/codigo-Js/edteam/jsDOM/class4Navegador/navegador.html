@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El navegador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1 id="indice">El navegador</h1>
+    <ul>
+        <a href="#window"><li>Objeto window</li></a>
+        <a href="#ejercicio-reposive"><li>Ejercicio responsive tester</li></a>
+        <a href="#location"><li>Objeto location</li></a>
+        <a href="#history"><li>Objeto history</li></a>
+        <a href="#navigator"><li>Objeto navigator</li></a>
+        <a href="#timers"><li>Timers</li></a>
+        <a href="#date"><li>Objeto Date</li></a>
+    </ul>
+
+    <h2 id="window">Objeto window</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es el objeto de mas alto nivel en JS, en el navegador, mientras en <strong>node</strong> su equivalente es el objeto global, todos los obejtos decinden de estos dos.   
+        
+        <pre>
+        <code>
+            console.log("algo") === 
+            window.console.log("algo")
+        </code>
+        </pre>
+        COon este ejemplo de quiere decir que en teoria todas lo metodos y propiedades que no se ve claramente a que se aplica es que decienden del objeto window, esto es:
+        <ul>
+            <li>Objetos</li>
+            Todos estos objetos a su ves tiene metodos como en el caso de console que tiene log, warn, error    
+            <ul>
+                <li>console</li>
+                uso de la consola 
+                <li>navigator</li>
+                nos da info sobre el software del navegador 
+                <li>location</li>
+                Info sobre la URL de la pagina en la que nos encontramos 
+                <li>history</li>
+                Info sobre el historial del navegador 
+                <li>screen</li>
+                Nos da info del alto y el ancho de la ventana de navegador 12
+            </ul>
+            <li>Metodos</li>
+            <ul>
+                <li>open()</li>
+                Abre una nueva instancia del navegador
+                <pre>
+                <code>
+                    window.open('HTTPS://ASASASAS','NOMBRE','WITH=200, HEIGHT=400')
+                </code>
+                </pre>
+                <li>close()</li>
+                Solo se puede usar coin ventanas que hayan sido abiertas con open
+
+                <li>alert('mensaje')</li>
+                Manda una aletar al ususario desde una ventana 
+                <pre>
+                <code>
+                    alert("hola mundo, esta es una alerta")
+                </code>
+                </pre>
+                <li>confirm('mensaje')</li>
+                para que el ususario cueda confirmar una validacion, lo malo es que no se le pueden dar estilos 
+                <pre>
+                <code>
+                    let userResponse = confirm('Etas seguro ')
+                    console.log('userResponse')
+                </code>
+                </pre>
+                <li>prompt('mensaje')</li>
+                manda un mensaje y guarda la respuesta del usuario en una variable  
+                <pre>
+                <code>
+                    let age = prompt('Cual es su edad')
+                </code>
+                </pre>
+            </ul>
+        </ul>
+    </blockquote>
+
+    <h2 id="ejercicio-reposive">Ejercicio responsive tester</h2>
+    <p><a href="#indice">regreso</a></p>
+    <h2>Reposive tester </h2>
+    <p>Intoduzca los datos de un sitio web para probar su diseño reponsivo</p>
+    <form action="#" id="tester-form">
+        <label for="" id="url">introduce la URL <input type="text"></label>
+        <label for="" id="width">intoduce el ancho <input type="text"></label>
+        <label for="" id="heigth">intoduce el alto <input type="text"></label>
+    </form>
+    <button>Pruebalo</button>
+    <blockquote>
+        En eel foemualrio anterior se hace uso de los metodos de window, abiendo nuevas ventanas de acuerdo al tamaño que se quiera abrir el contenido de las paginas.
+    </blockquote>
+
+    <h2 id="location">Objeto location</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        nos entrega la informacion de al URL, es usado para la contruccion de SPA desde vanilla js con el uso de las rutas , eso creo por eso son mas rapidas.
+
+        <ul>
+            <li>Propiedades</li>
+            <ul>
+                <li>href</li>
+                Devuelve la pagina actual 
+                <pre>
+                <code>
+                    location.href, es de lectura y escritura asi que se puede asignar un valor. 
+                </code>
+                </pre>
+                <li>host</li>
+                Devuelve unicamente el dominio, osea podemos saber si es una web interna o externa 
+                <pre>
+                <code>
+                    location.host
+                </code>
+                </pre>
+                <li>hostname</li>
+                Dominio mas puerto 
+                <pre>
+                <code>
+                    location.hostname
+                </code>
+                </pre>
+                <li>port</li>
+                puerto
+                <li>protocol</li>
+                protocolo
+                <li>origin</li>
+                protocolo mas el dominio 
+                <li>hash</li>
+                Si hubiera algun #, que normalemente se usan para crear enlaces internos
+                <li>pathname</li>
+                La ruta, sabern en que pagina me encuentro.
+
+            </ul>
+            <li>Metodos</li>
+            <ul>
+                <li>reload()</li>
+                recarga la pagina
+                <li>assign(url)</li>
+                es lo mismo que sobre escribir al propiedad href
+                <li>replace(url)</li>
+                lo mismo que el anterior
+            </ul>
+        </ul>
+    </blockquote>
+
+    <h2 id="history">Objeto history</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Contienen el historial de navegacion que de la pestaña donde estas no del browser.
+        <ul>
+            <li>Propiedades</li>
+            <ul>
+                <li>length</li>
+                Cacntidad de elementos que incluye la pagina actual
+            </ul>
+            <li>Metodos</li>
+            <ul>
+                <li>back()</li>
+                lleva una posicion en tiempo atras
+                <li>forward()</li>
+                lleva una posicion en tiempo a delante
+                <li>go(position)</li>
+                lleva las posicions que se le indique hacia adelante y hacia atras  
+            </ul>
+        </ul>
+    </blockquote>
+
+    <h2 id="navigator">Objeto navigator</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Sirve para detectar las propiedades del navegador donde nos encontramos, podemos usar modernizzr para detectar propiedades que necesitemos y asi hacer validadciones. <br><br>
+        ALGO QUE NO TIENE QUE VER ES EL @SUPPORTS QUE es la forma de realizar condicionales con css, podemos usar js para validar caracteristicas del navegador con <code>in</code>, ejemplo <code>'promise' in window</code>, si existe una propiedade en un objeto 
+    </blockquote>
+
+    <h2 id="timers">Timers</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <ul>
+            <li>setTimeout(callback,ms)</li>
+            Se ejecuta solo una ves luego de cargar la pagina 
+            <pre>
+            <code>
+                setTimeout(()=>{
+                    alert('Hola mundo')
+                },2000)
+            </code>
+            </pre>
+            <li>setInterval(callback,ms)</li>
+            
+        </ul>
+    </blockquote>
+
+    <h2 id="date">Objeto Date</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es un objeto que trae las fechas desde el sistema operativo, asi que si se cambia la fecha desde el sistema operativo este cambiara.
+        <ul>
+            <li>Instanciar</li>
+            <ul>
+                <li>new Date()</li>
+                Como e un objeto se debe de intanciar
+                <li>new Date(year, month, day)</li>
+                month = desde 0 hasta 11
+                <li>new Date(year, month, day, hours, minutes, seconds)</li>
+                igual que la anterior pero siendo un poco mas especifico 
+                <li>new Date(string)</li>
+                podemos obtener una fecha desde al declaracion de un string y con todo el la zona horaria
+            </ul>
+            <li>Metodos</li>
+            <ul>
+                <li>getFullYear()</li>
+                devuelve el año
+                <li>getMinutes()</li>
+                devuelve los minutos
+                <li>getSeconds()</li>
+                devulve los segundos
+                <li>getDay()</li>
+                devulve los dias de la semana desde 0 a 6
+                <li>getDate()</li>
+                devuelve el dia desde el 0 al 31
+                <li>getMonth()</li>
+                devulve el mes desde 0 a 11
+                <li>getTime()</li>
+                devulve los milisegundos desde el 1 de enero de 1970
+                <li>getTimezoneOffset()</li>
+                devulve la diferencia horaria de nuestra zona con el meridiano 0, en minutos, tabajar con las horas internacionales.     
+            </ul>
+        </ul>
+    </blockquote>
+
+    
+    <script src="navegador.js"></script>
+</body>
+</html>

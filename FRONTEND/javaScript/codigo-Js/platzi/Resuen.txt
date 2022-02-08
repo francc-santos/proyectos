@@ -1,0 +1,33 @@
+Dos componnentes 
+    data: valores 
+    tareas: funciones 
+
+valores
+    primitivos: numeros, string, bool, vacios, array, objetos (typeof)
+
+variables
+    reprecentacion del lugar donde vamos a guardar valores
+        declaradas: solo reservar el espacio en memoria
+        inicializada: llamamos al espasio y se le pone un valor
+
+funciones
+    parametros:valores con los que trabaja una funcion
+    declarativas: no
+    expresivas: se conocen como anonimas
+
+scope
+    global:funciones y variables globales, no puede manejar el local scope
+    local: si se puede utilizar lo del scope global
+
+hoisting
+    cuando las variables y las funciones se procesan antes de que se ejecute cualquier
+    codigo
+    declarando todas las funciones al inicio del codigo
+
+coercion
+    la forma en que podemos cambiar el tipo de valor a otro
+        Coerción implícita = es cuando el lenguaje nos ayuda a cambiar el tipo de valor.
+        Coerción explicita = es cuando obligamos a que cambie el tipo de valor.
+
+Truthy y Falsy  
+    valores donde los bool son true o false

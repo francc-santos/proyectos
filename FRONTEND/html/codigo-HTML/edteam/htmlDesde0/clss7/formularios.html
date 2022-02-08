@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Uso de los formularios en el html</title>
+</head>
+<body>
+
+    <h1 id="indice">Uso de formularios en html</h1>
+    <ul>
+        <a href="#basica"><li>Estructura basica de un formulario</li></a>
+        <a href="#completa"><li>Estructura completa de un formulario</li></a>
+        <a href="#tiposDeInput"><li>Tipos de input</li></a>
+        <a href="#opcionesSeleccion"><li>Opciones de seleccion</li></a>
+        <a href="#select"><li>Select</li></a>
+        <a href="#dataList"><li>Datalist (filtra por valores parecidos)</li></a>
+        <a href="#atributosFormularios"><li>Atributos en los formularios</li></a>
+    </ul>
+
+
+    <h2 id="basica">Estructura basica de un formulario</h2>
+    <p><a href="#indice">regreso</a></p>
+    <blockquote>
+        En las demas etiquetas marcamos el contenido, pero en el formulario lo que marcamos son elementos para que los usuarios interactuen con la pagina web, de los componentes mas importantes de las paginas web, pagos , registros , compras de un vuelo, etc.
+    </blockquote>
+
+    <!-- El atributo action dice hacia donde vamos a enviar la informacion del formulario , son enviados al servidor , este evalua que sean validos y seguros, con ello sabe que responder -->
+    <form action="form.html">
+        <!-- campos input sin el type es como el tipo text -->
+        <div>
+            <input placeholder="Tu nombre de usuario" name="username">
+        </div>
+        <div>
+            <input type="text" placeholder="Tu contrasenia" name="password">
+        </div>
+        <div>
+            <!-- Permite un texto largo -->
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Dejanos un mensaje"></textarea>
+        </div>
+        <!--  Abajo otra forma de enviar los datos del fomulario-->
+        <!-- <input type="submit" value="ENviar"> -->
+        <button>Enviar</button>
+
+    </form>
+
+    <blockquote>
+        El atributo <i>name</i> dentro de los formularios es como le decimos al backend que el ususarioa llenado los campos necesarios para poder ser enviados.
+    <pre>
+    <code>
+        !-- El atributo action dice hacia donde vamos a enviar la informacion del formulario , son enviados al servidor , este evalua que sean validos y seguros, con ello sabe que responder -->
+        form action="form.html">
+            !-- campos input sin el type es como el tipo text -->
+            div>
+                input placeholder="Tu nombre de usuario" name="username">
+            /div>
+            div>
+                input type="text" placeholder="Tu contrasenia" name="password">
+            /div>
+            div>
+                !-- Permite un texto largo -->
+                textarea name="message" id="" cols="30" rows="10" placeholder="Dejanos un mensaje">/textarea>
+            /div>
+            !--  Abajo otra forma de enviar los datos del fomulario-->
+            !-- input type="submit" value="ENviar"> -->
+            button>Enviar/button>
+
+        /form>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr>
+    <h2 id="completa">Estructura completa de un formulario</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Placeholder no se puede traducir y no puede controlarlo, por lo que se usa la etiqueta lable que por medio de un id en el input que le indiquemos actua como le palce holder.
+    </blockquote>
+
+    <form action="form.html">
+        <!-- campos input sin el type es como el tipo text -->
+        <div>
+            <label for="username">Tu nombre</label>
+            <input id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Tu contrasenia</label>
+            <input type="text" id="password" name="password">
+        </div>
+        <div>
+            <!-- Permite un texto largo -->
+            <label for="message">Dejanos un mensaje</label>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Dejanos un mensaje"></textarea>
+        </div>
+        <!--  Abajo otra forma de enviar los datos del fomulario-->
+        <!-- <input type="submit" value="ENviar"> -->
+        <button>Enviar</button>
+    </form>
+
+    <blockquote>
+        Otra forma de hacerlo , es que podemos anidar el input dentro del lable y olvidar el <em>id</em> y el <em>for</em>
+
+    <pre>
+    <code>
+        form action="form.html">
+            !-- campos input sin el type es como el tipo text -->
+            div>
+                label for="username">Tu nombre/label>
+                input id="username" name="username">
+            /div>
+            div>
+                label for="password">Tu contrasenia/label>
+                input type="text" id="password" name="password">
+            /div>
+            div>
+                !-- Permite un texto largo -->
+                label for="message">Dejanos un mensaje/label>
+                textarea name="message" id="message" cols="30" rows="10" placeholder="Dejanos un mensaje">/textarea>
+            /div>
+            !--  Abajo otra forma de enviar los datos del fomulario-->
+            !-- input type="submit" value="ENviar"> -->
+            button>Enviar/button>
+        /form>
+    </code>
+    </pre>
+    </blockquote>
+
+    <form action="form.html">
+        <!-- campos input sin el type es como el tipo text -->
+        <div>
+            <label>Tu nombre
+                <input type="text" name="username">
+            </label>
+        </div>
+        <div>
+            <label>Tu contrasenia
+                <input type="text" name="password">
+            </label>
+        </div>
+        <div>
+            <!-- Permite un texto largo -->
+            <label for="message">Dejanos un mensaje
+                <textarea name="message"  cols="30" rows="10" ></textarea>
+            </label>
+        </div>
+        <!--  Abajo otra forma de enviar los datos del fomulario-->
+        <!-- <input type="submit" value="ENviar"> -->
+        <button>Enviar</button>
+    </form>
+
+    <blockquote>
+        VALUE podemos darle un valor predeterminado, y fieldset nos permitte agrupar los campos y con legend podemos etiquetear el conjunto
+    <pre>
+    <code>
+        form action="form.html">
+            !-- campos input sin el type es como el tipo text -->
+            div>
+                label>Tu nombre
+                    input type="text" name="username">
+                /label>
+            /div>
+            div>
+                label>Tu contrasenia
+                    input type="text" name="password">
+                /label>
+            /div>
+            div>
+                !-- Permite un texto largo -->
+                label for="message">Dejanos un mensaje
+                    textarea name="message"  cols="30" rows="10" >/textarea>
+                /label>
+            /div>
+            !--  Abajo otra forma de enviar los datos del fomulario-->
+            !-- input type="submit" value="ENviar"> -->
+            button>Enviar/button>
+        /form>
+    </code>
+    </pre>
+    </blockquote>
+    
+    <hr> 
+    <h2 id="tiposDeInput">Tipos de Input</h2>
+    <p><a href="#indice">regreso</a></p>
+    <p>Mas tipos de botones</p>
+    <fieldset>
+        <legend></legend>
+            <div>
+                <label>De tipo number
+                    <input type="number">
+                </label>
+            </div>
+        
+    </fieldset>
+
+    <!-- Los iconos que paraceren delante de los inputs se llaman widgets de navegador -->
+    <fieldset>
+        <legend></legend>
+            <div>
+                <label>De tipo date
+                    <input type="date">
+                </label>
+            </div>
+        
+    </fieldset> 
+
+    <fieldset>
+        <legend></legend>
+            <div>
+                <label>De tipo email
+                    <input type="email">
+                </label>
+            </div>
+        
+    </fieldset>
+    <blockquote>
+        El type email, nOs ayuda con la validacion del @, pero es mejor no confiar en ls validaciones
+    <pre>
+    <code>
+        fieldset>
+            legend>/legend>
+                div>
+                    label>De tipo number
+                        input type="number">
+                    /label>
+                /div>
+            
+        /fieldset>
+    
+        !-- Los iconos que paraceren delante de los inputs se llaman widgets de navegador -->
+        fieldset>
+            legend>/legend>
+                div>
+                    label>De tipo date
+                        input type="date">
+                    /label>
+                /div>
+            
+        /fieldset> 
+    
+        fieldset>
+            legend>/legend>
+                div>
+                    label>De tipo email
+                        input type="email">
+                    /label>
+                /div>
+            
+        /fieldset>
+    </code>
+    </pre>
+    </blockquote>
+
+    <fieldset>
+        <legend></legend>
+            <div>
+                <label>De tipo password
+                    <input type="password">
+                </label>
+            </div>
+    </fieldset>
+
+    <fieldset>
+        <legend><legend>
+            <div>
+                <label>De tipo Color
+                    <input type="color">
+                </label>
+            </div>
+        
+    </fieldset>
+
+    <fieldset>
+        <legend></legend>
+            <div>
+                <label>De tipo range
+                    <input type="range" min="0" max="10" step="2" value="0">
+                </label>
+            </div>
+        
+    </fieldset>
+
+    <blockquote>
+    <pre>
+    <code>
+        fieldset>
+            legend>/legend>
+                div>
+                    label>De tipo password
+                        input type="password">
+                    /label>
+                /div>
+        /fieldset>
+    
+        fieldset>
+            legend>legend>
+                div>
+                    label>De tipo Color
+                        input type="color">
+                    /label>
+                /div>
+            
+        /fieldset>
+    
+        fieldset>
+            legend>/legend>
+                div>
+                    label>De tipo range
+                        input type="range" min="0" max="10" step="2" value="0">
+                    /label>
+                /div>
+            
+        /fieldset>
+    </code>
+    </pre>
+    </blockquote>
+
+    <hr>
+    <h2 id="opcionesSeleccion">Opciones de seleccion</h2>
+    <p><a href="#indice">regreso</a></p>
+    <fieldset>
+        <legend>
+            Opciones de seleccion, pudes elegir mas de una 
+            <div>
+                <label>
+                    <input type="checkbox" name="aficiones" value="cine">
+                    cine
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="aficiones" value="musica">
+                    Musica
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="aficiones" value="comer">
+                    Comer
+                </label>
+            </div>
+        </legend>
+    </fieldset>
+
+    <blockquote>
+        Un tipo que nos permite seleccionar mas de uno , en el atributo name tinen que tener el mismo.
+    <pre>
+    <code>
+        fieldset>
+            legend>
+                Opciones de seleccion, pudes elegir mas de una 
+                div>
+                    label>
+                        input type="checkbox" name="aficiones" value="cine">
+                        cine
+                    /label>
+                /div>
+                div>
+                    label>
+                        input type="checkbox" name="aficiones" value="musica">
+                        Musica
+                    /label>
+                /div>
+                div>
+                    label>
+                        input type="checkbox" name="aficiones" value="comer">
+                        Comer
+                    /label>
+                /div>
+            /legend>
+        /fieldset>
+    </code>
+    </pre>
+    </blockquote>
+
+    <fieldset>
+        <legend>Ratio button tu sexo  </legend>
+        <div>
+            <label>
+                <input name="genero" type="radio">
+                Hombre
+            </label>
+        </div>
+        <div>
+            <label>
+                <input name="genero" type="radio">
+                Mujer
+            </label>
+        </div>
+        <div>
+            <label>
+                <input name="genero" type="radio">
+                Prefiero no decirlo
+            </label>
+        </div>
+    </fieldset>
+
+    <blockquote>
+    <pre>
+    <code>
+        fieldset>
+            legend>Ratio button tu sexo  /legend>
+            div>
+                label>
+                    input name="genero" type="radio">
+                    Hombre
+                /label>
+            /div>
+            div>
+                label>
+                    input name="genero" type="radio">
+                    Mujer
+                /label>
+            /div>
+            div>
+                label>
+                    input name="genero" type="radio">
+                    Prefiero no decirlo
+                /label>
+            /div>
+        /fieldset>
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="select">Select</h2>
+    <p><a href="#indice">regreso</a></p>
+    <fieldset>
+        <legend>Elemento de selecion </legend>
+        <select name="country" id="">
+            <!-- Para poder agruar por tal vez regiones  -->
+            <optgroup>
+                <option value="pe">Peru</option>
+                <option value="me">Mexico</option>
+            </optgroup>
+        </select>
+    </fieldset>
+
+    <blockquote>
+    <code>
+        fieldset>
+            legend>Elemento de selecion /legend>
+            select name="country" id="">
+                !-- Para poder agruar por tal vez regiones  -->
+                optgroup>
+                    option value="pe">Peru/option>
+                    option value="me">Mexico/option>
+                /optgroup>
+            /select>
+        /fieldset>
+    </code>
+    </blockquote>
+
+    <h2 id="dataList">Data list , cuando hay muchas opciones, filtra por valores parecidos </h2>
+    <p><a href="#indice">regreso</a></p>
+    <fieldset>
+        <input type="list">
+        <datalist id ="country-list">
+            <option value="Peru"></option>
+            <option value="Peruuiu"></option>
+            <option value="Peruyu"></option>
+            <option value="Peruiui"></option>
+        </datalist>
+    </fieldset>
+
+    <blockquote>
+    <pre>
+    <code>
+        fieldset>
+            input type="list">
+            datalist id ="country-list">
+                option value="Peru">/option>
+                option value="Peruuiu">/option>
+                option value="Peruyu">/option>
+                option value="Peruiui">/option>
+            /datalist>
+        /fieldset>
+    </code>
+    </pre>
+    </blockquote>
+    
+    <hr> 
+    <h2 id="atributosFormularios">Atributos en los formularios</h2>
+    <p><a href="#indice">regreso</a></p>
+    <blockquote>
+        <ul>
+            <li>placeholder</li>
+            es el del texto que te indica que valor se esta esperando por parte del usuario
+            <li>type </li>
+            que tipo de input estas trabajando
+            <li>require </li>
+            indica que los atributos son necesarios
+            <li>Readonly </li>
+            no pude ser editado por el usuario
+            <li>autocomplete </li>
+            on/off solo en el form, que si el navegador ya tiene los valores guardados podemos tomarlos y llenar los campos del form
+            <li>checked(checkbox y radio) y selected (select)</li>
+            indicamos un valor por default
+        </ul>
+    </blockquote>
+
+</body>
+</html>

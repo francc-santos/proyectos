@@ -1,0 +1,32 @@
+body{
+    background-color: darkblue;
+}
+
+@media screen and (min-width:600px){
+    body{
+        background-color: darkmagenta;
+    }
+}
+
+@media screen and (max-width:600px){
+    body{
+        background-color: darkmagenta;
+    }
+}
+
+/* Otro tipo de media queries */
+@media screen and (orientation: landscape) {
+    body{
+        background-color: darkorange;
+    }
+}
+@media screen and (orientation: portrait) {
+    body{
+        background-color: darkorange;
+    }
+}
+@media screen and (min-aspect-ratio) {
+    body{
+        background-color: darkorange;
+    }
+}

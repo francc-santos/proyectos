@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Servidor local y Rutas</title>
+</head>
+<body>
+    <h1 id="indice">Servidor local y Rutas</h1>
+    <ul>
+        <a href="#servidor"><li>Creacion de un servidor local</li></a>
+        <a href="#rutas"><li>Uso de las rutas relativas y absolutas</li></a>
+    </ul>
+
+    <h2 id="servidor">Creacion de un servidor local</h1>
+    <blockquote>        
+        Cliente servidor = Arquitectura = Forma en que se encuentran estructurados los componentes de un sistema <br> 
+        cliente = dispositivo que solicita la pagina web <br>
+        servidor = hardware y software que almacena y entrega la pagina eweb y sus componentes
+    </blockquote>
+
+    <hr>
+
+    <h2 id="rutas">Uso de las rutas relativas y absolutas</h1>
+    <blockquote>
+        Nos permite saber como encontrar otro recuso diferente a la pagina web donde estamos
+        <ul>
+            <li>Ruta Aboluta</li>
+            Tienen el protocolo http o https y son unicas como un URL; se usan para rutas externas, destinos fuera del proyecto
+            <li>Ruta Relativa</li>
+            Rutas internas del proyecto, por loq ue no usan protocolo y se debe de navegar como se menciona:
+            <ol>
+                <li>Si el recurso esta en LA MISMA CARPETA, se escribe nombre y extension</li>
+                <li>Si el recurso esta un caprte porn encima </li>
+                <li>Se contruyen a partir del origen, es decir desde donde nos encontramos ubicados</li>
+            </ol>
+            <li>Ruta Relativa a la raiz</li>
+            Se contruyen a partir de la carpeta raiz del proyecto , comom en linux <i>/</i> representa la raiz del proyecto.<br>
+            Un estandar es usar las rutas del proyecto como relativas desde la raiz, pq te muesta como esta formado el proyecto.
+        </ul>
+    </blockquote>
+
+</body>
+</html>

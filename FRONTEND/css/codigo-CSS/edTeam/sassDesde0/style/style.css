@@ -1,0 +1,27 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h1{
+    color:chocolate;
+}
+h2:target{
+    color: coral;
+    font-size: 2em;
+}
+blockquote{
+    background-color: #eee;
+    font-weight: 400;
+    padding-left: 5%;
+}
+code{
+    color: darkblue;
+    padding:0;
+}
+pre{
+    padding: 0;
+}

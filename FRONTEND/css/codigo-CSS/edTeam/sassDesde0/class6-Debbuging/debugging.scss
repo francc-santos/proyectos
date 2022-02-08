@@ -1,0 +1,19 @@
+/* Uso de las directivas para debugear */
+
+$size : 1em;
+$colors: red green, blue;
+
+
+body{
+    @debug $colors;
+    @debug $size;
+}
+
+body{
+    @warn 'hola mundo';
+}
+
+body{
+    @error 'El tipo de a variable x no es valido';
+}
+

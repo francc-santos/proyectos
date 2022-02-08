@@ -1,0 +1,138 @@
+/*  theme3 SELECTORES SIMPLES */
+
+/* Selectores simples de class se indican con un . y el nombre de la clss y en el html se incida  cun atributo como class*/
+
+/* REcomendaciones de las class 
+    - No pueden comenzar con numero
+    - Puden comenzar con - o _
+    - Pueden tener dos puntos (:)
+    - Puden ser de una letra
+*/
+
+.ejemplo>p{
+    /* todo elemeto con las class ejemplo que tenga como hijo directo un parrafo */
+    color: gray;
+}
+
+.title{
+    color: blueviolet;
+}
+
+.description{
+    color: lightblue;
+}
+
+
+/* Ejemplo, si quisiera que todo se comportara como una clase de boton, podriamos por asi decirlo declarar una class de css boton y desues todas tas etiquetas que tengan la clase botton se comportara como un boton */
+
+
+.button{
+    display: inline-block;
+    padding: .75em 2em;
+    background: steelblue;
+    color: white;
+    border-radius:.25em;
+}
+
+
+/* Simples de id = casi no se usan , porque se usan como anclas en el html o en java para seleccionar los elementos */
+
+/* NO se puede hacer la cascada cuando se usan identificadores */
+
+#title{
+    color:darkred ;
+}
+
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* theme4 SELECTORES COMPUESTOS */
+
+/* AGRUPADOS */
+
+/* NO es mas que en el selector agrupar mas etiquetas , class o id que se quiera que tengan ese tipo de estilo, es como indicar una class pero indicando los elementos que tendran esa class , en todo caso no es recomendable que se use mucho, solo en casos especificos, deben de tener la (,) entre elementos */
+
+/* quiero que los h2 , y tambien los de la class button tengan otro color violet */
+
+h2, .button{
+    color: violet;
+}
+
+/* COMBINADOS */
+/* Pudes usar una combinacion de los selectores simples donde se quiere modificar los estilos, ejemplo, un h1 que tenga igual la class title o en este caso un h1 que tenga el identificador indice, osea solo los h1 que sean indice se van a pintar con un nuevo color*/
+
+h1#indice{
+    color: darkgoldenrod;
+}
+
+/* DESCENDIENTES */
+
+/* Se indican con un espacio, poniendo el padre antes del espacio y los hijos despues del espacio*/
+
+div span{
+    color: rgb(250, 209, 162);
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* CON OPERADORES */
+
+/* Con operadores * > = ~
+    - * = selector universal
+    - > = hijo directo 
+    - + = hermano siguiente 
+    - ~ = hermanos siguientes 
+*/
+
+* {
+    color :rgb(100, 14, 97);
+}
+
+/* Todo blockuote que sea hijo directo de pre, osea una cita textual con respetado de formato  */
+div>span {
+    /* Exclusivemente hijo no como en los desendicntes */
+    color: rgb(100, 14, 97);
+}
+
+/* En la seccion de html de operadores existe un blockquote dentro de un pre entonces despues de est hay dos div  iguales , si se quiere indiar que solo el hermano siguiente de p tenga otras caracteristicas se usa + */
+
+pre+div{
+    color: black;
+}
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+/* SELECTORES DE ATRIBUTOS
+
+Con el uso de los corchetes
+pueden ser especifico o general con solo la seleccion de un atributo muy general 
+*/
+
+[placeholder="Tu nombre"]{
+    background-color : darkred;
+}
+
+
+/* ATRIBUTOS CON COMODINES 
+entre corchetes esto attr ^="value*/
+
+a[href^="https"]{
+    color : red;
+}
+
+/* Es como indicar que termina con 
+entre corchetes attr$ = "value" */
+a[href$=".mp4"]{
+    color: blueviolet;
+}
+
+/* En cualquier lugar debe de contenerlo
+entre corhetes attr* = "value" */
+a[href*="team"]{
+    color: royalblue;
+}

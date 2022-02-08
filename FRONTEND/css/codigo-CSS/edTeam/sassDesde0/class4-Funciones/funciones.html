@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Funciones en Sass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body>
+    
+    <h1 id="indice">Funciones</h1>
+    <ul>
+        <a href="#definicion"><li>Definicion de Funciones</li></a>
+        <a href="#paraEmeImg"><li>Funciones para em y para imagenes</li></a>
+        <a href="#stringF"><li>Funciones de string</li></a>
+        <a href="#numerosF"><li>Funciones de números</li></a>
+        <a href="#listasMapasF"><li>Funciones de listas y mapas</li></a>
+        <a href="#instrospeccionF"><li>Funciones de instrospeccion</li></a>
+        <a href="#ejercicio"><li></li>Ejercicio long shadow</a>
+    </ul>
+
+    <h2 id="definicion">Definición de funciones</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Trozos de condigo cuyo objetivo es devolver un valor,realizan operacion definidas en el cuerpo de la funcion para poder devolver un valor final. <br><br>
+        Podemos pasarle valores por defecto como en los mixins.
+    <pre>
+    <code>
+        /* Definicion de las funciones */
+        @function mi-funcion($number){
+            @if type-of($number)==number{
+                @return $number*2;
+            }
+            @return null;
+        }
+        /* Llamada de la funcion
+            selector{
+                propiedad: mi-funcion()
+            }
+        */        
+    </code>
+    </pre>
+        La principal diferencia de los mixns con las funciones  es que los mixins pueden definir una serie de propiedades mientras que las funciones solo pueden devolver un valor
+    </blockquote>
+
+    <h2 id="paraEmeImg">Funciones para em y para imagenes</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Funcion para poder calcular los em con la entrada de pixels 
+    <pre>
+    <code>
+        /* Funciones para em e img */
+        @function em($px, $base:16px){
+            @return ($px/$base) * 1em;
+        }
+        /* Funcion que sirve para asignar un path de la imgs en el proyecto */
+        @function img($image){
+            $path: '/img/';/* Se podria poner como una variable global y desde las vaiables cambiar la roota de raiz */
+            @return url($path + $image);
+        }
+        
+        /* Asi es como se Llamada la funcion 
+        
+            body{
+                font-size: em(20px);
+                background: img('imagen.png');
+            }
+        */
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="stringF">Funciones de string</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        ALgunas de las funciones mas utiles para el manejo  de strings
+        <ul>
+            <li>quote(string)</li>
+            <li>unquote(string)</li>
+            <li>str-length(strign)</li>
+            cantiadad de caacteres del string
+            <li>str-index(strign,value)</li>
+            devuelve el indice de un valor dentro del string
+            <li>to-upper-case()</li>
+            <li>to-lower-case()</li>
+        </ul>
+    <pre>
+    <code>
+        $width: 1px;
+        $style: solid; 
+        $color: darkorange;
+        
+        body{
+            // Esto es concatenacion no interpolacion
+            border: unquote($width + ' ' + $style + ' ' + $color);
+            &::before{
+                content: quote($style);
+            }
+            index: str-index($style, 'i')
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="numerosF">Funciones de números</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Funciones mas usados para el tratamiento de los numeros.
+    <ul>
+        <li>percentaje($numero)</li>
+        <li>max($numero,$numero1...)</li>
+        <li>min($numero,$numero1...)</li>
+        <li>floor($numero)</li>
+        redondea un numero al de abajo
+        <li>ceil($numero)</li>
+        redondea un numero al de arriba
+        <li>round($numero)</li>
+        redondea un numero al nuemro mas cercano
+        <li>random($numero)</li>
+        genera un numero aleatorio, si se tiene el parametro funciona como rango
+    </ul>
+
+    </blockquote>
+
+    <h2 id="listasMapasF">Funciones de listas y mapas</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Algunas de las funciones mas usadas para listas y mapas
+    <ul>
+        <li>nth($list,n)</li>
+        <li>index($list,$value)</li>
+        <li>join($list1,$list2,$list3,separador: space comma)</li>
+        Unir varias listas con un separador indicado, pude ser ui en fondos, box-shadow,etc.
+        <li>append($list,$value,seprarator: space, comma)</li>
+        <br>
+        <li>map-get($map,$key)</li>
+        el valor de un key indicado en el mepa indicado.
+        <li>map-keys($map)</li>
+        devuelve una lista de los keys del mapa 
+        <li>map-values($map)</li>
+        devuelve una lsita con todos lo valores del mapa
+        <li>map-has-key($map,$key)</li>
+        devulve un boolean, indicando si un key pertenece a un mapa 
+        <li>map-merge($map1,$map2)</li>
+        juta dos mapas
+    </ul>
+    <pre>
+    <code>
+        /* Funciones con listas y mapas 
+        */
+        $border: 1px solid red;
+        $border2: 1px dot green;
+        body{
+            border-color: nth($border, 3);
+            background-color: join($boder, $border2, space);
+        }
+        
+        $colors: (
+            primero: green,
+            segundo: blue,
+            tercero: red
+        );
+        body{
+            border-color: map-get($colors, primero);
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="instrospeccionF">Funciones de instrospeccion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        La introspeccion es analizarce a uno mismo, funciones que tiene sass para analizarce asi mismo , algun valor, propiedad, caarcteristca.
+    <ul>
+        <li>inspect()</li>
+        es como hacer un log para debugear
+        <li>type-of()</li>
+        devulve el tipo de dato
+        <li>unit()</li>
+        devulve la unidad de un numero
+        <li>unitless()</li>
+        boolean dependiendo si existe o no una unidad
+        <li>mixin-exists($minix-nombre)</li>
+        preguntamos si existe un mixin
+        <li>function-exists(function-nombre)</li>
+        <li>variable-exists($variable)</li> 
+        busca en el scope local y global
+        <li>global-variable-exists()</li>
+        esta solo busca en el scope global
+    </ul>
+    </blockquote>
+
+    <h2 id="ejercicio">Ejercicio long shadow</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        
+    </blockquote>
+
+
+
+
+</body>
+</html>

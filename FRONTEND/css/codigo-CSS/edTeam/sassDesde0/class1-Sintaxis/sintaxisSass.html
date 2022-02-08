@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>Sintaxis de SAss</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Sintaxis de SASS</h1>
+    <ul>
+        <a href="#desventajasCss"><li>Desventajas de Css</li></a>
+        <a href="#queEs"><li>¿Qué es Sass?</li></a>
+        <a href="#compilar1"><li>Compilar Sass (parte1)</li></a>
+        <a href="#compilar2"><li>Compilar Sass (parte2)</li></a>
+        <a href="#variables"><li>Variables</li></a>
+        <a href="#anidamientos"><li>Anidamiento</li></a>
+        <a href="#tipoDeDatos"><li>Tipos de datos</li></a>
+        <a href="#import"><li>@import</li></a>
+    </ul>
+
+    <h2 id="desventajasCss">Desventajas de Css</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        La pricipal desventaja de CSs es que no es un lenguaje de programacion, auque nos permite hacer estilar de mejor manera una pagina web, por ejemplo:
+    <ul>
+        <li>Los estilos similares deben de escribirse manualmente (no se puede automatizar)</li>
+        <li>Las guias de estilos del proyecto no pueden modificarse facilmente (aunque ya existen las variables de css)</li>
+        <li>No se puede modulariazar el codigo sin afectar el rendimeinto del proyecto</li>
+        dividirlo en partes, pero se generarian mas archivos
+        <li>Propenso a sobreescrituras, problemas con la especificidad y cscada en proyectos grandes y en equipos de trabajo</li>
+        las escalibiidad en Css es muy deficil
+    </ul>
+    </blockquote>
+
+    <h2 id="queEs">¿Qué es Sass?</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Sass es un preprocesador de css, y un preprocesador es un lenguaje que permite generar css a través de una sintaxis similar pero aprovechando características de la programacion.
+        <br><br>
+        Ejemplos de los preprocesadores mas conocidos 
+    <ul>
+        <li>Sass</li>
+        <li>Stylus</li>
+        <li>Less</li>
+    </ul>
+        Pero el mas potente es Sass y practicamente el unico.
+        <br>
+        PostCss no es un procesador, como su nobre los dice es un procesador deeespues, y este se hace con el codigo nativo de Css.
+        <br><br>
+    En conclucion las ventajas de tener este preprocesador son:
+    <ul>
+        <li>Estructurar los estilos en modulos pero compilarlos a un unico archivo CSs resulatante</li>
+        <li>Programar estilos automagicamente</li>
+        <li>Almacenar las guias de estilo del proyecto en variables </li>
+        <li>Hacer que proyectos grandes sean mantenibles entre equipos de trabajo</li>
+    </ul>
+        <em>Que es Sass?</em>; es un procesador escrito en ruby en 2006 pero existen versiones una en c que es usada en projectos con Js , y ademas hay una de Dart. <a href="http://sass-lang.com/">pagina de sass</a>
+        <br>
+        En cuanto a un poco de sintaxis :
+    <ul>
+        <li>Sass que no es recomendada</li>
+        <li>Scss</li>
+            Es como un la abreviatura de Super css, y aqui todo css valido es valido en sass
+        <li>Comentarios</li>
+            //Comentarios monolinae que no se ven en la compilacion <br>
+            /**/Comentarios multilinea que si se ven en la compilacion
+    </ul>
+    </blockquote>
+
+    <h2 id="compilar1">Compilar Sass (parte1)</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        De nada sirve escribir en Sass si no se compila, porque el navegador no lo  entenderia, por eso necesitamos de una herramienta pra compilar Sass
+        <br><br>
+        Algunas herramientas son:
+    <ul> 
+        <li>Compilacion de Sass desde el navegador</li>
+        <ul>
+            <li>Sassmeinster</li>
+            <li>Codepen</li>
+            <li>Webpack</li>
+        </ul>
+        <li>Usar un compilador grafico</li>
+        <ul>
+            <li>Prepros</li>
+            Mas recmendable
+            <li>Codekit</li>
+            Para mac
+            <li>Koala</li>
+            experimentar
+            <li>Scout</li>
+            experimentar
+        </ul>
+    </ul>
+    </blockquote>
+
+    <h2 id="compilar2">Compilar Sass (parte2)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Compilar por linea de comandos
+        <ul>
+            <li>node-sass</li>
+            <ol>
+                <li>Instalar node</li>
+                <li>npm install -g node-sass</li>
+                <li>comandos</li>
+                <ul>
+                    <li>De un archivo a otro</li>
+                    <code>node-sass entrada.sccs salida.scss</code>
+                    <li>Watch en un directorio de una archivo a otro</li>
+                    <code>node-sass --watch style.sccs styles.css</code>
+                    <li>watch de un directorio a otro, (se usa punto para el directorio actual)</li>
+                    <code>node-sass --watch entrada --output salida</code>
+                </ul>
+                <em>watch se usa para que cada vez que sufra un cambio el archivo se compile</em>
+            </ol>
+        </ul>
+    </blockquote>
+
+    <h2 id="variables">Variables</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        La parte importante de Saas y por loq eu se ve son las variables, que al igualq eu cualquier lenguaje de programacion, es para que se puede usardespues dependiendo del scope de esta en un lugar mas adelante del codigo. <br><br>
+    <pre>
+    <code>
+        $size: 200px;
+        body{
+            // podemos realizar operaciones con las variables
+            padding: $size * 2;
+            $width: 20px;
+            margin: $width;
+        }
+        p{
+            margin: $width;/* Esta invocacion marca erroro porque solo podemos usar esta baraiable en el scope de la regla anterior */
+        }
+
+        /* Intterpolacion de vaiable 
+            -Donde se debe usar es con la porpiedad calc()
+        */
+
+        $color : red;
+        .#{$color}{
+            color : $color;
+        }
+    </code>
+    </pre>
+    <ul>
+        <li>!default</li>
+        funciana para poder sobreescribir un valor a lo largo del codigo, sinimportar que este despues o antes 
+        <li>$vaiable</li>
+        es como se declara la variable
+        <li>#{$variable}</li>
+        es como se puede realizar la interpolacion de una variable de css.
+    </ul>
+    </blockquote>
+
+    <h2 id="anidamientos">Anidamiento</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        La posibilidad de meter selectores dentro de otros, que al final de la compilacion que dara como un selectro compuesto que denotas los hijos de la etiqueta anterior.
+        <br><br>
+        Buenos usos del anidamiento seria el uso de animacione que impacten en el selector padre, o tambien en el uso de media querys
+    <pre>
+    <code>
+        /* Anidamiento */
+
+        ul{
+            margin: 0;
+            display: block;
+            animation: menu 1s;
+        
+            @media screen and (min-width: 640px){
+                display: flex;
+            }
+            @keyframes menu {
+                to{
+                    color: red;
+                }
+            }
+            /* Para llmara el papa de la anidacion se puede hacer referencia a este con ->&, se hace referenciapor la sintaxis y el espcio que deja al compilar */
+            &:hover{
+                background-color: lightblue;
+            }
+            grid-template: {
+                columns: 100px 100px;
+                rows: auto;
+            } 
+        }
+    </code>
+    </pre>
+        La anidacion ouede ser utili en el caso de propeidades donde se tenga que escribir mucho, jaja
+    </blockquote>
+
+    <h2 id="tipoDeDatos">Tipo de datos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Como sass se acerca a un lenguaje de programaion , o un super set de css, por  esto tiene tipo de datos, y es importante entenderlos porque cuando se declaran funciones, mixins, operaciones, necesitaremso de validaciones 
+    <ul>
+        <li>Strings</li>
+        Puden ser entrecomillados o sin entrecomillar
+        <li>Numeros</li>
+        Pueden tener unidades; px em rem % vw vh deg, etc
+        <li>Colores</li>
+        raro, pero con la ayuda de funciones podemos calcular nuevos colores a partir de una base
+        <li>Booleans</li>
+        true or false ya tu sabe, en condicionales , no se ahi looç dejo
+        <li>List</li>
+        valores separados por espacio o por comas, podemos usarlas pra definir la propiedad de una caja, un background seteando los valores del shordhand, etc. <br>
+        haciendo posible que se pueden recorrer con un ciclo
+        <li>Maps</li>
+        podemos generar un objeto de configuracion y con una funcion <code>map-get($map,key)</code> podemos obtener el valor de una llave.
+    </ul>
+    <pre>
+    <code>
+        /* Observando los tipos de datos */
+        $string: quote(hola);
+        $number: 20em;
+        $color: darken(red, 30);
+        $boolean: true;
+        $listas: 1px solid #000;
+        $map: (
+            color: red,
+            font: arial,
+            size: 20px
+        );
+        body{
+            background: type-of($value: $string);
+            content: $string;
+            font-size: $number/10;
+            font: map-get($map,font);
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="import">@import</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <em>Uso de otros archivo para tener una mejor estructura del codigo css</em> <br><br>
+        Podemos indicar al compilador que no genere archivo nuevos de las importaciones con _archivo.scss <br>
+        La declaracion de las variables deben de estar antes de la importacion. y por esto se acostumbra una estructura donde haya varios directorios donde ponesmo comoponentes, botones , etc y ademas se acostumbra tener un archivo config con las variables necesarias para el proyecto. 
+    <pre>
+    <code>
+        /* Uso de la importacion */
+        @import "menu";
+
+        /* _menu.scss asi indicamos qeu este archivo no se debe de compilar como un arhivo sino que se quede en donde se importa, en variables se deben de declar las variables antes de la importacion */
+    </code>
+    </pre>
+    </blockquote>
+
+
+</body>
+</html>

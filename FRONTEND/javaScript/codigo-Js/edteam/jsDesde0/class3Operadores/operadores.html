@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="operadores.css">
+</head>
+<body>
+    <h1 id="indice">Operadores</h1>
+    
+    <ol>
+        <a href="#aritmeticos"><li>Operadores arimeticos</li></a>
+        <a href="#asignacion"><li>Operadores de asignacion</li></a>
+        <a href="#concatenacion"><li>Operadores de concatenacion</li></a>
+        <a href="#comparacion"><li>Operadores de comparacion</li></a>
+        <a href="#logicos"><li>Operadores logicos</li></a>
+        <a href="#unarios-ternarios"><li>Operadores unarios y ternarios</li></a>
+        <a href="#t-coercion"><li>Type coercion</li></a>
+    </ol>
+
+    <h2 id="aritmeticos">Operadores arimeticos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son los que nos permiten realizar operaciones matematicas, basicas
+        <ul>
+            <li>+</li>
+            <li>-</li>
+            <li>*</li>
+            <li>/</li>
+            <li>%</li>
+            Este ultimo es el modulo y es el primer entero del residuo de la multipliacion.
+        </ul>
+    </blockquote>
+
+    <h2 id="asignacion">Operadores de asignacion</h2>
+    <p><a href="#indice">regreso</a></p>
+    <p> </p>
+    <blockquote>
+        Es el concepto mas basico por la declaracion y asignacion de las varibles ya se esta usando un tipo de operdor pero hay otros operadores de asigancion
+        <br>
+        <ul>
+            <li>(=)</li> 
+                Uso del operador de asignacion de variables 
+            <li>(+=)</li>  
+                guarda la suma de un valor con el actual en la variable actual 
+            <li>(-=)</li>  
+                guarda la resta de un valor con el actual en la variable actual
+            <li>(*=)</li> 
+            <li>(/=)</li> 
+            <li>(%=)</li> 
+            <li>(**=)</li>
+        </ul>
+        Es como decirle gurda en esta variable el valor que tiene mas la operacion con otro valor y esto cubre una reasignacion.
+    </blockquote>
+
+    <h2 id="concatenacion">Operadores de concatenacion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        El operador de la suma es tambien usado para hacer operaciones con textos, 
+        tambien con la entrada de ECMA se aniadieron las template string <i>(``)</i> donde nos permite interpolar variables y diferentes valores que nosotros queremos.
+    <pre>
+    <code>
+        console.log("OPERADORES DE CONCATENACION");
+        let nombre = "francisco"
+        let apellido = "Santos"
+        // Recordando que es una expresion culquier operacion guardada en una variable  
+        let fullName = nombre + ' ' + apellido
+        console.log(`La concatenacion fue gurdada en una variable y asi es como queda ${fullName}`);
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="comparacion">Operadores de comparacion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Los operadores de comparacion, ps permiten obtener un resultado logico a partir de la comparacion.
+        <br> HAy que imageinarnos como si fuera una pregunta porque el resultad que nos deuelve es binario
+        <ul>
+            <li>(>)</li>
+            Los clasicos de matematicos los de <i>mayor que</i>
+            <li>(<)</li>
+            <i>menor que?</i>
+            <li>(>=)</li>
+            <i>mayor o igual que?</i>
+            <li>(<=)</li>
+            <i>menor o igual que?</i>
+            <li>(==)</li>
+            <i>igual en valor a?, pero en js solo mira el valor/info</i>
+            <li>(!=)</li>
+            <i>diferente en valor a?, pero en js solo mira el valor/info</i>
+            <li>(===)</li>
+            <i>es igual en valor y tipo? | estrictamente igual, que creo que es solo de js y toma en cuenta el valor y el tipo de dato</i>
+            <li>(!==)</li>
+            <i>es diferente en valor y tipo? | estrictamente diferente , que creo es solo de js, y toma en cuenta que sea diferente el velor y el tipo</i>
+        </ul>
+
+    </blockquote>
+
+    <h2 id="logicos">Operadores logicos</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Son los usados en las compuertas logicas, es decir el and(&&) or(||) not(!), las tablas de verdad. <br>
+        Nos sirven para poder unir dos validaciones, generamente dos operadores de comparacion.
+        <ul>
+            <li>AND (&&) conjuncion</li>
+            Solo es verdadero cuando todos los implicados son verdaderos. | con que uno sea false = false 
+            <li>OR (||) disyuncion</li>
+            Solo es falso cuando todos los implicados son falsos | con que uno sea true = true
+            <li>NOT (!) negacion</li>
+            es para invertir el resultado de una forma 
+        </ul>
+    </blockquote>
+
+    <h2 id="unarios-ternarios">Operadores unarios y ternarios</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Los operadores unarios son los que para poder funcinar solo necesitan de si mismos, dependiendo de donde se pongan podemos incrementar o diminuir antes o despues.
+
+        Los ternarios es como un if en una sola linea, es como pregunatar <i>la primera sentenecies verdad ? sino entonces :</i> <br>
+
+        Valores unarios
+        <ul>
+            <li>(++)</li>
+            Suma uno a la variable.
+            <li>(--)</li>
+            Resta una unidad al valor que se indique 
+        </ul>
+
+            Valores ternarios
+        <pre>
+        <code>
+        let c = a>b ? "A es mayor" : "B es mayor"
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="t-coercion">Type coercion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es la capacidad que tiene el lenguaje de programacion de poder convertir cualquier dato en otro tipo de dato.
+        <pre>
+        <code>
+    let a = 521
+    let b = "422"
+    let respuesta = a+b
+
+    console.log(`Es eejemplo de typecoercion ${respuesta}`);
+    console.log(`Es eejemplo de typecoercion ${typeof respuesta}`);/* string */
+        </code>
+        </pre>
+        En este ejemplo podemos ver que al tener dos tipos de datos diferentes, para js a al hora de computar lo que importa es el operador que se esta usando porque sirve tanto para una suma como para concatenacion. Esto es como sirve para concatenacion, io js no me importa el tipo de dato que tenga siempre voy a superponer las cadenas de texto.
+        <br>
+        En el caso de que en lugar de (+) usemos (-) lo que dice js es que fregados como este operador solo sirve para numeros debemos de devolver un numero siemre y cuando sean nuemros. Sino devolvemos NaN = Not a Number.
+        <pre>
+        <code>
+    let c = 521
+    let d = "perro"
+    let respuestaa = c-d
+    
+    console.log(`Es eejemplo de typecoercion ${respuestaa}`);
+    console.log(`Es eejemplo de typecoercion ${typeof respuestaa}`);/* NaN */
+        </code>
+        </pre>
+
+        Js al saber que es una suma pero como no es ni un string, ni una suma, lo que hace es dar un valor a true para oder devolver un numero y que sea loogico.
+        <pre>
+        <code>
+    let e = true
+    let f = true
+    let respuestaaa = e+f
+    
+    console.log(`Es eejemplo de typecoercion ${respuestaaa}`);
+    console.log(`Es eejemplo de typecoercion ${typeof respuestaaa}`);/* number */
+        </code>
+        </pre>
+        <br>
+        Es decir en resumen, solo con la aparicion de un operador js espera que el resultado de la operacion sea o un numero o un nember o lo que sea.
+    </blockquote>
+
+    <script src="operadores.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Uso de @extend */
+%button{
+    display: inline-block;
+    margin: 1em 0;
+    padding: .5em 1.5em
+}
+
+/* Se llama de esa forma */
+.button{
+    @extend %button
+}
+.button--alert{
+    @extend %button;
+    background: red;
+    color: #fff;
+}
+
+
+
+/* Uso de condicionales */
+
+$dev: false !default;
+$dev: true;
+@if $dev{
+    *{
+        outline: 1px solid red;
+    }
+}
+@if 5>3{
+    content: '5 es mayor que 3';
+}@else if 3>5{
+    content: '3 es mayor que 5 entonces nunca se genera';
+}@else{
+    content: 'ninguna de las condiciones se cumplio';
+}
+
+// - == igualdad
+// - != diferencia
+// - ! negacion
+// - and para usar combinaciones de condicionales
+// - or disyuncion de condicionales , se puede usar o no () entre las condiciones.
+
+
+/* Uso de iteraciones|ciclos */
+
+@for $i from 0 to 10 {
+    @if $i % 2 == 0{
+        .column-#{$i}{
+            width: $i * 1%;
+        }
+    }
+}
+
+
+/* Uso del ciclo each */
+$colors: red green blue;
+@each $color in colors {
+    .button-#{$color}{
+        background: #{$color};
+    }
+}
+$colorsmaps : ( 
+    primary: red,
+    secondary: green,
+    terceary: blue
+);
+@each $colormapK, $colormapV in $colorsmaps {
+    .boton-#{$colormapK}{
+        color : $colormapV;
+    }
+}
+
+
+/* Espectro de colores */
+
+$specter: 0;
+@for $i from 1 to 360{
+    body{
+        $specter : append($specter , $hsl($i,100,50) ,comma )
+    }
+}
+
+body{
+    background: linear-gradient($specter);
+    min-height: 100vh;
+}

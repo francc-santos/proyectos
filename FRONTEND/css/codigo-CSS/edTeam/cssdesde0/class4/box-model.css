@@ -1,0 +1,17 @@
+/* Un elemento de la class ejemplo y un hijo de de class box */
+.ejemplo>.box{
+    width: 200px;
+    height: 100px;
+    background: pink;
+    margin: 10px;
+    /* float: left; */
+}
+
+.ejemplo .box2{
+    width: 200px;
+    height: 100px;
+    background: pink;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+}

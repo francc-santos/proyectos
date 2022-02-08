@@ -1,0 +1,104 @@
+.e1Container{
+    background-color: blueviolet;
+    font-size: 2em;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 1em;
+    margin: 1em;
+}
+.e1Item{
+    background-color: darkmagenta;
+}
+
+
+.e2Container{
+    background-color: darkmagenta;
+    padding: 1em;
+    display: grid;
+    gap: 1em;
+    /* grid-template-columns: min-content min-content; */
+    /* grid-template-columns: min-content max-content; */
+    grid-template-columns: min-content fit-content(200px)
+}
+.e2Item{
+    background-color: darkviolet;
+}
+
+.e2Item img{
+    width: 500px;
+}
+
+.e3Container{
+    background-color: darkmagenta;
+    padding: 1em;
+    display: grid;
+    gap: 1em;
+    /* grid-template-columns: min-content min-content; */
+    /* grid-template-columns: min-content max-content; */
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr))
+}
+.e2Item{
+    background-color: darkviolet;
+}
+
+.e3Item img{    
+    width: 230px;
+}
+
+
+.e4Body{
+    font-size: 2em;
+    min-height: 500px;
+    display: grid;
+    gap: 1em;
+}
+.e4Item{
+    background-color: blueviolet;
+}
+@media screen and (min-width: 1024px) {
+    .e4Body{
+        grid-template-areas: 'header header'
+                             'aside main'
+                             'footer footer';
+        grid-template-rows: 2em 1fr 2em;
+        grid-template-columns: 1fr 3fr;
+    
+    }
+
+    header{
+        grid-area: header;
+    }
+    aside{
+        grid-area: aside;
+    }
+    main{
+        grid-area: main;
+    }
+    footer{
+        grid-area: footer;
+    }
+}
+
+.e5gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,300px));
+    gap: 2px;
+    /* todas las filas tengan 100px */
+    grid-auto-rows: 200px;
+    grid-auto-flow: row dense;
+}
+.e5gallery img{
+    /*Podriamos pensar que al poner el width en 100%
+      pero lo que hace e ocupar el 100% del track */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.e5gallery img:nth-child(1){
+    /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end; */
+    grid-area: 1 / 1 / 2 / span 2;
+}
+.e5gallery img:nth-child(5n){
+    grid-area: span 3 / span 4;
+}

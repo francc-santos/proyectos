@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Debugging</h1>
+    <ul>
+        <a href="#"><li>Opciones de compilacion</li></a>
+        <a href="#"><li>Sourcemap</li></a>
+        <a href="#"><li>Debug warn error</li></a>
+        <a href="#"><li>Estructura de proyecto Sass</li></a>
+    </ul>
+
+    <h2 id="opCompilacion">Opciones de compilacion</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        En los comandos de compilacion, generalmente cuado aparecee un <code>--output</code> su version corta es <code>-o</code> <br><br>
+    
+    <ul>
+        <li>--output-style = expanded | compressed | nested | compact </li> <br>
+
+        expanded= opcion compilada con buenos espacios para la legibilidad del codigo <br>
+
+        compressed= si comentarios y en una sola linea <br>
+
+        <li>--source-comments</li>
+        pueden ser añadida como un comando mas, y lo que hace es, colocar en un comentario en la linea anterior de que linea de Sass se compilo a este.
+        <li>--output-style</li>
+        <li>--output-style</li>
+    </ul>
+    </blockquote>
+
+    <h2 id="sourceMap">Sourcemap</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Como se menciona son mapas de origen, son codigo que lo que hace es vincular el resultado compilado con lo que le dio origen , para que pase esto debemos de pasar en el comando de compilacion <code>--source-map=true</code>, podemos ver los scss en el navegador    
+    </blockquote>
+
+    <h2 id="warnError">Debug warn error</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Uso de las directivas 
+    <ul>
+        <li>debugg</li>
+            lo que hace es mandar un dato a consola
+        <pre>
+        <code>
+            body{
+                @debug $colors;
+                @debug $size;
+            }
+        </code>
+        </pre>
+        <li>warn</li>
+        inpeccionamos los valores de salida en la terminal, pero mandando un mensaje de alerta
+        <pre>
+        <code>
+            body{
+                @warn 'hola mundo';
+            }
+        </code>
+        </pre>
+        <li>error</li>
+        mandamos los valores a la terminal como mensaje de error.
+        <pre>
+        <code>
+            body{
+                @error 'El tipo de a variable x no es valido';
+            }            
+        </code>
+        </pre>
+    </ul>
+        Una ventaja es que no te ensucia el css
+    </blockquote>
+
+    <h2 id="estructura">Estrcutura del proyecto Sass</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Puntos en comun de la estrutura del proyecto son:
+    <ul>
+        <li>SMACS</li>
+            base = etiquetas html <br> 
+            modulos= componentes reutilizables, botones,menus,tarjetas, etc. <br> 
+            layout= geometria,posicion <br> 
+            theme= tipografia y color <br>
+            estado= elementos que cambian , hover, target, animados 
+        <li>ITCSS</li>
+        triangulo invertido de css <br>
+        settings <br>
+        tools <br>
+        generic <br>
+        elementos <br>
+        objects <br>
+        componentes <br>
+        utilities 
+        <li>7in1</li>
+        son 7 carpetas y uno que llama a todas 
+        base <br>
+        componentes <br>
+        layout <br>
+        pages <br>
+        themes <br>
+        utilities <br>
+        vendors= librerias externas como boostrap, jquery,  etc <br>
+    </ul>
+    </blockquote>
+
+
+
+
+</body>
+</html>

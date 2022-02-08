@@ -1,0 +1,35 @@
+/*las variables que se quieen construiir se ponen el el root, 
+siempre inicia -- y se valora con: */
+:root{
+    --primary-color: cadetblue;
+    --secundary-color: crimson;
+    --header-size: 4rem;
+    --font: 1.8rem;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+}
+/*pa llamar una variable se usa var(nobreVariable)*/
+header{
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--primary-color) ;
+}
+main{
+    width: 100vw;
+    height: 70vh;
+    font-size: 1.8rem;   
+}
+h1{
+    font-size: 4rem;
+}
+footer{
+    width: 100vw;
+    height: vh;
+    background-color: crimson;
+}

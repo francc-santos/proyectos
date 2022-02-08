@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CursoJavaScript</title>
+</head>
+
+<body>
+    <script>
+        
+        // // cuando el interprete encuentra el return se termina la funcion
+        // //funciones declaradas
+        // function esUnaFuncion() {
+        //     console.log("uno");
+        //     // return "saca las panochas perro";
+        //     console.log("dos");
+        //     return 19;
+        // }
+
+        // // pa ver los return los podemos pasar a una variable let y despues imprimirla
+        // let valoresUnaFuncion = esUnaFuncion();
+        // console.log(`hola estoy interpolando el volor de retorno de esUnaFuncion ${valoresUnaFuncion}`)
+        
+        //llamada de funcion
+        // esUnaFuncion();
+
+        // podemos setear los valores de una funcion en caso de que no entre ningun parametro se muestre escape
+        // function saludar(nombre="desconocido", edad=0){
+        //     console.log(`hola mi nombre es ${nombre} y tengo ${edad} años.`);
+        // }
+        // saludar();
+    
+
+        // // funciones declaradas y funciones expresadas
+        // //con las fuciones son decalradas se van a convertir de ambito cglobal hoisting
+        // furncionaDeclarada();
+        // function furncionaDeclarada(){
+        //     console.log("esta es una funcion declaradad")
+        // }
+        // furncionaDeclarada();
+
+        // // funciones anonima, la ejecucion de js no las puedo usar hasta que hayan sido inicializadas
+        // const funcionExpresada = function(){
+        //     console.log("funcion expresada, es una funcion que se ha asignado como valor a una variable , si esta funcion se llama antes de su ejecucion")
+        // }
+
+        // +++++++++++++++++++++++++++++TERMINAN LAS FUNCIONES+++++++++++++++++++++++++++++++++++++++++++
+
+
+        // let a = [1,true,'hola',["sa","sa","ca"]];
+        // console.log(a);
+        // console.log(a.length);
+        // console.log(a[3][1]);
+
+        // //metodos con arreglos
+        // const c = Array.of("x",'y','z',9,7,6);
+        // console.log(c);
+
+        // const d = Array(100).fill(1)
+        // console.log(d);
+
+        // // constuctor de los arreglos
+        // const e = new Array(1,2,3,4,5);
+        // console.log(e);
+
+        // e.push("saca");
+        // console.log(e);
+        // e.pop();
+        // console.log(e);
+        
+        // e.forEach(function(i,index){
+        //     console.log(`<li id= "${index}">${i}</li>`);
+        // });
+
+            // **********************************TERMINA LOS ARRAY****************************************
+
+        // podemos declarar los arreglos como constante porque sigue siendo el mismo objeto con un mismo valor 
+                
+        //objeto,las variables se le llamma atributo y las funciones metodos
+//         const b = {
+//             nombre: "saca",
+//             apellido: "las",
+//             edad:35,
+//             pasatiempos:["saca","las","panochas"],
+//             contacto:{
+//                 email:"dakmdlsadsasasa",
+//                 nom:"saca"
+//             },
+//             saludar: function(){
+//                 console.log(`hi ${this.nombre}`);
+//             }   
+//         };
+//         console.log(b);
+//         console.log(b["nombre"]);
+//         console.log(b.nombre);
+//         console.log(b.pasatiempos[1]);
+//         console.log(b.contacto.email);
+//         b.saludar();
+
+// // forma un arreglo de los atributos
+//         console.log(Object.keys(b));
+// // forma un arreglo de los valores de los atributos
+//         console.log(Object.values(b));
+// //ver si los atributos que se pasan estan en el objeto
+//         console.log(b.hasOwnProperty("nombre"))
+
+// ***********************************TERMINA LAS PROPIEDDADES DE OBJETOS ***********************
+
+        // // OPERADORES
+
+        // // aritmeticos
+        // let a = 5+5+10;
+        // console.log(a);
+        // //devueve el residuo
+        // let b = 5%4;
+        // console.log(b);
+
+        // // relacionales
+        // console.log(4<3);
+        // console.log(8>2)
+
+// 1 igual(=), es asignacion de variables
+// 2 igules(=)  es comparacion de valores
+// 3            es comparacion de valor y tipo
+        // console.log(1==1);
+        // console.log(1==="1");
+
+// incremento de variables
+        // let i = 1;
+        // i=i+2;
+        // i+=2;
+        // console.log(i);
+
+// logicos not , and , or
+        // console.log(!true);
+        // // con que una se cumpla es true
+        // console.log((9===9)||(8==='8'))
+        // // se tienen que cumplir todas para que sea true
+        // console.log((9===9) && (8==='8'))
+// ++++++++++++++++++++++++++++++++TERMINARON LOS OPERADORES LOGICOS ARITMETICOS INCRMENTO RELACIONALES++++++++++++++++++++++
+
+
+//AL imprimir en consola como en los ejercicios anteriores se tiene una estructura secuencial
+
+// CONDICIONAL
+        // edad=17;
+        // if(edad>17){
+        //     console.log('eres mayor de edad');
+        // }else{
+        //     console.log('eres menor de edad');
+        // }
+
+        // dejame dormir 0hrs--5hrs
+        // buenos dias 6--11hrs
+        // buenas tardes 12--18 hrs
+        // beunas noches 19--23 hrs
+
+        // let hora = 1;
+        // if(hora>=0&&hora<=5){
+        //     console.log("dejame dormir");
+        // }else if(hora>=6&&hora<=11){
+        //     console.log("buenos dias");
+        // }else if(hora>=12&&hora<=18){
+        //     console.log("buenas tardes");
+        // }else if(hora>=19&&hora<=23){
+        //     console.log("buenas noches");
+        // }else{
+        //     console.log("valor incorrecto")
+        // }
+
+        // // operador ternario
+        // edad = 9;
+        // console.log("operador ternario");
+        // let eresMayor = (edad>=18)
+        // ?"eres mayor de edad"
+        // :"eres menor de edad"
+        // console.log(eresMayor);
+
+        // let dia = 2;
+        // switch(dia){
+        //     case 0:
+        //         console.log("lunedi");
+        //         break;
+        //     case 1:
+        //         console.log("martedi");
+        //         break;
+        //     case 2:
+        //         console.log("mercoledi");
+        //         break;
+        //     default:
+        //         console.log("dia no encontrado");
+        // }
+    //+++++++++++++++++++++++++++++++++++++TERMINA LAS ESTRCUTURAS CONDICIONALES+++++++++++++
+        
+
+        // let contador = 0;
+        // let cont = 0;
+
+        // while(contador<10){
+        //         console.log(contador);
+        //         contador++;
+        // }
+
+        // do{
+        //         console.log(contador);
+        //         contador++;
+        // }while(contador<10);
+
+        // for(let i=0; i<10;i++){
+        //         console.log(i);
+        // }
+
+        // let numeros=[1,2,3,4,5,6,7,8,9,0];
+        
+        // for (let i=0;i<numeros.length; i++){
+        //         console.log(numeros[i]);
+        // }
+
+        // for in es un loop que permite recorrer la propiedades de un  OBJETO
+                // const b = {
+                //         nombre:"saca",
+                //         apellido: "las ",
+                //         hola:"hola"                        
+                // }
+                // for(const propiedades in b){
+                //         console.log(`Propiedad: ${propiedades},valor:${b[propiedades ]}`);
+                //         // cuando se esta recorrido no sirve (b.propiedades)
+                // }
+
+        // for of permite recorrer todos los elementos de cualquier cosa iterable en javascript, excepto objetos
+        //  que se pueda partir en caracteres.
+                // let numeros = [1,2,3,4,5,6,7,8,9]
+                // for(const elemento of numeros){
+                //         console.log(elemento);
+                // }
+// *************************TERMINAN LOS BUCLES DE ITERACOIN CUIDADITO CON  FOR IN************************************
+
+        // permite la deteccion de errores, ejemplo en las api donde tienes que mandar 
+        // cierta informacion erronea
+        // try{
+        //         console.log("en el bloque try se agraga el codigo a evaluar");
+        //         sacapanochas;
+        // }catch(error){
+        //         console.log("en el catch captura cuarquier errorsurgico");
+        //         console.log(error);
+        // }finally{
+        //         console.log("se ejecutaal final del bloque try-catch");
+        // }
+
+        // try{
+        //         let numero = "u";
+        //         if(isNaN(numero)){
+        //                 throw new Error("el caracter introducido no es un numero");
+        //         }
+        //         console.log(numero*numero);
+        // }catch(error){
+        //         console.log(`Se produjo un error: ${error}`);
+        // }
+
+// ++++++++++++++++++++TERMINA LA DETECCION DE ERRORES+++++++++++++++++++++++
+
+// BREAK Y CONTINUE sireven para hacer condiciones en los bucles ujum
+// break rompe la estructura
+// continue omite una parte de la estructura
+        
+        // const numeros = [1,2,3,4,5,6,7,8]
+
+        // for(let i=0;i<numeros.length;i++){
+        //         // if(i===5){
+        //         //         break;
+        //         // }
+        //         let a;
+        //         a=numeros[i]%2;
+        //         if(a=== 1){
+        //                 continue;
+        //         }
+        //         console.log(numeros[i]);
+        // }
+
+// +++++++++++++++++++TERMINA BREAK Y CONTINUE++++++++++++++++++++++++++++
+
+//         const numero = [1,2,3];
+// // sin destructuracion
+//         let uno = numero [0],
+//         dos = numero[1],
+//         tres = numero [2];
+
+//         console.log(uno,dos,tres);
+        
+// // con destructuracion
+//         const [one,two,three] = numero;
+//         console.log(one, two, three);
+        
+//         let persona = {
+//                 nombre:"saca",
+//                 apellido:"las",
+//                 edad:"panochas"
+//         }
+
+//         let{nombre, edad, apellido}=persona;
+//         console.log(nombre,edad,apellido);
+// +++++++++++++++++++++TERMINA LA DEESTRUCTURACION++++++++++++++++++
+
+//         let nombre = "han",
+//         edad = 7;
+
+//         const perro = {
+//                 nombre: nombre,
+//                 edad: edad,
+//                 ladrar: function(){
+//                         console.log("guau guau");
+//                 }
+//         }
+
+//         console.log(perro);
+//         perro.ladrar();
+
+// // para los objetos que se definen en una variable (literales) la forma se puede reducir a eto
+//         const dog = {
+//                 nombre,
+//                 edad,
+//                 ladrar(){
+//                         console.log("guau guau guau");
+//                 }
+//         }
+        
+//         dog.ladrar();
+
+// +++++++++++++++++++++++++++++++++++TERMINA LOS OBJETOS LITERALES+++++++++++++++++++++
+
+        // ESTO ES PA REACT, 
+        // parametros rest , es para agregar valores infinitos a una funcion (...), 
+        // funciones que autoincrementan su funcion
+
+//         function sumar(a, b, ...c) {
+//                 let resultado = a + b;
+
+//                 c.forEach(function (n) {
+//                         resultado += n;
+//                 });
+//                 return resultado;
+//         }
+// // fijarse que la funcion d¿en principio solo acepta dos valores
+//         console.log(sumar(1,2,2,6));
+
+// // para almacenar multiples elementos
+// // spread ooprator para arreglos con valores dinamicos
+
+//         const   arr1= [1,2,3,4,5,5]
+//         const   arr2= [6,7,8,9,0]
+
+//         const arr3 = [...arr1, ...arr2]
+//         console.log(arr3)
+
+// ++++++++++++++ TERMINA LOS PARAMETROS REST Y SPREAD++++++++++++++++++++++++
+
+        // ARROW FUNCTION, nueva forma de funciones anonimas que sean expresadas
+
+        // // funcion expresada , a una variable le das el volr de una anonima
+        // // ETO: CONST SALUDO = FUNCTION (){
+        //         CONSOLE.LOG("HOLA")
+        // }
+        
+        // // funcion declarada, FUNCTION SALUDAR(){
+        //         console.log("HOLA");
+        // }
+        // SALUDAR();,,  EN LAS QUE SE PUEDEN LLAMAR ANTES DE DECLARARLAS, BUENO HACE UNA ACOMODO
+
+        // QUITAR LA PALABRA FUNCTION Y HACER UNA FLECHA(=>)
+
+        // const saludar = () =>{
+        //         console.log("hola");
+        // }
+        // saludar();
+
+        // // o
+
+        // // cuando solo tiene una linea de instruccion 
+        // const saludarr = () => console.log("hola");
+        // saludarr(); 
+
+        // // cuando tiene solo un parametro no hay necesidad de parentesis , tienen un return implicito
+        // const saludar = nombre => console.log(`Hola ${nombre}`);
+        // saludar("ina"); 
+
+        // cuando son mas de un parametro si es necesario los parentesis del parametro
+                // const sumar = (a,b) => a+b;
+                // console.log(sumar(98,2));
+
+        // const numeros = [1,2,3,4,5,6,7,8,9,0];
+        
+        // numeros.forEach((elemento, index)=>console.log(`${elemento} esta en la psosicion ${index}`));
+
+        // ++++++++++++++++++++++++++++++TERMINA LAS FUNCIONES ARROW+++++++++++++
+
+        // lenguaje multiparadigma funcional ,orientada a objetos, una caracteristoca muy perticular 
+        // la orientacion a objetos es muy diferente a c , prototipo
+
+        // 1er. las clases
+        // 2do los objetos | 3er.atributos y 4to.metodos 
+        // un objeto es una instancia de una clase 
+// por ejemplo cunado trabajamos en ilustratro cada calse del panel se baja a la mesa de
+// trabjo como una instancia = porque es una copia del modelo a seguir 
+
+        // tratado de las ideas de platon , la idea es la clase a la que corresponde un objeto
+        
+        // funcion consstructora
+        //         // un constructor es el que se inicializa para generar una nueva instancia de una clase
+        // function Animal(nombre, genero){
+        //         this.nombre = nombre;
+        //         this.genero = genero,
+        //         // con funciones constructoras debemos usar el objeto this
+        //         this.sonar = function (){
+        //                 console.log("hago sonidos porque estoy live");
+        //         }
+        // }
+        
+        // const snoopy = new Animal("snoopy" , "macho");
+        // const bunny = new Animal("lola","femenino");
+
+        // console.log(snoopy.nombre);
+        // cuando creamos funciones constructoras los metodos los pegamos al prototipo
+
+        // function Animal(nombre, genero){
+        //         this.nombre = nombre;
+        //         this.genero = genero;
+        //         // con funciones constructoras debemos usar el objeto this
+        // }
+
+        // Animal.prototype.sonar = function () {
+        //         console.log("hago sonidos porque estoy live");
+        // }
+        // Animal.prototype.saludar = function () {
+        //         console.log("hola");
+        // }
+        
+        // const snoopy = new Animal("snoopy" , "macho");
+        // const bunny = new Animal("lola","femenino");
+
+        // console.log(snoopy);
+
+// +++++++++++++++++++++++++++TERMINARON LOS PROTOTIPOS+++++++++++++++++++
+        // // Herencia prototipica
+        // function Animal(nombre, genero){
+        //         this.nombre = nombre;
+        //         this.genero = genero;
+        //         // con funciones constructoras debemos usar el objeto this
+        // }
+        // Animal.prototype.sonar = function (){
+        //                 console.log("hago sonidos porque estoy live");
+        // }
+        // Animal.prototype.sonar = function (){
+        //                 console.log("hago sonidos porque estoy live");
+        // }
+        
+        // function Perro(nombre,genero,tamanio){
+        //         this.super = Animal;
+        //         this.super(nombre, genero);
+        //         this.tamanio = tamanio;
+        // }
+        // // AQUIS SUCEDE LA MAGIA DE LA HERENCIA DE ANIMAL
+        // Perro.prototype = new Animal ();
+        // Perro.prototype.constructor = Perro;
+        // // estmos haciendo que peroo sea prototipo de animal
+        // Perro.prototype.sonar = function(){
+        //         console.log("soy un perro y mi sonido es un ladrido");
+        // }
+        
+        // Perro.prototype.ladrar = function(){
+        //         console.log("soy un perro y mi ladrido hace guauguau");
+        // }
+
+        // const snoopy = new Perro("snoopy" , "macho", 23);
+        // const bunny = new Animal("lola","femenino");
+
+        // console.log(snoopy);
+
+// ++++++++++++++++++TERMINA HERENCIA EN PROTOTIPOS++++++++++++++++++++++++++
+
+//
+
+        // class Animal{
+        //         constructor(nombre,genero){
+        //                 this.nombre = nombre;
+        //                 this.genero = genero;
+        //         }
+
+        //         sonar(){
+        //                 console.log("hago sonidos porque estoy alive");
+        //         }
+        //         saludar(){
+        //                 console.log(`hola mi nombre es ${this.nombre}`);
+        //         }
+        // }
+
+        // class Perro extends Animal{
+
+        //         constructor(nombre, genero, edad){
+        //         // el metodo super hereda el constructor de la classe padre
+        //                 super(nombre,genero);
+        //                 this.edad = edad;
+        //         }
+        //         sonar(){
+        //                 console.log("yo digo saca las panochas perro");
+        //         }
+        //         ladrar(){
+        //                 console.log("mi ladrido hace guau guau");
+        //         }
+        // }       
+
+        // const mimi = new Animal ("mimi","hembra"), scooby = new Animal("SCOOBY","MACHO");
+        // const han = new Perro ("han","macho",23);
+        
+        // console.log(mimi);
+        // console.log(scooby);
+        // console.log(han);
+
+// +++++++++++++TERMINA LA SINTAXIS DE CLASES , CUIDADITO CON EL METODO SUPER PARA EL CONSTRUCTOR PADRE++++++++++++++
+
+        // los metodos privados solo se pueden utilizar dentro de la clase , pero en js no esiste
+
+        // metodos estaticos: se puede ejecutar sin la necesidad de crear un objeto o
+        // ("instanciar la clase")
+
+        // class Animal{
+        //         constructor(nombre,genero){
+        //                 this.nombre = nombre;
+        //                 this.genero = genero;
+        //         }
+
+        //         sonar(){
+        //                 console.log("hago sonidos porque estoy alive");
+        //         }
+        //         saludar(){
+        //                 console.log(`hola mi nombre es ${this.nombre}`);
+        //         }
+        // }
+
+        // class Perro extends Animal{
+
+        //         constructor(nombre, genero, edad){
+        //         // el metodo super hereda el constructor de la classe padre
+        //                 super(nombre,genero);
+        //                 this.edad = edad;
+        //                 this.raza = null;
+        //         }
+        //         sonar(){
+        //                 console.log("yo digo saca las panochas perro");
+        //         }
+        //         ladrar(){
+        //                 console.log("mi ladrido hace guau guau");
+        //         }
+        //         static descripcion(){
+        //                 console.log("los perros son el mejor amigo del hombre");
+        //         }
+        //         get getRaza(){
+        //                 return this.raza;
+        //         }
+        //         set setRaza(raza){
+        //                 this.raza = raza;
+        //         }
+        // }       
+
+        // const mimi = new Animal ("mimi","hembra"), scooby = new Animal("SCOOBY","MACHO");
+        // const han = new Perro ("han","macho",23);
+        
+        // // console.log(mimi);
+        // // console.log(scooby);
+        // // console.log(han);
+        // // Perro.descripcion();
+
+
+        // // metodos setters y getters SON METODOS ESPECIALES QUE PERMITEN ESTABLECER Y
+        // // OBTENER LOS VALORES DE ATRIBUTOS DE NUESTRA CLASE. 
+        // console.log(han.getRaza);
+        // han.setRaza= "labrador";
+        // console.log(han.getRaza);
+
+// +++++++++TERMINA LOS METODOS GETTERS Y SETTERS DE LAS CLASSES+++++++++++
+
+        // console.log(console);
+        // console.error("tu eres un error");
+        // console.warn("saca las panochas perro");
+        // console.info("es una informativo");
+        
+        // console.clear();
+        
+        // let nombre = "saca",apellido="las",edad=22;
+
+        // console.log(nombre,apellido,edad);
+        // console.log(`hola mi nobre es ${nombre} mi apellido es ${apellido}, y mi edad es ${edad}`)
+        // console.log("Hola mi nobre es %s mi apellido es %s y mi edad es %d" ,nombre,apellido,edad)
+        // console.clear();
+        
+        // console.dir(document);
+        // // ver como una lista 
+        // console.clear();
+
+        // console.group("saca las panochas perro")
+        //         console.log("saca");
+        //         console.log("las");
+        //         console.log("panochas");
+        //         console.log("perro");
+        // console.groupEnd("saca las panochas perro");
+        
+        // console.clear();
+
+        // // console.table(Object.entries(console).sort());
+
+        // numeros= {
+        //         bo1: 1,
+        //         fo2: 2,
+        //         go3: 3,
+        //         ño4: 4,
+        //         wo5: 5,
+        //         ao6: 6,
+        //         eo7: 7,
+        //         io8: 8,
+        //         oo9: 9,
+        //         uo0: 0
+        // };
+
+        // console.table(Object.entries(numeros).sort());
+
+        // console.table(numeros);
+        
+        // console.clear();
+
+        // console.time("to tardo mi for");
+        // const arreglo = Array(1000);
+        // for(let i=0; i< arreglo.length; i++){
+        //         arreglo[i] = i;
+        // }
+        // console.timeEnd("to tardo mi for")
+        // console.clear();
+
+        // for(let i =0; i<=100; i++){
+        //         console.count("codigo for");
+        //         console.log(i);
+        // }
+        // console.clear();
+
+        // let x = 1, y = 2, pruebaXY= "se espera que x sea menor que y";
+        // console.assert(x<y, {x,y,pruebaXY})
+        // console.clear;
+// +++++++++++TERMINA EL USO DE LOS METODOS DE CONSOLE EN JS´++++++++++++++++++
+
+// 
+
+// let fecha= new Date();
+
+// // console.table(Object.entries(fecha));
+// console.log(fecha.toLocaleString());
+
+// console.group("fragmentando la hora")
+// console.log(fecha.getDate());
+// console.log(fecha.getDay());
+// console.log(fecha.getMonth());
+// console.log(fecha.getFullYear())
+// console.log(fecha.getMinutes());
+// console.log(fecha.getSeconds());
+// console.log(fecha.getMilliseconds());
+// console.log(Date.now());
+// console.groupEnd("fragmentando la hora");
+
+// +++++++++++++++++++++++++++TERMINA OBJETO DATE++++++++++++++++++++++++++++
+
+        // console.log(Math.PI);
+        // console.log(Math.abs(-7.8));
+        // console.log(Math.ceil(.8));
+        // console.log(Math.floor(.8));
+        // console.log(Math.round(.8));
+        // console.log(Math.sqrt(81));
+        // console.log(Math.pow(2,5));
+        // console.log(Math.sign(-.03));
+        // console.log(Math.random()*90);
+        // console.log(Math.round(Math.random()*90));
+
+// ++++++++++++++++++++++++++++++++++++TERMINA EL OBJETO math+++++++++
+
+// recordando las funciones 
+// ++++++++DECLARADAS++++++++  
+// Tambien puede usar parametros como todo
+// function numeros(parametro1,parametro2){
+//         console.warn("1");
+//         console.warn("2");
+//         console.warn("3");
+//         console.warn("4");
+//         return "la funcin devuelve cualquier tipo de dato";
+// }
+// Recordar que cuando estan declaradas se puede llamar antes
+// let valorDeFuncion = numeros();
+// console.error(valorDeFuncion);
+// +++++++++++++EXPRESADAS+++++++
+
+// funcion anonima
+// const numeros = function(parametro1,parametroN){
+//         console.warn("1");
+//         console.warn("2");
+//         console.warn("3");
+//         console.warn("4");
+//         return "esta es una funcion anonima o expresada que se contiene en un variable"
+// }
+// se geenera como un return explicito
+// console.error(numeros());
+
+// ++++++++++++ARROW FUNCTION++++++++++++++
+// const numeros = (a) =>{
+//         console.warn(a);
+//         console.warn("2");
+//         console.warn("3");
+//         console.warn("4");
+//         return a;
+// }
+// console.error(numeros("hola"));
+
+// const saludar = b =>{console.warn(`hola ${b}`); return "saca las panochas perro"}
+// saludar("perro");
+
+// const saca = (a,b) => a+b;
+// console.warn(saca(1,2));
+
+// +++++RECORDANDO EL FOREACH+++++
+
+// const numeros = [1,2,3,4,5,6,7,8,9];
+
+// numeros.forEach(element => {
+//         document.write(`<br>${element}</br>`)
+// });
+
+// detro de un objeto a las 
+// ++++++variables se les va a llamar atributos (con el punto o corchetes) 
+// ++++++y las funciones metodos con (parentesis)
+
+// *****************TERMINA EL RECORDATORIO DE LAS PROPIEDADES*****************************
+
+// operadores corto circuito 
+// OR si el valor de la izquierda es falso el früstuck se toma en cuenta 
+
+//         const saludar= nombre =>{ 
+//                 nombre = nombre || "desconocido"
+//                 console.warn(`hola ete es mi nombre ${nombre}`)
+//         }
+//         saludar(false || "ahhh perro desconocido");
+
+// // AND si el valor de la izquierda es verdadero se toma en cuenta en de la derecha
+//         const valorDiferenteACero = a =>{
+//                 a = a;
+//                 console.error(`el valor es ${a}`)
+//         }
+//         valorDiferenteACero( false && "el valor es cero , false, null")
+
+// ++++++++++++++++++++++++++TERMINAN LOS OPERADORES CORTO CIRCUITO+++++++++++++++++
+
+// Aalert confirm promp
+
+// window.alert("hola esto es una alerta");
+// window.confirm("hola esta es una alerta de confirmacion");
+// window.prompt("hola esto no se que sea");
+
+// let valor = alert("hola esto es una alerta")
+// , confirmacion = confirm("hola esta es una alerta de confirmacion")
+// , aviso = prompt("hola esto es un aviso");
+
+// console.warn(valor);
+// console.error(confirmacion);
+// console.log(aviso);
+
+// ++++++++++++++++++++++++++TERMINA ALERTA AVISO Y CONFIRMACION++++++++++++++++++++
+
+// // las expresiones regulares sirven para validar que haya los caracteres necesarios
+// // para que la respuesta sea verdadera 
+
+//         let cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam asperiores quis assumenda corrupti voluptatum id consequuntur. Rem id, ea doloremque quas excepturi quaerat, itaque saepe veniam quo vitae magni!"
+//         let cadena1 = "saca las panochas perro 1";
+
+// // funcion costructora, la bandera g dice que busque todos los parecidos
+//         let expReg = new RegExp("lorem","ig");
+// // de una a dos veces se debe de cumplir pa true
+//         let expReg2 = /Lorem{1,2}/ig;
+// // debe de tener un numero entre 0 y 9 pa ser true
+//         let expReg3 = /[0-9]/ig;
+
+//         console.log(expReg.test(cadena));
+//         console.warn(expReg.exec(cadena));
+
+//         console.log(expReg2.test(cadena));
+//         console.warn(expReg2.exec(cadena));
+
+//         console.error(expReg3.test(cadena1));
+//         console.error(expReg3.exec(cadena1));
+
+// +++++++++TERMINA LA PRESENTACION DE LAS EXPRESIONES REGULARES+++++++++++++++++++++
+
+        // funciones anonimas autoejecutables
+        // funcion en la que enclobas todo el codigo que quieras ejecutar
+        // se ejecutan en el momento de crearlas
+
+        // alert("SACA LAS PANOCHAS");
+        // EN ete ejemplo la funcion alert es como function 
+        // y el los parametros se meten en el otro parentesis
+        
+        // //clasica 
+        // (function(d,w,c){
+        //         console.warn("mi primer funcion anonima autoejecutable");
+        //         console.error(d);
+        //         console.log(w);
+        //         console.warn(c);
+        //         c.log("saca las panochas perro");
+        // })(document,window,console);
+        
+        // // crockford
+        // ((function(){
+        //         console.warn("ete es la version crockford");
+        // })());
+        
+        // // unaria
+        // +function(){
+        //         console.error("ete es la version unaria");
+        // }();
+        
+        // // facebook
+        // !function(){
+        //         console.warn("ETE LA VERSION DE FACEBOOK")
+        // }();
+// ++++++++++++++++TERMINAN LAS FUNCIONES ANONIMAS AUTOEJECUTABLES+++++++++++++++++++++++++++++
+
+    </script>
+</body>
+
+</html>

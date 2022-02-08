@@ -1,0 +1,38 @@
+$max-width: 1200px;
+$border-color: #ccc;
+$text-color: #5357;
+$header-height:4rem;
+
+$breakpoitns: (
+    l: 960px
+);
+
+/* Paleta de colores  */
+:root{
+    --first-color: darkorange;
+    --color-boton: #eee;
+}
+
+// Variables de apilamiento (z-index)
+:root{
+    --z-back: -10; /* Para cuando necesitas mandar aglo hacia atras   */
+    --z-normal: 1;  /* Que se quede como este */
+    --z-tooltip: 10; /* Necesitamos poner un elemento encima del otro */
+    --z-fixed: 100; /* Cuando hay algun elmento fijo */
+    --z-modal: 1000; /* Siempre encima de todo */
+}
+
+// Variables para la tipografia 
+
+:root{
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --body-font-size: .9rem;
+    --small-font-size: .75rem;
+    @include mqFrom(l) {
+        --h1-font-size: 2.5rem;
+        --h2-font-size: 1.5rem;
+        --body-font-size: 1rem;
+        --small-font-size: .8rem;   
+    }
+}

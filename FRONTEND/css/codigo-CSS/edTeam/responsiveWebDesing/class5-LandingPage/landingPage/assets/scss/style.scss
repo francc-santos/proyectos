@@ -1,0 +1,14 @@
+// Aqui la importacion de todos los archivos y del que se va acompilar el archivo final que se linkeara en el html
+
+/* Mixins variabeles y funciones van siempre arriba  */
+@import "config/mixins";
+@import "config/variables";
+@import "base/base";
+@import "layout/layout";
+@import "components/header";
+@import "components/menu";
+@import "components/banner";
+@import "components/card";
+@import "components/button";
+@import "components/icons";
+@import "theme/theme"

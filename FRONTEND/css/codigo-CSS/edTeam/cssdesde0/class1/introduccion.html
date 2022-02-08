@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexxion de la hoja de estilos en el HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="introduccion.css">
+</head>
+<body>
+    <h1 id="indice">Tabla de contenidos</h1>
+    
+    <h1 class="ejemplo">HOla mundo con el color de letra en blueviolet</h1>
+    <p>Los modulos de css son evaluados para saber si es que puede considerarse como un estandar </p>
+    
+    <ul>
+        <a href="#primeros-pasos"><li>Metiendo mano en el codigo de css</li></a>
+        <a href="#Modificacion-etiqueta"><li>Estilos en etiquetas</li></a>
+        <a href="#sintaxis"><li>Sintaxis de css</li></a>
+        <a href="#variables">Variables de css</a>        
+    </ul>
+
+    <h2 id="primeros-pasos">Hora de meterle mano al codigo de css   </h2>
+    <p><a href="#indice">Regreso al indice</a></p>
+    <h3>Conexion de html con el css</h3>
+    <h4>Desde la linkeacion de una archivo externo</h4>
+    <blockquote>
+        <code>
+            link rel="stylesheet" href="style.css">
+        </code> <br><br>
+        Es la forma de llamar archivos externos siempre en el head, para que se carguen antes de llamar al contrnido de la pagina web.
+    </blockquote>
+
+
+    <h4>Desde la declaracion de stilos en el html donde afecta un poco a la lectura de la estrutura de la pagina</h4>
+    <blockquote>
+        El documento de css tambien se pude llamar desde la etiqueta style, esta tambien como hijo de la etiqueta meta <br><br>
+        Estos estilos solo se aplicarian solo para el archivo donde se este declarando
+    <pre>
+    <code>
+        style>
+            h1{
+                color: blue;
+            }
+        /style>
+    </code> 
+    </pre>
+    </blockquote>
+
+    <h4>Conexion de los archivos de css entre si</h4>
+
+    <blockquote>
+        Otra forma es <em>como importacion</em>, de esta manera tambien se pude importar una hoja de estilo dentro de otra hoja de estilo, pero no es tan recomendable porque si falla una importacion podria fallar y bloquear los estilos desde donde se esta importando
+    <pre>
+    <code>
+        style
+            @import url(style.css)
+        /style
+    </code>
+    </pre>
+    </blockquote>
+
+    <blockquote>
+        O ya de ultima usar style como atributo en el elemeto del html
+    </blockquote>
+    
+    <h2 id="Modificacion-etiqueta">Modificacion desde etiqueta</h2>
+    <p><a href="#indice">Regreso al indice</a></p>
+
+    <p style="color:hsla(701, 100%, 50%, .8);">Este parrafo tiene un atributo style donde se define el color que tendra</p>
+    <blockquote>
+        En el caso de la etiqueta anterior, si en la hoja de estilo que se liga se colocara que todas las etiquetas de h2 se comportaran de una forma, este se comportara de acuerdo a como este en la etiqueta , osea tendria mayor prioridad el atributo style o solo se aplicarioan esos estilos para el elemento
+    </blockquote>
+    
+
+    <hr>
+    <h2 id="sintaxis">Sintaxis en css, bloques necesarios para la sintaxis de css</h2>
+    <p><a href="#indice">Regreso al indice</a></p>
+    <img src="sintaxis-css.png" alt="infografia de la sintaxis de css">
+
+    <blockquote>
+        El conjunto de reglas de css es llamada regla de css
+        <ul>
+            <li>selector</li>
+            indica a quien le vas aplicar esos estilos 
+            <li>propiedades</li>
+            indican que estilo es el que se va a modificar en valor
+            <li>valor</li>
+            especificacion de la propiedad
+        </ul>
+    </blockquote>
+
+
+    <hr>
+    <h2 id="variables">Variables css</h2>
+    <p><a href="#indice">Regreso al indice</a></p>
+    <p></p>
+    <blockquote>
+        Las variables de css son para poder reutilizar propiedades de sus valores, tambien son llamadas coustom properties. <br><br>
+
+        En el caso de las custome properties, se usan para estos casos donde se debe de tener un color definido para varias etiquetas o elementos , y que en caso quese quiera cambiar solo se deba de cambiar el valor de la variable.
+    <pre>
+    <code>
+        Asi es como se declaran las variables de css 
+            :root{
+                --color: yellow;
+            }
+    
+        Asi se hace la llamacion de las variables 
+            h1{
+                color : var(--color)
+            }            
+    </code>
+    </pre>
+    </blockquote>
+
+</body>
+</html>

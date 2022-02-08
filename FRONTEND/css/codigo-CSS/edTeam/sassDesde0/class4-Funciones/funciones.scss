@@ -1,0 +1,107 @@
+/* Definicion de las funciones */
+@function mi-funcion($number){
+    @if type-of($number)==number{
+        @return $number*2;
+    }
+    @return null;
+}
+/* Llamada de la funcion
+    selector{
+        propiedad: mi-funcion()
+    }
+*/
+
+
+/* Funciones para em e img */
+@function em($px, $base:16px){
+    @return ($px/$base) * 1em;
+}
+/* Funcion que sirve para asignar un path de la imgs en el proyecto */
+@function img($image){
+    $path: '/img/';/* Se podria poner como una variable global y desde las vaiables cambiar la roota de raiz */
+    @return url($path + $image);
+}
+
+/* Asi es como se Llamada la funcion 
+
+    body{
+        font-size: em(20px);
+        background: img('imagen.png');
+    }
+*/
+
+
+/* FUNCIones de Strins 
+- quote(string)
+- unquote(string)
+- str-length(strign): cantiadad de caacteres del string
+- str-index(strign,value) : devuelve el indice de un valor dentro del string
+*/
+
+$width: 1px;
+$style: solid; 
+$color: darkorange;
+
+body{
+    // Esto es concatenacion no interpolacion
+    border: unquote($width + ' ' + $style + ' ' + $color);
+    &::before{
+        content: quote($style);
+    }
+    index: str-index($style, 'i')
+}
+
+
+
+/* Funciones de numeros 
+percentaje($numero)
+max($numero,$numero1...)
+min($numero,$numero1...)
+floor($numero) redondea un numero al de abajo
+ceil($numero) redondea un numero al de arriba
+round($numero) redondea un numero al nuemro mas cercano
+random($numero) genera un numero aleatorio, si se tiene el parametro funciona como rango
+*/
+
+@function columns($columns,$total-columns){
+    @return percentage($columns / $total-columns) 
+}
+
+.cols-4{
+    width: columns(3,5);
+}
+
+
+/* Funciones con listas y mapas 
+*/
+$border: 1px solid red;
+$border2: 1px dot green;
+body{
+    border-color: nth($border, 3);
+    background-color: join($boder, $border2, space);
+}
+
+$colors: (
+    primero: green,
+    segundo: blue,
+    tercero: red
+);
+body{
+    border-color: map-get($colors, primero);
+}
+
+
+/* Ejercicio de sombra alargada */
+
+@function long-shadow($n,$color){
+    $shadow: unquuote(1px 1px #{$color});
+    @for $i from 2 to $n{
+        $shadow: append($shadow, #{$i*1px $i*1px $color}, comma)
+    }
+    @return $shadow
+}
+
+.text{
+    box-shadow: long-shadow(10,red);
+    font-size: 6em;
+}

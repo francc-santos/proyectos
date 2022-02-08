@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="texto.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1 id="indice">Texto</h1>
+
+    <ul>
+        <a href="#conceptos"><li>Conceptos Basicos de tipografia</li></a>
+        <a href="#medidas"><li>Unidades de medida em y rem</li></a>
+        <a href="#estilos"><li>Estilos basicos de texto</li></a>
+        <a href="#font"><li>Font Family</li></a>
+        <a href="#sombras"><li>Sombras de texto</li></a>
+    </ul>
+
+    <h2 id="conceptos">Conceptos básicos de tipografía</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        <ul>
+            <li>Tipografia</li>
+            La disiplina que estudia el diseño y uso de tpos de letra.
+            <li>Fuente</li>
+            Es untipo especifico de letra, que ha sido creado por un diseñador o por una empresa.
+            Glifos. Son los dibujos que representan a cada caracter de la fuente.
+            <li>Estilos de fuente</li>
+            son las variaciones de una misma fuente (grosor, inclinacion, )
+            <li>Familia tipografica</li>
+            Son variaciones con caracteristicas 
+        </ul>
+    </blockquote>
+    
+
+    <h2 id="medidas">Unidades de medida em y rem</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Usamos la propiedad font-size .
+        <ul>
+            <li>rem</li>
+            Se calcula relativo a los tamaños de la raiz, de default esta en 16px, cuando hagas medidas y margenes se haga de 4 en 4, osea que 1rem = 16px 
+            <li>1em</li>
+            100% del tamaño de fuente del contexto
+        </ul>
+        Es mejor dejar que el navegador calcule los pixeles y las propircion que queremos que tenga en la pagina con em y rem <br><br>
+
+        <strong>rem</strong> es buena idea para la normalizacion de los estilos y tamaño de fuente, y <strong>em</strong> para margenes y paddings
+    </blockquote>
+    
+
+    <h2 id="estilos">Estilos básicos de texto</h2>
+    <p><a href="#indice">regreso</a></p>
+
+
+    <p id="ejemplo">TExto de ejemplo para modificar la fuente y más</p>
+    
+    <blockquote>
+    <pre>
+    <code>
+        #ejemplo{
+            border:1px solid #000;
+            background: #eee;
+            padding: .5em;
+        
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.5rem;
+            text-decoration: line-through;
+            text-transform: lowercase;
+            letter-spacing: 0.05em;
+            word-spacing: 0.06em;
+            
+        
+            font-family: 'Open Sans', sans-serif;
+        }
+    </code>
+    </pre>
+    </blockquote>
+
+
+
+    <h2 id="font">Font Family</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+    El navegador solo reconoce las fuentes que estan instaladas en el equipos , existen dos formas de resolver, una es crar una regla @font-face = funciona para crear tus propias funetes dentro del proyecto, la otra es usar un sitio de internet. <br><br>
+
+    Creo que debemos de buscar la opcion de usar <strong>embed</strong>, lo mejor es elejir todas las que vamos a usar y que solita la api maneje el embed.Y en caso de que se quiera usar un estilo de los que estan ya definidos en como estilos de la fuente, por ejemplo el ancho que se maneja en los diferentes estilos, podemos definirlo con  <strong>    font-weight</strong>, con la ayuda de una coma podemos indicar una fuente en caso de que no se encuentre una opcion.
+    </blockquote>
+    
+    
+    <h2 id="sombras">Sombras de texto</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+    Es como una copia del texto desfasada como en los fondos, podemos dar una posicion un blur y cambiar el color que se quiere tener como fondo.
+    Generalmente se usa para generar un contraste si es que la letra y el fondo son del mismo color pero eso no deberia pasar.
+    </blockquote>
+    
+
+</body>
+</html>

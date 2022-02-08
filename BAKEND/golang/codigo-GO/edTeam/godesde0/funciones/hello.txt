@@ -1,0 +1,1 @@
+ete es un archivo de testo que se imprimira en consola

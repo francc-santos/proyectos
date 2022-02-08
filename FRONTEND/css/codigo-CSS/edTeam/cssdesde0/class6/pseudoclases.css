@@ -1,0 +1,87 @@
+/* Pseudoclases */
+
+h2:hover{
+    /* Hover indica que la clss se aplicara cuando el puntero se encuentre encima del elemento */
+    background-color: blueviolet;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background: steelblue;
+    transition: all .3s;
+}
+
+.box:hover{
+    width: 150px;
+    height: 150px;
+    background: slateblue;
+}
+
+/* USo de la pseudoclass target  */
+/* Cundo se este apuntando al identificador de u h2 se pintara el texto de steelblue */
+h2:target{
+    color: steelblue;
+}
+
+
+/* Uso de not */
+div:not([class="p2"]){
+    background-color: violet;
+    width: 400px ;
+    padding: 1em;
+}
+
+p{
+    margin: 0;
+}
+
+p:not(:last-child){
+    margin-bottom: 1em;
+}
+
+
+div.empty{
+    background: slategray;
+    width : 200px;
+}
+div.empty:empty{
+    background: skyblue;
+}
+
+
+/* Uso de la etiqueta de first y last */
+
+ul.ejemplo :first-child{
+    background: cadetblue;
+}
+
+ul.ejemplo :last-child{
+    background: cornflowerblue;
+}
+
+
+
+.ejemplo-2 p:first-of-type{
+    background: cadetblue;
+}
+
+.ejemplo-2 p:last-of-type{
+    background: cornflowerblue;
+}
+
+
+.ejemplo-2 h5:first-of-type{
+    background: cadetblue;
+}
+
+.ejemplo-2 h4:last-of-type{
+    background: cornflowerblue;
+}
+
+
+/* USo de nth-child y nth-last-child */
+/* En el parentesis se pude escribir que cada cierto hijo lo haga 3n 2n odd son los impares, ejemplo -n+3 selecciona los primeros 3 , even selecciona los pares, y tambien se pude hacer combinaciones , como selecionar los pares de los ultimos 5, tambien existen los de type-of*/
+.ejemplo-2 p:nth-child(odd){
+    background: darkgoldenrod;
+}

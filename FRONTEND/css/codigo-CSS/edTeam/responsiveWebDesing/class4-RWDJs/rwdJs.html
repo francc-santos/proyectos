@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposive web desingn y Js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="indice">Resposive Web Desing y Js</h1>
+    <ul>
+        <a href="#cssom"><li>CSSOM</li></a>
+        <a href="#style1"><li>Propiedad style (part1)</li></a>
+        <a href="#style2"><li>Propiedad style (part2)</li></a>
+        <a href="#variablesCss"><li>Trabajo con variables css</li></a>
+        <a href="#mediaQueriesJs"><li>Media queries con Js</li></a>
+    </ul>
+
+    <h2 id="cssom">CSSOM</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Es como el DOM pero de css, mientras que el DOM es toda la estructura de objetos js que utiliza el navegador para entender html. <br><br>
+        La misma historia es que mientras tu escribes CSs lo que hace es convertir este Css a objetos JS y los puede manipular comprender , hacer operaciones mediante el navegador.
+        <br><br>
+    <ul>
+        <li>window.getCOmputedStyle("elmentoDom")</li>
+        Metodo del objeto global window, que es como se obtienen los estilos computados.
+        <br>
+        Devuelve un objrçeto con los estilos del elemento que le hayamos pasado como argumento. <br>
+        Podeos ver que los estilos de js tienen camel case <br>
+        Con getPropertyValue('') obtenemos una propiedad de la lista dada.
+    </ul>
+    </blockquote>
+
+    <h2 id="style1">Propiedad Style (part1)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        <Strong>element.style</Strong>, que todo elmento del DOM tiene la propiedad style, que es para definir estilos.
+    <pre>
+    <code>
+        /* Ejemplos de la propiedad de Style */
+        document.body.style.background = 'red'
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="style2">Propiedad Style (part2)</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>    
+        Otra forma es poner las propieades en un "objeto", pero de template string para no tener problemas con la sintaxis de css y js
+    <pre>
+    <code>
+        /* 2da forma Creacion de una objeto que podemos darle los estilos posteriormente */
+        const styles = `
+            background: green;
+            color: white;
+            margin-top: 4em;
+            border-bottom: 5px solid black;
+        `
+        /* Sobreescritura estilos inline existentes */
+        document.getElementById('title').setAttribute('styles',styles)
+        
+        /* Agregando a los estilos inline existentes  que no es muy recomendada porque entran en coflicto los estilos de css ylos que hemos definido en Js porque los inline son mas especificos que los linkeados en una hoja de estilos */document.getElementById('title').style += `; ${styles}`
+        
+        /* En caso de que esto se construyera desde un objeto */
+        
+        let styles = {
+            background: 'green',
+            color: 'white',
+            "margin-top": '4em',
+            "border-bottom": '5px solid black'
+        }        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="variablesCss">Trabajo con vaiables de css</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Poodemos ver el contenido de las variables de Css desde la consola como:
+    <pre>
+    <code>
+        /* Trabajacion de Js con variables de CSs 
+        lectura y modificacion de las variables Css
+        */
+        console.log(getComputedStyle(document.documentElement
+        ).getPropertyValue('--varible-css'));/* Devuleve las variables que se encuentren en la raiz del documento */
+    </code>
+    </pre>
+    Tambien podemos setear otro atributo con el codigo
+    <pre>
+    <code>
+        /* Sobreescritura de variables  */
+        document.documentElement.style.setProperty('--name', 'Beto')        
+    </code>
+    </pre>
+    </blockquote>
+
+    <h2 id="mediaQueriesJs">Media queries con Js</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Con la ayuda de un metodo del objeto window que se llama match-media que recibe como parametro culaquier mediaQuery valida de Css
+    <pre>
+    <code>
+
+    </code> 
+    </pre>
+    </blockquote>
+
+</body>
+</html>

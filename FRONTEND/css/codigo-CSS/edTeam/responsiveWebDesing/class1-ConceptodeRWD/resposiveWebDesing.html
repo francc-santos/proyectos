@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepto de Resposive Web Desing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="indice">Concepto de resposive web desing</h1>
+    <ul>
+        <a href="#concepto"><li>Concepto</li></a>
+        <a href="#viewport"><li>Viewport</li></a>
+        <a href="#mediaQueris"><li>Media Queris</li></a>
+        <a href="#metodologia"><li>Metodologias</li></a>
+    </ul>
+
+    <h2 id="concepto">Concepto</h2>
+    <p><a href="#indice">regreso</a></p> 
+
+    <blockquote>
+        Diseño web adaptable, es una metodologia, de patrones de diseño que lo que buscan es que una web se vae de menera correcta en cualquier tipo de dispositivo . <br><br>
+        Que la experiencia de usuario sea correcta para cualquier usuario en culquier cliente.
+        <br><br>
+        Es necesario conocer las bases para poder usar frameworks de maenera responsable. <br>
+        El diseño web resposivo segun un primer articulo se basa en:
+        <ul>
+            <li>las grillas resposivas</li>
+            <li>las imagenes resposivas</li>
+            <li>las media queries</li>
+        </ul>
+        Appel introdujo meta:viewport, sin neceaidad de crear una pagina para cada dispositivo.
+    </blockquote>
+
+    <h2 id="viewport">Viewport</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        El viewport es toda la parte visible de nuestro navegador para mostrar el contenido de la web. y la barra de scroll con es parte del viewport.
+        <br>
+        Tipo de meta que inventa apple, que puede tener diferentes caracteristicas como: <code>meta name="viewport" content=""</code>
+        <ul>
+            <li>width=device-width</li>
+
+            <li>user-scalable=no|yes</li>
+            prohibir el zoom
+            <li>initial-scale=1</li>
+            scale inicial
+            <li>maximun-scale</li>
+            zoom maximo que puede dar el usuario
+        </ul>
+        viewport!=resolucion de la pantalla
+        es decir que 1px de wiewport es diferente que 1px de pantalla
+    </blockquote>
+
+    <h2 id="mediaQueris">Media Queries</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+
+    <blockquote>
+        En la traduccion , podemos dcecir que es una consulta de medio, donde se pregunta en que medio se esta consultando la web, pero tambien si conocemos que en un caso una parte de la web sera en formato impreso debemos de saber cuando esto ocurre. <br><br>
+
+        La forma en que realizamos estas cnosultas es: <code>@media screen| print</code>, pero esto no vale de nada al menos en el diseño web, porque todo se visualizara en una pantalla.
+    <ul>
+        <li>min-width= que cumpla con un minimo de ancho</li>
+        <li>max-width= que cumpla con un maximo de ancho</li>
+        <li>orientarion: landscape = que el ancho sea mas grande que el alto</li>
+        <li>orientarion: portraint = que el alto sea mas grande que el ancho</li>
+        <li>min-aspect-ratio = que cumpla con el minimo de na escala dicha</li>
+        <li>divice-aspect-ratio= </li>
+    </ul>
+    <pre>
+    <code>
+        body{
+            background-color: darkblue;
+        }
+        
+        @media screen and (min-width:600px){
+            body{
+                background-color: darkmagenta;
+            }
+        }
+        
+        @media screen and (max-width:600px){
+            body{
+                background-color: darkmagenta;
+            }
+        }
+        
+        /* Otro tipo de media queries */
+        @media screen and (orientation: landscape) {
+            body{
+                background-color: darkorange;
+            }
+        }
+        @media screen and (orientation: portrait) {
+            body{
+                background-color: darkorange;
+            }
+        }
+        @media screen and (min-aspect-ratio) {
+            body{
+                background-color: darkorange;
+            }
+        }
+    </code>
+    </pre>
+        Podemos hacer el uso de la cascada con el enfoque mobile first , comenzando con el diseño del movil y con la cascada y mediaQueris poder cancelar ese diseño y lanzar uno distinto.
+    </blockquote>
+
+    <h2 id="metodologia">Metodologias</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+    <ul>
+        <li>Mobile first</li>
+        empiezas diseñando para un mobil y en ves de ir quitando funcionalidades en el main de lo visual se van añadiendo.
+        <li>Desktop first</li>
+        Es practicamente lo contrario a mobile first, en este caso vas ocultando las funcionalidades por ejemplo en un sidebar, lo malo de esto es que en ocaciones se pueden olvidar ciertas cosas y quedar to mal, por eso es mejor mobile fisrt
+        <li>Content first</li>
+        Fuerza en user experience, tomando muy en cuanta como es que se deforma la maquetacion con mas o menos contenido que sea real.
+    </ul>
+    </blockquote>
+
+
+</body>
+</html>

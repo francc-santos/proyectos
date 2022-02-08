@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes y Videos resposivos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="indice">Imagenes y videos en resposive</h1>
+    <ul>
+        <a href="#videoResposive"><li>Video resposive con Css</li></a>
+        <a href="#vResposiveGrid"><li>Video resposivo con Css Grid</li></a>
+        <a href="#imgResposive"><li>Imagenes resposive con Css</li></a>
+        <a href="#imgResposivePicture"><li>Imagenes resposive con picture</li></a>
+        <a href="#imgResposiveSrcSet"><li>Imagenes resposive con srcset</li></a>
+    </ul>
+
+    <h2 id="videoResposive">Video Resposive con Css</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1Container">
+        <div class="e1video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/z4_BtIE5P3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <blockquote>
+
+    </blockquote>
+
+    <h2 id="vResposiveGrid">Video resposive con Css Grid</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e2VideoViewport">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/z4_BtIE5P3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="e2VideoGrid">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/z4_BtIE5P3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <blockquote>
+
+    </blockquote>
+
+    <h2 id="imgResposive">Imagenes resposive con Css</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1Img">
+        <img src="https://www.xtrafondos.com/wallpapers/resized/ana-de-armas-en-vestido-blanco-7292.jpg?s=large" alt="">
+    </div>
+    <blockquote>
+
+    </blockquote>
+
+    <h2 id="imgResposivePicture">Imagenes resposive con Picture</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div class="e1ImgPicture">
+
+    </div>
+    <picture>
+        <source srcset="" media="(min-width: 320px)"><!-- srcset= damos la ruta de la imagen -->
+        <source srcset="https://www.xtrafondos.com/wallpapers/resized/ana-de-armas-casual-5008.jpg?s=large" media="(min-width:400px)" type="image/webp"><!-- np sobreescribe  -->
+        <img src="https://www.xtrafondos.com/wallpapers/resized/ana-de-armas-vestido-rojo-5208.jpg?s=large" alt="imagen por default">
+    </picture>
+    <blockquote>
+        Cuando no se pueda usar el hack del background por que la img deba de estar en el html, tal vez se daba de pintar las imagenes desde la api.
+    </blockquote>
+
+    <h2 id="imgResposiveSrcSet">Imagenes resposive con Srcset</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <img 
+        srcset="https://www.xtrafondos.com/wallpapers/resized/ana-de-armas-en-las-montanas-6349.jpg?s=large 600w, https://www.xtrafondos.com/wallpapers/resized/ana-de-armas-casual-5008.jpg?s=large 1000w" 
+        src="img" 
+        alt="una img"
+    >
+
+    <blockquote>
+        srcset no fluye en chrome por la obtimizacion y muestra la que sea necesaria.
+    </blockquote>
+
+
+
+
+
+</body>
+</html>

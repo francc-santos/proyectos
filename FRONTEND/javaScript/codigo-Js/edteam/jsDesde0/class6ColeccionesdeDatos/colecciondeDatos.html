@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="colecciondeDatos.css">
+    <title>Colecciones de datos</title>
+</head>
+<body>
+    <h1 id="indice">Coleccion de datos</h1>
+
+    <ul>
+        <a href="#metodos-array"><li>Metodos de Array</li></a>
+        <a href="#m-noModifican"><li>Metodos que no modifican el array</li></a>
+        <a href="#foreach"><li>ForEach</li></a>
+        <a href="#forEachvsMap"><li>ForEach vs Map</li></a>
+        <a href="#filter"><li>Filter</li></a>
+        <a href="#find-includes"><li>Find includes some every</li></a>
+        <a href="#manipulando-string"><li>Manipulando strings</li></a>
+        <a href="#v-att"><li>Valores y atributos de los objetos</li></a>
+        <a href="#math-date"><li>Math y date</li></a>
+    </ul>
+
+    <h2 id="metodos-array">Metodos de Array</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+        Existen dos tipos de metodos en un array, unos son los que modifican y otros lo que no modifican.
+        <pre>
+        <code>
+            let amigos = ["amigo1","amigo2","amigo3","amigo4","amigo5"]
+            amigos.push("amigo8")
+            
+            console.log(amigos);
+        </code>
+        </pre>
+    </blockquote>
+
+    <h2 id="m-noModifican">Metodos que no modifican el Array</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        Son metodos que no impactan directemente en el array son como views del conteido que teien los arreglos.
+        <pre>
+        <code>
+            let amigos = ["amigo1","amigo2","amigo3","amigo4","amigo5"]
+            let slicee = amigos.slice(0,3)
+            console.log(`Es de la ejecucion de SLICE ${slicee}`);
+        </code>
+        </pre>
+    </blockquote>
+    
+    <h2 id="foreach">ForEach</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        For each es un ciclo que recorre todos los elementos de una array con ello podemos, como es un metodo del prototipo se debe de usar llamandolo con el <i>(.)</i> y lo que necesita es una funcion anonima
+
+        <pre>
+        <code>
+            let datofe = amigos.forEach(amigo => console.log(`Hola amigo ${amigo}`));
+            console.log(datofe);
+        </code>
+        </pre>
+        Sirve solo para observar que es lo que tiene nuestro array a tratar
+    </blockquote>
+    
+    <h2 id="forEachvsMap">FOrEach vs Map</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        Mientras que forEach sirve para ver nuestro array , con map podemos modificar una copia de este array y devolverlo en un variable que no modifica el primero , asi que se se quiere realizar algo con los valores del array tenemos que usar map, y en caso de que no forEach
+        <pre>
+        <code>
+            let datomp = amigos.map(amigo => `Hola amigo ${amigo}`);
+            console.log(datomp);            
+        </code>
+        </pre>
+    </blockquote>
+    
+    <h2 id="filter">Filter</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        Un metodo mas que devulve una porcion del arreglo que cumple con una condicion.
+        <pre>
+        <code>
+        let numeros = [1,24,54,7,8,9,3,2]
+
+        numeros.map(num=>{num>20 ? console.log(num):console.log("ete no es mayor a 20");})
+        console.log(numeros.filter(num => num>20)); 
+        </code>
+        </pre>
+        Devuelve una array con los valores que son mayores de 20, podria hacer lo mismo con map , pero solo se imprimen los valores que son mayores y por cada menor mandamos un mensaje que es menor
+    </blockquote>
+    
+    <h2 id="find-includes">Find includes some every</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        Metodos de array que 
+        <ul>
+        <li>.find</li>  
+        devuelve el primer dato que da verdadero con la condicion
+        <li>.some</li>   
+        comprobar si al menos algun elemento de mi array cumple con una condicion
+        <li>.every</li>  
+        verificar que todos los elementos cumlen con una condicion
+        <li>.inlude</li>
+        evalua que mi valor sea exactamente igual al que estoy buscando
+        </ul>
+        <pre>
+        <code>
+            let datoFind = numeros.find(num=> num%2 === 1)
+            console.log(datoFind);
+            
+            let datoInclude = numeros.includes(4)
+            console.log(datoInclude);
+            
+            let datoSome = numeros.some(num => num<3)
+            console.log(datoSome);
+            
+            let datoEvery = numeros.every(num => num>0)
+            console.log(datoEvery);
+            
+        </code>
+        </pre>
+    </blockquote>   
+    
+    <h2 id="manipulando-string">Manipulando Strings</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        Al igual que los array tienen muchos metodos las cadenas de texto tambien.
+
+        <ul>
+            <li>.slice </li> 
+            cortar el string desde una posicion inicial a una final 
+            al numero de caracteres apartir de la posicion inicial indicada , si no se indica la final llega al final de todo
+            <li>.split </li> 
+            divide el texto, mantener el texto pero dividido a partir de un caracter desde el que se quiera hacer la particion, devuelve un array, el caracter que se elija  es parte de la separacion
+            <li>.search</li>  
+            a partir de una expresion regular poder encontrar valores.
+        </ul>
+
+        <pre>
+        <code>
+            let mistring = "string"
+
+            mistring.slice(2)
+            mistring.split("r")
+            mistring.toLocaleLowerCase
+        </code>
+        </pre>
+    </blockquote>
+    
+    <h2 id="v-att">Valores y atributos de los objetos</h2>
+    <p><a href="#indice">regreso</a></p>
+    
+    <blockquote>
+        
+    </blockquote>
+    
+    <h2 id="math-date">Math y date</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <blockquote>
+
+    </blockquote>
+
+    <script src="colecciondeDatos.js"></script>
+</body>
+</html>

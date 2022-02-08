@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="flexitems.css">
+</head>
+<body>
+    
+    <h1 id="indice">Flex items</h1>
+
+    <ul>
+        <a href="#items"><li>Flex Items </li></a>
+        <a href="#pflexGrow"><li>Propiedad flex-grow</li></a>
+        <a href="#pflexShrink"><li>Propiedad flex-shrink</li></a>
+        <a href="#pflexBasis"><li>Propiedad flex-basis</li></a>
+        <a href="#pFlex"><li>Propiedad flex </li></a>
+        <a href="#pAlingSelf"><li>Propiedad aling-self</li></a>
+        <a href="#pOrder"><li>Propiedad order</li></a>
+    </ul>
+
+    <h2 id="items">Flex Items </h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e1">
+        Hola mundo
+    </div>
+
+    <blockquote>
+        Los hijos directos del contenedor que tiene el container, solo estos se convierten en <strong>items</strong> 
+    <pre>
+    <code>
+        div id="e1">
+            Hola mundo
+        /div>
+
+        #e1{
+            display:flex;
+            height: 200px;
+            background-color: bisque;
+            justify-content: center;
+            align-items: center;
+        }
+    </code>
+    </pre>
+        Podemos ver que en el caso de que solo haya un texto como nieto del contenedor, este se tomara comi un item y se vera modificado por las propiedades de <code>flex</code>, en la teoria se dice que existe un contenedor item que ayuda a que este tenga las propiedades correspondientes como hijo directo del container. <br></br>
+        <code>flex: 1;</code> podemos hacer que siga las lineas del padre
+
+        <br><br>
+        Los hijos son las cajas flexibles y tinene estas particularidades de la flexibilidad en css, <strong>los elementos que tengan la posicion ajustadas(fixed) o absoluta</strong> no van a poder ser modificadas o tomdas en cuenta como flex-items. <em>bueno pueden ser moficcados en su posicion mediante las propiedades del papa como justify-content-content y aling-items</em>
+        <br><br>
+        <em><strong>Tener en cuenta que los margin y los padding se respetan</strong></em>
+    </blockquote>
+    
+    <h2 id="pflexGrow">Propiedad flex-grow</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e2">
+        <div class="e2Item">1</div>
+        <div class="e2Item">2</div>
+        <div class="e2Item">3</div>
+        <div class="e2Item">4</div>
+        <div class="e2Item">5</div>
+        <div class="e2Item">6</div>
+        <div class="e2Item">7</div>
+        <div class="e2Item">8</div>
+        <div class="e2Item">9</div>
+    </div>
+    <blockquote>
+        <em><strong>Es la propiedad que permite que los flex-items crezcan </strong></em>, indica el factor de crecimiento, el navegador divide el espacio disponible entre la cantidad total de factores de crecimineto y se los asigna a los items 
+    <pre>
+    <code>
+        div id="e2">
+            div class="e2Item">1/div>
+            div class="e2Item">2/div>
+            div class="e2Item">3/div>
+            div class="e2Item">4/div>
+            div class="e2Item">5/div>
+            div class="e2Item">6/div>
+            div class="e2Item">7/div>
+            div class="e2Item">8/div>
+            div class="e2Item">9/div>
+        /div>
+
+        .e2Item{
+            background: pink;
+            flex-grow: 10;
+        }
+        .e2Item:nth-child(even){
+            background:purple;
+        }
+        .e2Item:nth-child(3){
+            flex-grow: 3;
+            /* CANTIDAD DE FLEX GROW CALCULADA POR EL NAVEGADOR 
+                10
+                10
+                3
+                10
+                10
+                10
+                10
+                10
+                10
+                10
+                = 93 
+            FACTROR DE CRECIMIENTO 
+                FC = ESPACIO DISPONIBLE / 93
+        
+            TEniendo el factor de crecimiento, el navegador lo multiplica por el valor de flex-grow en cada caso y lo suma 
+                dimencion de crecimiento * fc 
+            */
+        }
+    </code>
+    </pre>
+        Los valores que acepta flex-grow son numeros enteros, decimales <br>
+        Podria servir para poder hacer un sidebar que sea inamobible
+    </blockquote>
+    
+    <h2 id="pflexShrink">Propiedad flex-shrink</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e3">
+        <div class="e3Item">1</div>
+        <div class="e3Item">2</div>
+        <div class="e3Item">3</div>
+        <div class="e3Item">4</div>
+        <div class="e3Item">5</div>
+    </div>
+    <blockquote>
+        <strong><em>Es practicamente contrario a grow y sirve con la misma logica, es decir qu ees un factor de reducion</em></strong>
+        
+        <br>
+        Demanera predeterminada se reducen los items para poder entrar en un linea 
+    <pre>
+    <code>
+
+        div id="e3">
+            div class="e3Item">1/div>
+            div class="e3Item">2/div>
+            div class="e3Item">3/div>
+            div class="e3Item">4/div>
+            div class="e3Item">5/div>
+        /div>
+
+        #e3{
+            display: flex;
+            font-size: 3em;
+            background-color: coral;
+            flex-wrap: wrap;
+        }
+        
+        .e3Item{
+            background-color: crimson;
+            width: 300px;
+            flex-shrink: 0;
+        }
+        
+        .e3Item:nth-child(even){
+            background-color: darkblue;
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="pflexBasis">Propiedad flex-basis</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e4">
+        <div class="e4Item">qwewre wrewrwre</div>
+        <div class="e4Item">qwewrewr ewrwredsdds</div>
+        <div class="e4Item">qwewrewrew rwredsddsdsdsds</div>
+    </div>
+
+    <blockquote>
+        <em><strong>Define el tamaño inicial en el eje principal, este pude ser vertical u horizontal </strong></em>, por lo que se pude comportar como <code>height</code> o como <code>width</code> dependiendo de la direccion que tenga en eje principal, que se modifica con <code>flex-direction</code>
+        <br>
+        <strong>Es el tamaño inicial, asi que en combinacion con flex-grow podeoms decir que todos los items tengan el mismo espacio sin depender de saber cuantos elementos se encuentran</strong>
+    <pre>
+    <code>
+        div id="#e4">
+            div class="e4Item">qwewrewrewrwre/div>
+            div class="e4Item">qwewrewrewrwredsdds/div>
+            div class="e4Item">qwewrewrewrwredsddsdsdsds/div>
+        /div>
+
+        #e4{
+            display: flex;
+            font-size: 2em;
+            background-color: yellow;
+        }
+        
+        .e4Item{
+            background-color: violet;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+        .e4Item:nth-child(even){
+            background-color: lightcoral;
+        }
+    </code>
+    </pre>
+        de esta manera podemor asegurar que todos los items ocupen el mismo espacio 
+    </blockquote>
+    
+    <h2 id="pFlex">Propiedad flex</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e5">
+        <div class="e5Item">qwewre wrewrwre</div>
+        <div class="e5Item">qwewrewr ewrwredsdds</div>
+        <div class="e5Item">qwewrewrew rwredsddsdsdsds</div>
+    </div>
+    <blockquote>
+        <em>Es le shorthand de las propiedades de flex-items </em> en el orden de : <em>flex-grow | flex-shrink | flex-basis</em>
+        <br><br>
+        Valores frecuentes de combinaciones de nuemeros:
+        <ul>
+            <li>initial = 0,1,auto</li>
+            <li>auto = 1,1,auto</li>
+                Crece segun su contenido
+            <li>none = 0,0,auto</li>
+                no crecimiento 
+            <li>n = n,0,0</li>
+                cualquier numero 
+                flex 1 es como el ejemplo anterior
+        </ul>
+    <pre>
+    <code>
+        div id="e5">
+            div class="e5Item">qwewre wrewrwre/div>
+            div class="e5Item">qwewrewr ewrwredsdds/div>
+            div class="e5Item">qwewrewrew rwredsddsdsdsds/div>
+        /div>
+
+        #e5{
+            display: flex;
+            font-size: 2em;
+            background-color: yellow;
+        }
+        
+        .e5Item{
+            background-color: violet;
+            flex: 1 1 0;
+        }
+        .e5Item:nth-child(even){
+            background-color: lightcoral;
+        }
+    </code>
+    </pre>
+
+    </blockquote>
+    
+    <h2 id="pAlingSelf">Propiedad aling-self</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e6">
+        <div class="e6Item">1</div>
+        <div class="e6Item">2</div>
+        <div class="e6Item">3</div>
+        <div class="e6Item">4</div>
+        <div class="e6Item">5</div>
+    </div>
+    <blockquote>
+        <em>Implica aliner un unico elemento </em>, es que solo a este lemento o estos no se importe el flujo de los demas.
+        <br><br>
+        Usa las propiedades: <br>
+        <em>flex-start |flex-end|center|baseline|strech</em>
+    <pre>
+    <code>
+        div id="e6">
+            div class="e6Item">1/div>
+            div class="e6Item">2/div>
+            div class="e6Item">3/div>
+            div class="e6Item">4/div>
+            div class="e6Item">5/div>
+        /div>
+
+        #e6{
+            display: flex;
+            font-size: 2em;
+            background-color: yellow;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .e6Item{
+            background-color: violet;
+            flex: 1;
+        }
+        .e6Item:nth-child(even){
+            background-color: lightcoral;
+            align-self: stretch;
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+    <h2 id="pOrder">Propiedad order</h2>
+    <p><a href="#indice">regreso</a></p>
+
+    <div id="e6">
+        <div class="e6Item">1</div>
+        <div class="e6Item">2</div>
+        <div class="e6Item">3</div>
+        <div class="e6Item">4</div>
+    </div>
+    <blockquote>
+        <em>Indica un posicion indistinta al flujo del html que hayamos declarado, por defecto la posicion de todos en la actual es 0, y para poder posicionarlo entre dos items se deben de modificar dos items como por ejemplo -2,-1</em>
+    <pre>
+    <code>
+        div id="e6">
+            div class="e6Item">1/div>
+            div class="e6Item">2/div>
+            div class="e6Item">3/div>
+            div class="e6Item">4/div>
+        /div>
+
+        #e6{
+            display: flex;
+            font-size: 1.2em;
+            background-color: yellow;
+            height: 200px;
+        }
+        .e6Item{
+            background-color: violet;
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+        }
+        .e6Item:nth-child(3){
+            background-color: rgb(110, 57, 57);
+            order: -1;
+        }
+        .e6Item:first-child{
+            background-color: darkgreen;
+            order: -2;
+        }
+    </code>
+    </pre>
+    </blockquote>
+    
+
+</body>
+</html>
